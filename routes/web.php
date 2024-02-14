@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\FranchiseController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DemoController;
 use App\Http\Controllers\Admin\ScoController;
+use App\Http\Controllers\Machine\MachineController;
 
 
 // use App\Http\Controllers\Admin\Website;
@@ -197,7 +198,7 @@ Route::post('admin', [AuthController::class, 'auth_login_admin']);
 Route::get('admin/logout', [AuthController::class, 'logout_admin']);
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('services', [PageController::class, 'services'])->name('services');
 Route::get('about', [PageController::class, 'about'])->name('about');
 Route::get('contact', [PageController::class, 'contact'])->name('contact');
@@ -243,3 +244,14 @@ Route::post('razorpay-payment', [CheckoutController::class, 'store'])->name('raz
 //orders
 
 Route::get('my-orders', [OrderDetailsController::class, 'myOrders'])->name('my-orders');
+
+
+
+ Route::get('/', [MachineController::class, 'index']);
+ Route::get('/about', [MachineController::class, 'about']);
+ Route::get('/service', [MachineController::class, 'service']);
+ Route::get('/blog', [MachineController::class, 'blog']);
+ Route::get('/contact', [MachineController::class, 'contact']);
+ Route::get('/singleblog', [MachineController::class, 'singleblog']);
+
+
