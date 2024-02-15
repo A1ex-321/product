@@ -13,25 +13,37 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-    {
+    // public function handle(Request $request, Closure $next): Response
+    // {
 
-        if(!empty(Auth::check())){
-            if(Auth::user()->is_admin == 1){
-                return $next($request);
-            }
-            else{
-                Auth::logout();
-            return redirect('admin');
+    //     if(!empty(Auth::check())){
+    //         if(Auth::user()->is_admin == 1){
+    //             return $next($request);
+    //         }
+    //         else{
+    //             Auth::logout();
+    //         return redirect('admin');
 
-            }
+    //         }
 
 
-        }
+    //     }
 
-        else{
-            Auth::logout();
-            return redirect('admin');
-        }
+    //     else{
+    //         Auth::logout();
+    //         return redirect('admin');
+    //     }
+    // }
+    public function handle($request, Closure $next)
+{
+        //  dd(auth()->check(), auth()->user()->role);
+
+    if (auth()->check()&&auth()->user()->role === 'Admin' ) {
+       return $next($request);
+
     }
+    abort(403, 'Unauthorized'); 
+
+}
+
 }

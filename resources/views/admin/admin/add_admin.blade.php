@@ -76,8 +76,8 @@
                 <div class="form-group">
                     <label for="role">Role</label>
                     <select name="role" class="form-control" required>
-                        <option value="0" {{ (old('role') == 0 ? 'selected' : '') }}>Admin</option>
-                        <option value="1" {{ (old('role') == 1 ? 'selected' : '') }}>Super Admin</option>
+                        <option value="Admin" {{ (old('role') == 0 ? 'selected' : '') }}>Admin</option>
+                        <option value="SuperAdmin" {{ (old('role') == 1 ? 'selected' : '') }}>Super Admin</option>
                     </select>
                 </div>
             </div>

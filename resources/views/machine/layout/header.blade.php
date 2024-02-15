@@ -28,8 +28,26 @@
     <![endif]-->
 
 </head>
+<style>
+    /* Define CSS for fade-in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0; /* Start with 0 opacity */
+        }
+        to {
+            opacity: 1; /* Gradually increase opacity to 1 */
+        }
+    }
 
+    /* Apply fade-in animation to the image */
+    #al1 {
+        animation: fadeIn 2s ease-in; /* Adjust duration and timing function as needed */
+    }
+</style>
+<style></style>
 <body>
+        <!--====== Start Preloader ======-->
+    <!--====== End Preloader ======-->
     <div class="boxed_wrapper">
         <!--Start Preloader -->
 
@@ -58,7 +76,7 @@
                     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                <img src="{{ asset('public/machine/images/logo/logo.png') }}" alt="Awesome Logo">
+                                <img id="al1" src="" loading="lazy" alt="Awesome Logo"  height="60px">
                             </a>
                         </div>
                     </div>

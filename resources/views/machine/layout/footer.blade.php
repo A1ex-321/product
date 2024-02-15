@@ -8,7 +8,7 @@
                             <div class="footer-col">
                                 <div class="logo-part">
                                     <a href="#" class="footer-logo text-uppercase">
-                                    <img src="{{ asset('public/machine/images/logo/logo2.png') }}" alt="logo">
+                                    <img id="al"src="" alt="logo" loading="lazy">
                                     </a>
                                 </div>
                                 <p class="footer-words"> The international user standards and technological works
@@ -129,3 +129,45 @@
                 </div>
             </div>
         </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+    $(document).ready(function() {
+        // Define the fetchAndUpdateLogo function
+        function fetchAndUpdateLogo() {
+            // Fetch the logo from the server
+            fetchLogo();
+        }
+
+        function fetchLogo() {
+            $.ajax({
+                url: '/header', // Your route URL
+                type: 'GET',
+                success: function(response) {
+                    if (response.image) {
+                        // Update the logo
+                        updateLogo(response.image);
+                    } else {
+                        console.error('No image found');
+                    }
+                },
+                error: function(error) {
+                    console.error('Error fetching logo:', error.responseText);
+                }
+            });
+        }
+
+        function updateLogo(imageUrl) {
+            $('#al').attr('src', imageUrl);
+            $('#al1').attr('src', imageUrl);
+            $('link[rel="shortcut icon"]').attr('href', imageUrl); // Update favicon
+
+            // Remove the logo from localStorage
+            localStorage.removeItem('logo');
+        }
+
+        // Call the fetchAndUpdateLogo function
+        fetchAndUpdateLogo();
+    });
+</script>
+

@@ -70,8 +70,8 @@
                     <div class="form-group col-md-6">
                       <label for="exampleInputPassword1">role</label>
                       <select name="role" class="form-control">
-                        <option {{($getRecord->role==0)? 'selected':''}} value="0">Admin</option>
-                        <option {{($getRecord->role==1)? 'selected':''}} value="1">Super Admin</option>
+                        <option {{($getRecord->role==0)? 'selected':''}} value="Admin">Admin</option>
+                        <option {{($getRecord->role==1)? 'selected':''}} value="1">SuperAdmin</option>
                       </select>
                     </div>
                     </div>

@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DemoController;
 use App\Http\Controllers\Admin\ScoController;
 use App\Http\Controllers\Machine\MachineController;
+use App\Http\Controllers\Admin\MachineController1;
 
 
 // use App\Http\Controllers\Admin\Website;
@@ -42,17 +43,12 @@ use App\Http\Controllers\Machine\MachineController;
 |
 */
 
-Route::group(['middleware' => 'admin', 'web'], function () {
+Route::group(['middleware' => 'SuperAdmin'], function () {
     //  Route::get('admin/brand/mail1', function () {Mail::to('@gmail.com')->send(new SendMail($data));});
 
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
 
-    Route::get('admin/admin/list', [AdminController::class, 'admin_list']);
-    Route::get('admin/admin/add', [AdminController::class, 'admin_add']);
-    Route::post('admin/admin/add', [AdminController::class, 'add_admin_insert']);
-    Route::get('admin/admin/edit/{id}', [AdminController::class, 'add_admin_edit']);
-    Route::post('admin/admin/edit/{id}', [AdminController::class, 'admin_add_update']);
-    Route::get('admin/admin/delete/{id}', [AdminController::class, 'admin_add_delete']);
+
 
     Route::get('admin/category/list', [CategoryController::class, 'category_list']);
     Route::get('admin/category/add', [CategoryController::class, 'category_add']);
@@ -189,61 +185,46 @@ Route::group(['middleware' => 'admin', 'web'], function () {
     Route::post('/check-slug-availability', [ScoController::class, 'checkSlugAvailability']);
     Route::post('/validate-slug', 'ScoController@validateSlug')->name('validate-slug');
 
+    // service
+    Route::get('admin/service1/list', [MachineController1::class, 'client_list'])->name('ser-list');
+    Route::post('admin/service1/add', [MachineController1::class, 'client_add'])->name('add-client');
+    Route::post('admin/client/test', [MachineController1::class, 'test_add'])->name('add-test');
+    Route::get('admin/client/edit/{id}', [MachineController1::class, 'clientedit']);
+    Route::post('admin/client/update/{id}', [MachineController1::class, 'client_update'])->name('updateclient');
+    Route::post('admin/service1/update/{id}', [MachineController1::class, 'client_update1'])->name('updateclient1');
+    Route::get('admin/service1/edit/{id}', [MachineController1::class, 'serviceedit']);
+    Route::post('admin/service2/add', [MachineController1::class, 'service_add'])->name('add-service');
+    Route::get('admin/addclient/deleteclient/{id}', [MachineController1::class, 'deleteclient']);
+    
+    Route::get('admin/test/delete/{id}', [MachineController1::class, 'testdelete']);
+//Banner
+    Route::get('admin/Banner/Bannerlist', [MachineController1::class, 'Bannerlist'])->name('Banner-list');
+    Route::post('admin/banner/add', [MachineController1::class, 'create_banner'])->name('create-banner');
+    Route::get('admin/banner/delete/{id}', [MachineController1::class, 'banner_delete']);
+    Route::get('admin/banner/edit/{id}', [MachineController1::class, 'banner_edit']);
+    Route::post('admin/banner/update/{id}', [MachineController1::class, 'banner_update'])->name('banner-update');
 
 });
 
 
-Route::get('admin', [AuthController::class, 'login']);
-Route::post('admin', [AuthController::class, 'auth_login_admin']);
-Route::get('admin/logout', [AuthController::class, 'logout_admin']);
+
 
 
 // Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('services', [PageController::class, 'services'])->name('services');
-Route::get('about', [PageController::class, 'about'])->name('about');
-Route::get('contact', [PageController::class, 'contact'])->name('contact');
-Route::get('cart-items', [PageController::class, 'cart'])->name('cart-items');
-Route::get('/product/{productId}', [PageController::class, 'productDetails'])->name('product-details');
 
-//terms and conditions
-Route::get('refund-policy', [PageController::class, 'refundPolicy'])->name('refund-policy');
-Route::get('terms', [PageController::class, 'terms'])->name('terms');
-Route::get('privacy', [PageController::class, 'privacy'])->name('privacy');
-Route::get('shipping', [PageController::class, 'shipping'])->name('shipping');
-Route::get('gallery', [PageController::class, 'gallery'])->name('gallery');
 
-//Promotional Page
-Route::get('naattulife', [PageController::class, 'promotion'])->name('promotion');
-
-Route::middleware(['guest'])->group(function () {
-    Route::get('login', [PageController::class, 'login'])->name('login');
-    Route::post('login_submit', [LoginController::class, 'submit'])->name('login_post');
-
-    Route::get('register', [PageController::class, 'register'])->name('register');
-    Route::post('register', [RegisterController::class, 'store']);
-});
 
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/model/{productId}', [ProductDetailsController::class, 'getProductDetails']);
-
-Route::middleware(['web'])->group(function () {
-    Route::get('/cart/{productId}', [CartController::class, 'addToCart']);
-    Route::get('/cart', [CartController::class, 'cartList'])->name('cart.index');
-    Route::get('/deleteCartItem/{id}', [CartController::class, 'deleteCartItem'])->name('delete-cart');
-    Route::post('/updateCartItem/{itemId}', [CartController::class, 'updateCartItem']);
-});
 
 
-//checkout_process
-Route::get('/checkout/{id}', [PageController::class, 'checkout'])->name('checkout');
-Route::post('/place-order', [CheckoutController::class, 'placeOrder'])->name('place-order');
-Route::post('razorpay-payment', [CheckoutController::class, 'store'])->name('razorpay.payment.store');
 
-//orders
 
-Route::get('my-orders', [OrderDetailsController::class, 'myOrders'])->name('my-orders');
+
+
+
+
 
 
 
@@ -253,5 +234,16 @@ Route::get('my-orders', [OrderDetailsController::class, 'myOrders'])->name('my-o
  Route::get('/blog', [MachineController::class, 'blog']);
  Route::get('/contact', [MachineController::class, 'contact']);
  Route::get('/singleblog', [MachineController::class, 'singleblog']);
+ Route::get('admin', [AuthController::class, 'login']);
+ Route::post('admin', [AuthController::class, 'auth_login_admin']);
+ Route::get('admin/logout', [AuthController::class, 'logout_admin']);
+ Route::get('/header', [MachineController::class, 'get_logo1']);
 
-
+ Route::group(['middleware' => 'Admin'], function () {
+    Route::get('admin/admin/list', [AdminController::class, 'admin_list']);
+    Route::get('admin/admin/add', [AdminController::class, 'admin_add']);
+    Route::post('admin/admin/add', [AdminController::class, 'add_admin_insert']);
+    Route::get('admin/admin/edit/{id}', [AdminController::class, 'add_admin_edit']);
+    Route::post('admin/admin/edit/{id}', [AdminController::class, 'admin_add_update']);
+    Route::get('admin/admin/delete/{id}', [AdminController::class, 'admin_add_delete']);
+});

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Machine;
 
 use App\Models\User;
+use App\Models\Gallery;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -99,5 +101,22 @@ class MachineController extends Controller
 
         return redirect('admin/admin/list')->with('success','Admin Successfully Created');
 
+    }
+    public function get_logo1()
+    {
+        try {
+            $logo = Gallery::first();
+            // dd($logo);
+            if ($logo) {
+                $image = asset('public/images/' . $logo->image);
+                return response()->json(['image' => $image]);
+                // dd($logo);
+
+            } else {
+                return response()->json(['error' => 'No record found in the Gallery table']);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Internal Server Error']);
+        }
     }
 }
