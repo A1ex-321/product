@@ -7,7 +7,7 @@
 
   <div class="d-flex align-items-center justify-content-between">
     <a href="index.html" class="logo d-flex align-items-center">
-      <img src="{{ asset('public/assets/img/logo.png') }}" alt="">
+      <img src="{{ asset('public/images/1707991325_logo.png') }}" style="width:100px;"alt="">
       <span class="d-none d-lg-block">NiceAdmin</span>
     </a>
     <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -101,13 +101,13 @@
 <aside id="sidebar" class="sidebar">
 
   <ul class="sidebar-nav" id="sidebar-nav">
-
+  @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{url('/admin/admin/list')}}" class="nav-link {{ request()->segment(2) === 'admin' ? '' : 'collapsed' }}"> <i class="bi bi-grid"></i>
         <span>User</span>
       </a>
     </li><!-- End Dashboard Nav -->
- 
+    @endif
     <li class="nav-item">
       <a href="{{url('/admin/maillist')}}" class="nav-link {{ request()->segment(2) === 'maillist' ? '' : 'collapsed' }}">
         <i class="bi bi-menu-button-wide"></i><span>Message</span>
@@ -133,12 +133,20 @@
    
     <li class="nav-item">
       <a href="{{ route('blogsco-list') }}" class="nav-link {{ request()->is('admin/blogseo/*') ? '' : 'collapsed' }}">
-        <i class="bi bi-layout-text-window-reverse" aria-hidden="true"></i><span>SEO Blog</span>
+        <i class="bi bi-layout-text-window-reverse" aria-hidden="true"></i><span> Blog</span>
       </a>
     </li><!-- End Tables Nav -->
- 
+    <li class="nav-item">
+      <a href="{{ route('detail-list') }}" class="nav-link {{ request()->is('admin/detail/*') ? '' : 'collapsed' }}">
+        <i class="bi bi-ticket-detailed-fill" aria-hidden="true"></i><span> Details</span>
+      </a>
+    </li>
 
-  
+    <li class="nav-item">
+      <a href="{{ route('social-list') }}" class="nav-link {{ request()->is('admin/social/*') ? '' : 'collapsed' }}">
+        <i class="bi bi-airplane-fill" aria-hidden="true"></i><span> Social link & query</span>
+      </a>
+    </li>
     <li class="nav-item">
       <a href="{{ route('blog-logo') }}" class="nav-link {{ request()->is('admin/logo/*') ? '' : 'collapsed' }}">
         <i class="bi bi-bar-chart" aria-hidden="true"></i><span>Logo</span>
@@ -148,55 +156,60 @@
 
 
    
-
+    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-heading">SEO Pages</li>
+    @endif
 
-
+    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('sco-list') }}" class="nav-link {{ request()->is('admin/seo/*') ? '' : 'collapsed' }}">
         <i class="bi bi-question-circle" aria-hidden="true"></i><span>SEO link</span>
       </a>
     </li><!-- End Charts Nav -->
-
+    @endif
+    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('home-list') }}" class="nav-link {{ request()->is('admin/home/*') ? '' : 'collapsed' }}">
         <i class="bi bi-person" aria-hidden="true"></i><span>Home</span>
       </a>
     </li><!-- End Charts Nav -->
-
+    @endif
+    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('about-list') }}" class="nav-link {{ request()->is('admin/about/*') ? '' : 'collapsed' }}">
         <i class="fa fa-tasks" aria-hidden="true"></i><span>About As</span>
       </a>
     </li><!-- End Charts Nav -->
-
+    @endif
+    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('service-list') }}" class="nav-link {{ request()->is('admin/service/*') ? '' : 'collapsed' }}">
         <i class="bi bi-bar-chart"></i><span>Service</span>
       </a>
     </li><!-- End Charts Nav -->
-
-
+    @endif
+    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('contact-list') }}" class="nav-link {{ request()->is('admin/contact/*') ? '' : 'collapsed' }}">
         <i class="bi bi-bell"></i><span>Contact</span>
       </a>
     </li><!-- End Charts Nav -->
-
- 
-    <li class="nav-item">
+    @endif
+    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
+    <!-- <li class="nav-item">
       <a href="{{ route('scoblog-list') }}" class="nav-link {{ request()->is('admin/scoblog/*') ? '' : 'collapsed' }}">
         <i class="bi bi-question-circle"></i><span>SEO All Work</span>
       </a>
-    </li><!-- End Charts Nav -->
- 
- 
+    </li>End Charts Nav -->
+    @endif
+    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('work-list') }}" class="nav-link {{ request()->is('admin/work/*') ? '' : 'collapsed' }}">
         <i class="fa fa-tasks"></i><span>SEO All Blog</span>
       </a>
     </li><!-- End Charts Nav -->
-  
+    @endif
+
   </ul>
 
 </aside><!-- End Sidebar-->

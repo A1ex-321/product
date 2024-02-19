@@ -81,7 +81,7 @@ class ScoController extends Controller
         $data->ogdescription = $request->ogdescription;
         
 
-        $data->ogimage = $data->ogimage;
+        $data->ogimage = $request->ogimage;
 
         // $data->ogimage = $request->ogimage;
         $data->ogurl = $request->ogurl;
@@ -108,10 +108,8 @@ class ScoController extends Controller
         $data->metatitle = $request->metatitle;
         $data->metadescription = $request->metadescription;
         $data->ogtitle = $request->ogtitle;
-        $data->ogdescription = $request->ogdescription;
-       
-            $data->ogimage = $request->ogimage;
-        
+        $data->ogdescription = $request->ogdescription;       
+        $data->ogimage = $request->ogimage;       
         $data->ogurl = $request->ogurl;
         $data->ogtype = $request->ogtype;
         $data->save();

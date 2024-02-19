@@ -11,7 +11,7 @@ class Machineservice extends Model
     protected $table = 'machineservice';
 
     protected $fillable = [
-        'id','title', 'spantitle', 'content','machinetitle','image','machineimage','description','is_service'
+        'id','title', 'spantitle', 'content','machinetitle','image','machineimage','description','is_service','servicetitle','servicedescription'
     ];
    
 }

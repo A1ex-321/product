@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+
 class AdminMiddleware
 {
     /**
@@ -38,7 +39,7 @@ class AdminMiddleware
 {
         //  dd(auth()->check(), auth()->user()->role);
 
-    if (auth()->check()&&auth()->user()->role === 'Admin' ) {
+    if (auth()->check() && auth()->user()->role === 'Admin' ) {
        return $next($request);
 
     }

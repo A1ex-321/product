@@ -3,7 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Indusrial Business</title>
+    <title></title>
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="" />
+
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="">
 
     <!-- responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +34,12 @@
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <script src="js/html5shiv.js"></script>
     <![endif]-->
+<!-- Loader.css CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 </head>
 <style>
@@ -44,8 +58,37 @@
         animation: fadeIn 2s ease-in; /* Adjust duration and timing function as needed */
     }
 </style>
+<style>
+    /* Remove underline from <li> tag when hovering */
+    li:hover {
+        text-decoration: none;
+    }
+</style>
+
+<style>
+        /* Center loader */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7); /* semi-transparent white background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure loader is on top of other content */
+        }
+    </style>
+
 <style></style>
+<div id="loader" class="loader-container">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
 <body>
+
         <!--====== Start Preloader ======-->
     <!--====== End Preloader ======-->
     <div class="boxed_wrapper">
@@ -58,7 +101,7 @@
             <div class="container">
                 <div class="clearfix">
                     <div class="pull-left">
-                        <p>Welcome to our buisness</p>
+                        <p id="head"></p>
                     </div>
                     <div class="pull-right">
                         <!-- <p><i class="fa fa-clock-o"></i>Monday - friday : 8:00 AM to 7:00 Pm</p> -->
@@ -175,17 +218,17 @@ Blogs</a>
                                     </ul>
                                     <ul class="mobile-menu clearfix">
 
-                                        <li class="dropdown"><a href="index.html">home</a>
+                                        <li class="dropdown"><a href="{{ url('/') }}">home</a>
 
                                         </li>
-                                        <li class="dropdown"><a href="about.html">About us</a>
+                                        <li class="dropdown"><a href="{{ url('/about') }}">About us</a>
 
                                         </li>
-                                        <li class="dropdown"><a href="service.html">Services</a>
+                                        <li class="dropdown"><a href="{{ url('/service') }}">Services</a>
 
                                         </li>
 
-                                        <li class="dropdown"><a href="blog.html">Blogs</a>
+                                        <li class="dropdown"><a href="{{ url('/blog') }}">Blogs</a>
                                             <!-- <ul>
                                         <li><a href="blog.html">Blog Default</a></li>
                                         <li><a href="blog-single.html">Blog Single Post</a></li>

@@ -26,84 +26,37 @@
                         <span class="border"></span>
                     </div>
                     <ul class="recent-post">
-                        <li>
-                            <div class="img-holder">
-                            <img src="{{ asset('public/machine/images/p3.png') }}" alt="Awesome Image">
+                    @foreach($getRecord as $blog)
+<li>
+    <div class="img-holder">
+    <a href="{{ url('singleblog', ['id' => $blog->id, 'slug' => $blog->slug]) }}">
+    <img src="{{ asset('public/images/' . $blog->image) }}" alt="Awesome Image">
+</a>
 
-                                <div class="overlay-style-two">
-                                    <div class="box">
-                                        <div class="content">
-                                            <a href="blog-single.html">
-                                                <i class="fa fa-link" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>
-                            <div class="title-holder">
-                                <a href="blog-single.html">
-                                    <h5 class="post-title">
-                                        Revolutionizing Industrial Operations: The Role of Precision Machining Services
-                                    </h5>
-                                </a>
-                                <h6 class="post-date">
-                                    <i class="-with-spring-binder-and-date-blocks"></i>
-                                    In today's fast-paced industrial landscape, precision machining services stand as the cornerstone of efficient and reliable manufacturing operations. From aerospace components to medical devices, precision machining plays a pivotal role in shaping the future of various industries. 
-                                </h6>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="img-holder">
-                            <img src="{{ asset('public/machine/images/p2.png') }}" alt="Awesome Image">
 
-                                <div class="overlay-style-two">
-                                    <div class="box">
-                                        <div class="content">
-                                            <a href="blog-single.html">
-                                                <i class="fa fa-link" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>   
-                            </div>
-                            <div class="title-holder">
-                                <a href="blog-single.html">
-                                    <h5 class="post-title">
-                                        What makes Enhancing Efficiency?
-                                    </h5>
-                                </a>
-                                <h6 class="post-date">
-                                    <i class="with-spring-binder-and-date-blocks"></i>
-                                    Precision machining utilizes advanced CNC (Computer Numerical Control) technology to produce intricate parts with utmost accuracy and repeatability. This level of precision not only ensures superior product quality but also enhances overall operational efficiency by minimizing material wastage and reducing production time.
-                                </h6>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="img-holder">
-                            <img src="{{ asset('public/machine/images/p1.png') }}" alt="Awesome Image">
+        <!-- <div class="overlay-style-two">
+            <div class="box">
+                <div class="content">
+                    <a >
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="title-holder">
+    <a href="{{ url('singleblog', ['id' => $blog->id, 'slug' => $blog->slug]) }}">
+            <h5 class="post-title">{{ $blog->title }}</h5>
+        </a>
+        <h6 class="post-date">
+            <i class="-with-spring-binder-and-date-blocks"></i>
+            {{ $blog->description }}
+        </h6>
+    </div>
+</li>
+@endforeach
 
-                                <div class="overlay-style-two">
-                                    <div class="box">
-                                        <div class="content">
-                                            <a href="blog-single.html">
-                                                <i class="fa fa-link" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>    
-                            </div>
-                            <div class="title-holder">
-                                <a href="blog-single.html">
-                                    <h5 class="post-title">
-                                        Fostering Collaborative Partnerships
-                                    </h5>
-                                </a>
-                                <h6 class="post-date">
-                                    <i class="with-spring-binder-and-date-blocks"></i>
-                                    In today's interconnected business ecosystem, collaborative partnerships are instrumental in driving success. Precision machining service providers often function as strategic partners, offering valuable insights, technical expertise, and dedicated support throughout the manufacturing process. 
-                                </h6>
-                            </div>
-                        </li>
+                    
                     </ul>
                 </div>
 
@@ -125,35 +78,11 @@
                     <!--Start single sidebar-->
                     <div class="single-sidebar">
                         <div class="sec-title">
-                            <h3>Categories</h3>
+                            <h3></h3>
                             <span class="border"></span>
                         </div>
                         <ul class="categories clearfix">
-                            <li>
-                                <a href="#">
-                                    Precision Machining Solutions
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    CNC Machining Services
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Custom Metal Fabrication
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Prototyping and Production Machining
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Specialty Machining Services
-                                </a>
-                            </li>
+                            
 
                         </ul>
                     </div>
@@ -187,7 +116,7 @@
     </div>
 </section>
 
-<div class="call-out2">
+<!-- <div class="call-out2">
     <div class="container">
         <div class="clearfix">
             <div class="float_left">
@@ -199,7 +128,7 @@
         </div>
                 
     </div>
-</div>
+</div> -->
 @endsection
 
 @push('scripts')

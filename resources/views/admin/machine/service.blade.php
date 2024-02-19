@@ -56,12 +56,12 @@
                                     </div>
                                     <div class="col-md-6"> <!-- Each input takes half of the row width on medium screens -->
                                         <div class="form-group">
-                                            <label for="spantitle" class="col-form-label">Span Title:</label>
+                                            <label for="spantitle" class="col-form-label">Color Title:</label>
                                             <input type="text" class="form-control" id="spantitle" name="spantitle" required>
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Content</label>
                                     <textarea class="form-control" id="message-text" name="content" required></textarea>
@@ -69,6 +69,18 @@
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Photo:</label>
                                     <input type="file" class="form-control" id="recipient-name" name="image" required>
+                                </div>
+
+                                <h5 class="modal-title" id="exampleModalLabel">Add ourservice service</h5>
+                                <div class="col-md-12"> <!-- Each input takes half of the row width on medium screens -->
+                                        <div class="form-group">
+                                            <label for="spantitle" class="col-form-label">Service Title</label>:</label>
+                                            <input type="text" class="form-control" id="spantitle" name="servicetitle" >
+                                        </div>
+                                    </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">service content</label>
+                                    <textarea class="form-control" id="message-text" name="servicedescription" ></textarea>
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -139,7 +151,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="spantitle" class="col-form-label">Span Title:</label>
+                                <label for="spantitle" class="col-form-label">Color Title:</label>
                                 <input type="text" class="form-control" id="2" name="spantitle" required>
                             </div>
                         </div>
@@ -154,6 +166,18 @@
                         <input type="file" class="form-control" id="image" name="image" >
                     </div>
                     <img src="" alt="Image" id="4" width="100px" height="100px">
+
+                    <h5 class="modal-title" id="exampleModalLabel">Add ourservice </h5>
+                                <div class="col-md-12"> <!-- Each input takes half of the row width on medium screens -->
+                                        <div class="form-group">
+                                            <label for="spantitle" class="col-form-label">Service Title</label>:</label>
+                                            <input type="text" class="form-control" id="servicetitle" name="servicetitle" >
+                                        </div>
+                                    </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">service content</label>
+                                    <textarea class="form-control" id="servicedescription" name="servicedescription" ></textarea>
+                                </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -185,6 +209,10 @@
                                                     <th>SpanTitle</th>
                                                     <th>Description</th>
                                                     <th>Photo</th>
+                                                    <th>#</th>
+                                                    <th>Service Title</th>
+                                                    <th>Service Description</th>
+
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -194,9 +222,13 @@
                                                     <td>{{$value->id}}</td>
                                                     <td>{{$value->title}}</td>
                                                     <td>{{$value->spantitle}}</td>
-                                                    <td>{{$value->content}}</td>
+                                                    <td>{{ strlen($value->content) > 50 ? substr($value->content, 0, 50) . '...' : $value->content }}</td>
 
                                                     <td><img src="{{ asset('public/images/' . $value->image) }}" style="width:100px;height:60px;" alt="Image"></td>
+                                                    <td></td>
+                                                    <td>{{$value->servicetitle}}</td>
+                                                    <td>{{ strlen($value->servicedescription) > 50 ? substr($value->servicedescription, 0, 50) . '...' : $value->servicedescription }}</td>
+
                                                     <td>
                                                         <a href="#" class="btn btn-info edit-btn1" data-id="{{ $value->id }}" data-toggle="modal" data-target="#editModal1"><i class="fas fa-edit"></i></a>
 
@@ -464,6 +496,8 @@
                     $('#1').val(response.title);
                     $('#2').val(response.spantitle);
                     $('#3').val(response.content);
+                    $('#servicedescription').val(response.servicedescription);
+                    $('#servicetitle').val(response.servicetitle);
                     // Update other input fields as needed
                 }
             });

@@ -32,7 +32,7 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <section class="section">
+    <section class="section">		For general inquiries, partnership opportunities, or any other questions
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -60,7 +60,7 @@
                                         <td>{{$value->name}}</td>
                                         <td>{{$value->email}}</td>
                                         <td>{{$value->status == 0 ? 'Active' : 'Inactive'}}</td>
-                                        <td>{{$value->role == 0 ? 'Admin' : 'Super Admin'}}</td>
+                                        <td>{{$value->role == 'Admin' ? 'Admin' : 'Super Admin'}}</td>
                                         <td>
                                             <a href="{{url('admin/admin/edit/'.$value->id)}}" class="btn btn-info"><i
                                                     class="fas fa-edit"></i></a>

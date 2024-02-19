@@ -57,7 +57,10 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item active">
-                            <button id="errorsco" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#feedback-modal">SEO</button>
+                        @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
+    <button id="errorsco" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#feedback-modal">SEO</button>
+@endif
+
                         </li>
                     </ol>
                 </div><!-- /.col -->

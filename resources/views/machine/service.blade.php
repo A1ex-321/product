@@ -27,79 +27,26 @@
         </div>
      
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="single-our-service">
-                    <figure class="img-box">
-                        <a href="single-service.html"><img src="{{ asset('public/machine/images/p1.png') }}" alt="Awesome Image">
-</a>
-                    </figure>
-                    <a href="single-service.html"><h4>Precision Machining Solutions</h4></a>
-                    <p>We develop and design new procedures, tools <br>
-                    systems for agricultural products environments. </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-our-service">
-                    <figure class="img-box">
-                        <a href="single-service.html"><img src="{{ asset('public/machine/images/p2.png') }}" alt="Awesome Image">
-</a>
-                    </figure>
-                    <a href="single-service.html"><h4>CNC Machining Services</h4></a>
-                    <p>Chemical Research expertise in producing and <br>
-                    manipulating chemicals to energy properties.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-our-service">
-                    <figure class="img-box">
-                        <a href="single-service.html"><img src="{{ asset('public/machine/images/p3.png') }}" alt="Awesome Image">
-</a>
-                    </figure>
-                    <a href="single-service.html"><h4>Custom Metal Fabrication</h4></a>
-                    <p>Materials Engineering should include scientific and <br>
-                    engineering strength relationships of materials. </p>
-                </div>
-            </div>
+        @foreach($service as $service)
+<div class="col-md-4 col-sm-6">
+    <div class="single-our-service">
+        <figure class="img-box">
+            <a href=""><img src="{{ asset('public/images/'.$service->machineimage) }}" style="width:100%; height:200px; object-fit:cover;border-radius:5px;" alt="Awesome Image"></a>
+        </figure>
+        <a><h4>{{ $service->machinetitle }}</h4></a>
+        <p>
+    {{ substr($service->description, 0, 90) }}{{ strlen($service->description) > 200 ? '...' : '' }}
+</p>    </div>
+</div>
+@endforeach
 
-            <div class="col-md-4 col-sm-6">
-                <div class="single-our-service">
-                    <figure class="img-box">
-                        <a href="#single-service.html"><img src="{{ asset('public/machine/images/p4.png') }}" alt="Awesome Image">
-</a>
-                    </figure>
-                    <a href="#single-service.html"><h4>Prototyping and Production Machining</h4></a>
-                    <p>Creating a dynamic company for the continuous <br>
-                    exploration and develop opportunities. </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-our-service">
-                    <figure class="img-box">
-                        <a href="#single-service.html"><img src="{{ asset('public/machine/images/p5.png') }}" alt="Awesome Image">
-</a>
-                    </figure>
-                    <a href="#single-service.html"><h4>Specialty Machining Services</h4></a>
-                    <p>Petroleum Engineers are concerned with the <br>
-                     exploration, discovery and production.</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-our-service">
-                    <figure class="img-box">
-                        <a href="#single-service.html"><img src="{{ asset('public/machine/images/p6.png') }}" alt="Awesome Image">
-</a>
-                    </figure>
-                    <a href="#single-service.html"><h4>Industrial Machining Solutions</h4></a>
-                    <p>Ensuring high reliability and optimal performance <br>of 
-                    rotating power equipment.</p>
-                </div>
-            </div>
-
+            
+           
         </div>
     </div>
 </section>
 
-<section class="container" style="background-color: rgb(177, 118, 31); margin-bottom: 100px; height: 200px; display: flex; justify-content: center; align-items: center;">
+<!-- <section class="container" style="background-color: rgb(177, 118, 31); margin-bottom: 100px; height: 200px; display: flex; justify-content: center; align-items: center;">
     <div>
         <h3 style="color: aliceblue; margin-bottom: 30px;">For general inquiries, partnership opportunities, or any other questions </h3>
         <div class="row">
@@ -108,7 +55,17 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
+<section id="gather"class="container" style="background-color: rgb(177, 118, 31); margin-bottom: 100px; height: 200px; display: flex; justify-content: center; align-items: center;">
+            <div>
+                <h3 id="des"style="color: aliceblue; margin-bottom: 30px;"></h3>
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <a href="{{ url('/contact') }}" id="contact" class="colorful-btn" style="background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px;"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 @endsection
 

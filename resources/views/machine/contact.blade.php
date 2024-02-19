@@ -14,6 +14,7 @@
 
 
 
+            @include('machine.layout.message')
 <!--Start contact form area-->
 <section class="contact-form-area sec-padd-top">
     <div class="container">
@@ -27,35 +28,30 @@
             <div class="col-md-8">
         
                 <div class="contact-form">
-                    <form id="contact-form" name="contact_form" class="default-form" action="inc/sendmail.php" method="post">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" name="form_name" value="" placeholder="Your Name*" required="">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" name="form_phone" value="" placeholder="Phone">
-                            </div>
-                            <!-- <div class="col-md-6">
-                                <input type="email" name="form_email" value="" placeholder="Your Mail*" required="">
-                            </div> -->
-                        </div>
-                        <div class="row">
-                            
-                            <div class="col-md-12">
-                                <input type="text" name="form_subject" value="" placeholder="Subject">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <textarea name="form_message" placeholder="Your Message.." required=""></textarea>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-                                <button class="thm-btn bg-clr1" type="submit" data-loading-text="Please wait...">send message</button>
-                            </div>
-                        </div>
+                <form id="" name="" class="default-form" action="{{ route('contact.store') }}" method="post">
+                @csrf
+
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" name="name" value="" placeholder="Your Name*" required="">
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="phone" value="" placeholder="Phone" required> <!-- Change name to 'phone' -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <textarea name="msg" placeholder="Your Message.." value="" required></textarea> <!-- Change name to 'message' -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            
+            <input style="width:100%;"class="thm-btn bg-clr1" value="Send Message"type="submit" ></input> <!-- Adjust button text for consistency -->
+        </div>
+    </div>
+</form>
+
                     </form>  
                 </div>
             </div>
@@ -66,36 +62,35 @@
                         <h4>Quick Contact</h4>
                         <p>If you are passionate about helping people: through education, or preventing then you </p>
                     </div>
-                    <ul class="clearfix">
-                        <li>
-                            <div class="iocn-holder">
-                                <span class="fa fa-home"></span>
-                            </div>
-                            <div class="text-holder">
+                    <ul class="clearfix" id="contactDetails">
+    <li>
+        <div class="iocn-holder">
+            <span class="fa fa-home"></span>
+        </div>
+        <div class="text-holder">
+            <h6 id="addressLine">321, North Street,</h6>
+        </div>
+    </li>
+    <li>
+        <div class="iocn-holder">
+            <span class="icon-technology-1"></span>
+        </div>
+        <div class="text-holder">
+            <h6>Call Us On</h6>
+            <p id="phoneNumber"></p>
+        </div>
+    </li>
+    <li>
+        <div class="iocn-holder">
+            <span class="icon-letter-1"></span>
+        </div>
+        <div class="text-holder">
+            <h6>Mail Us @</h6>
+            <a href="#" id="emailLink"><p id="email1"></p></a>
+        </div>
+    </li>
+</ul>
 
-                                <h6>321, North Street,</h6>
-                                <p>Chennai</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="iocn-holder">
-                                <span class="icon-technology-1"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h6>Call Us On</h6>
-                                <p>+91 98745875455</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="iocn-holder">
-                                <span class="icon-letter-1"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h6>Mail Us @</h6>
-                                <a href="#"><p>demo@gmail.com</p></a>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
 
             </div>
@@ -114,7 +109,7 @@
 
 </section>
 
-<div class="call-out2">
+<!-- <div class="call-out2">
     <div class="container">
         <div class="clearfix">
             <div class="float_left">
@@ -126,7 +121,7 @@
         </div>
                 
     </div>
-</div>
+</div> -->
 @endsection
 
 @push('scripts')
