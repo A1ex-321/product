@@ -44,6 +44,7 @@ class MachineController extends Controller
     }
     public function service()
     {
+        $data['content'] = Machineservice::where('is_service', 0)->get();
         $data['service'] = Machineservice::where('is_service', 1)->get();
         return view('machine.service', $data);
     }

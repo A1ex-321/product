@@ -14,24 +14,26 @@
 
 <section class="our-services">
     <div class="container">
+    @foreach($content as $service1)
         
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-12">
                 <div class="section-title">
-                    <h2>Our Services</h2>
+                    <h2>{{$service1->servicetitle}}</h2>
                 </div> 
             </div>
             <div class="col-md-8 col-sm-7 col-xs-12 font-20">
-                <p>We have built an enviable reputation in consumer goods, heavy industry, high-tech, <br>manufacturing, medical, recreational vehicle, and transportation sectors.</p><br>
+                <p>{{$service1->servicedescription}}</p><br>
             </div>
         </div>
+@endforeach
      
         <div class="row">
         @foreach($service as $service)
 <div class="col-md-4 col-sm-6">
     <div class="single-our-service">
         <figure class="img-box">
-            <a href=""><img src="{{ asset('public/images/'.$service->machineimage) }}" style="width:100%; height:200px; object-fit:cover;border-radius:5px;" alt="Awesome Image"></a>
+            <a href=""><img src="{{ asset('public/images/'.$service->machineimage) }}" style="width:100%; object-fit:cover;border-radius:5px;" alt="Awesome Image"></a>
         </figure>
         <a><h4>{{ $service->machinetitle }}</h4></a>
         <p>

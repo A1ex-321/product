@@ -6,9 +6,25 @@
     #ck1 img {
         width: 100%;
         /* Adjust width as needed */
-        height: 370px;
+        height: 350px;
         /* Maintain aspect ratio */
     }
+    @media only screen and (max-width: 767px) {
+    /* Add your mobile styles here */
+    #ck1 img {
+        width: 100%;
+        /* Adjust width as needed */
+        height: 300px;
+        object-fit:cover;
+        /* Maintain aspect ratio */
+    }
+    #im img
+    {
+        height: 250px;
+        object-fit:cover;
+    }
+}
+
 </style>
 <!--Start breadcrumb area-->
 <section class="breadcrumb-area" style="background-image: url('{{ asset('public/machine/images/dmitriy-demidov-iuuJC_pjLU0-unsplash.jpg') }}');
@@ -25,8 +41,8 @@
             <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
                 <div class="blog-post">
                     <div class="single-blog-post">
-                        <div class="img-holder">
-                            <img src="{{ asset('public/images/' . $blog->image) }}" style="width:100%;height:380px;object-fit:cover;" alt="Awesome Image">
+                        <div class="img-holder"id="im">
+                            <img src="{{ asset('public/images/' . $blog->image) }}" style="width:100%;height:380px;object-fit:cover;border-radius:8px;" alt="Awesome Image">
                         </div>
                         <div class="text-holder">
                             <h3 class="blog-title">{{ $blog->title }}</h3>
@@ -99,7 +115,7 @@
 
                 const iframe = document.createElement('iframe');
                 iframe.setAttribute('src', url);
-                iframe.setAttribute('width', '700');
+                iframe.setAttribute('width', '100%');
                 iframe.setAttribute('height', '400');
                 iframe.setAttribute('frameborder', '0');
                 iframe.setAttribute('allowfullscreen', 'true');

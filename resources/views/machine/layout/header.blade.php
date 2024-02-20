@@ -57,6 +57,12 @@
     #al1 {
         animation: fadeIn 2s ease-in; /* Adjust duration and timing function as needed */
     }
+    @media only screen and (max-width: 767px) {
+    /* Add your mobile styles here */
+    #al {
+align-items: center;    }
+}
+
 </style>
 <style>
     /* Remove underline from <li> tag when hovering */

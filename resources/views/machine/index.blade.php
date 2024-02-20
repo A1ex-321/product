@@ -1,6 +1,9 @@
 @extends('machine.layout.app')
 
 @section('content')
+<style>
+</style>
+
 
 <section class="rev_slider_wrapper">
             <div id="slider1" class="rev_slider" data-version="5.0">
@@ -20,16 +23,16 @@
                 </div>
             </div>
             <div class="tp-caption tp-resizeme" data-x="right" data-hoffset="390" data-y="center" data-voffset="110" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-start="2300">
-                <div class="slide-content-box">
-                    <div class="button">
-                        <a class="thm-btn bg-clr1" href="{{ url('/about') }}">About Us</a>
+                <div class="slide-content-box" >
+                    <div class="button" >
+                        <a style="height:60px;border-radius:9px;margin-bottom:4px;"class="thm-btn bg-clr1" href="{{ url('/about') }}">About Us</a>
                     </div>
                 </div>
             </div>
             <div class="tp-caption tp-resizeme" data-x="right" data-hoffset="180" data-y="center" data-voffset="110" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-start="2600">
                 <div class="slide-content-box">
-                    <div class="button">
-                        <a class="thm-btn bg-clr2" href="{{ url('/contact') }}">Contact Us</a>
+                    <div class="button"style="height:-10px;">
+                        <a style="height:60px;border-radius:9px;margin-bottom:4px;" class="thm-btn bg-clr2" href="{{ url('/contact') }}">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -46,27 +49,30 @@
         <section class="about-us sec-padd-top">
     <div class="container">
         <div class="row">
-            @foreach ($content as $machineService)
-                <div class="col-md-6 col-sm-12">
-                    <figure class="about-img">
-                        <img src="{{ asset('public/images/' . $machineService->image) }}" alt="about titan builders photo">
-                    </figure>
+        @foreach ($content as $machineService)
+    @if ($machineService->image && $machineService->title && $machineService->spantitle)
+        <div class="col-md-6 col-sm-12">
+            <figure class="about-img">
+                <img src="{{ asset('public/images/' . $machineService->image) }}" alt="about titan builders photo">
+            </figure>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="about-text">
+                <h2>
+                    {{ $machineService->title }} <span class="thm-color">{{ $machineService->spantitle }}</span>
+                </h2>
+                <div class="text">
+                    @if ($machineService->content)
+                        <p>{{ $machineService->content }}</p>
+                    @else
+                        <p>No description available</p>
+                    @endif
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="about-text">
-                        <h2>
-                            {{ $machineService->title }} <span class="thm-color">{{ $machineService->spantitle }}</span>
-                        </h2>
-                        <div class="text">
-                            @if ($machineService->content)
-                                <p>{{ $machineService->content }}</p>
-                            @else
-                                <p>No description available</p>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+            </div>
+        </div>
+    @endif
+@endforeach
+
         </div>
     </div>
 </section>
@@ -76,18 +82,21 @@
 
         <section class="our-services">
             <div class="container">
-
-                <div class="row">
-                    <div class="col-md-4 col-sm-5 col-xs-12">
-                        <div class="section-title">
-                            <h2>Our Services</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-sm-7 col-xs-12 font-20">
-                        <p>We have built an enviable reputation in consumer goods, heavy industry, high-tech,
-                            <br>manufacturing, medical, recreational vehicle, and transportation sectors.</p><br>
-                    </div>
+            @if ($content->isNotEmpty())
+    @foreach ($content as $machineService1)
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-12">
+                <div class="section-title">
+                    <h2>{{ $machineService1->servicetitle }}</h2>
                 </div>
+            </div>
+            <div class="col-md-8 col-sm-7 col-xs-12 font-20">
+                <p>{{ $machineService1->servicedescription }}</p><br>
+            </div>
+        </div>
+    @endforeach
+@endif
+
 
                 <div class="row">
                 @foreach ($service->take(6) as $service)
@@ -103,7 +112,16 @@
         </div>
     </div>
 @endforeach
-<a href="{{ url('/service') }}" class="colorful-btn" style="background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px; margin-left:1000px;">Read more_</a>
+<section id=""class="container" style=" margin-bottom: 100px; height: 5px; display: flex; justify-content: center; align-items: center;">
+            <div>
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <a href="{{ url('/service') }}" id="" class="colorful-btn" style="background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px;width:200px;">Read more_</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
 
 
