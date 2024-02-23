@@ -5,7 +5,7 @@
     /* Define fixed width and height for images within the CKEditor content */
     #ck1 img {
         width: 100%;
-        /* Adjust width as needed */
+        Adjust width as needed
         height: 350px;
         /* Maintain aspect ratio */
     }
@@ -67,7 +67,7 @@
                             @foreach ($getRecord as $blog1)
                             <li>
                                 <div class="img-holder">
-                                    <img src="{{ asset('public/images/' . $blog->image) }}" alt="Awesome Image">
+                                    <img src="{{ asset('public/images/' . $blog1->image) }}" alt="Awesome Image">
                                     <div class="overlay-style-two">
                                         <div class="box">
                                             <div class="content">

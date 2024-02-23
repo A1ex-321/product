@@ -1,6 +1,26 @@
 @extends('machine.layout.app')
 
 @section('content')
+<style>/* Styling for the button */
+
+
+</style>
+<style>
+    /* CSS for image */
+    .enlarge-img {
+        width: 100%; /* Set initial width */
+        height: 230px; /* Set initial height */
+        object-fit: cover; /* Maintain aspect ratio */
+        border: 2px solid #4CAF50; /* Border style */
+        border-radius: 5px; /* Rounded corners */
+        transition: transform 0.3s ease; /* Smooth transition effect */
+    }
+
+    /* Hover effect to enlarge image */
+    .enlarge-img:hover {
+        transform: scale(1.1); /* Scale up to 110% */
+    }
+</style>
 
 <!--Start breadcrumb area-->     
 <section class="breadcrumb-area" style="background-image: url('{{ asset('public/machine/images/banner2.png') }}');"
@@ -33,9 +53,10 @@
 <div class="col-md-4 col-sm-6">
     <div class="single-our-service">
         <figure class="img-box">
-            <a href=""><img src="{{ asset('public/images/'.$service->machineimage) }}" style="width:100%; object-fit:cover;border-radius:5px;" alt="Awesome Image"></a>
+            <a ><img src="{{ asset('public/images/'.$service->machineimage) }}" style="width:100%; height:230px; object-fit:cover; border: 2px solid #b5a424; border-radius:5px;"class="enlarge-img" alt="Awesome Image">
+</a>
         </figure>
-        <a><h4>{{ $service->machinetitle }}</h4></a>
+        <a><h4 style="font-weight: bold;">{{ $service->machinetitle }}</h4></a>
         <p>
     {{ substr($service->description, 0, 90) }}{{ strlen($service->description) > 200 ? '...' : '' }}
 </p>    </div>

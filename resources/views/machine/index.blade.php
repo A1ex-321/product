@@ -2,6 +2,20 @@
 
 @section('content')
 <style>
+    /* CSS for image */
+    .enlarge-img {
+        width: 100%; /* Set initial width */
+        height: 230px; /* Set initial height */
+        object-fit: cover; /* Maintain aspect ratio */
+        border: 2px solid #f0da37; /* Border style */
+        border-radius: 5px; /* Rounded corners */
+        transition: transform 0.3s ease; /* Smooth transition effect */
+    }
+
+    /* Hover effect to enlarge image */
+    .enlarge-img:hover {
+        transform: scale(1.1); /* Scale up to 110% */
+    }
 </style>
 
 
@@ -25,14 +39,14 @@
             <div class="tp-caption tp-resizeme" data-x="right" data-hoffset="390" data-y="center" data-voffset="110" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-start="2300">
                 <div class="slide-content-box" >
                     <div class="button" >
-                        <a style="height:60px;border-radius:9px;margin-bottom:4px;"class="thm-btn bg-clr1" href="{{ url('/about') }}">About Us</a>
+                        <a ii="a1"style="border-radius:8px;margin-bottom:8px;"class="thm-btn bg-clr1" href="{{ url('/about') }}">About Us</a>
                     </div>
                 </div>
             </div>
             <div class="tp-caption tp-resizeme" data-x="right" data-hoffset="180" data-y="center" data-voffset="110" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-start="2600">
                 <div class="slide-content-box">
                     <div class="button"style="height:-10px;">
-                        <a style="height:60px;border-radius:9px;margin-bottom:4px;" class="thm-btn bg-clr2" href="{{ url('/contact') }}">Contact Us</a>
+                        <a id="a2"style="border-radius:8px;margin-bottom:8px;" class="thm-btn bg-clr2" href="{{ url('/contact') }}">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -87,7 +101,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-5 col-xs-12">
                 <div class="section-title">
-                    <h2>{{ $machineService1->servicetitle }}</h2>
+                <h2 >{{ $machineService1->servicetitle }}</h2>
                 </div>
             </div>
             <div class="col-md-8 col-sm-7 col-xs-12 font-20">
@@ -103,9 +117,10 @@
     <div class="col-md-4 col-sm-6">
         <div class="single-our-service">
             <figure class="img-box">
-                <img src="{{ asset('public/images/' . $service->machineimage) }}" style="width:100%; height:200px;object-fit:cover;border-radius:5px;" alt="Awesome Image">
+            <img src="{{ asset('public/images/'.$service->machineimage) }}" class="enlarge-img" alt="Awesome Image">
+
             </figure>
-            <h4>{{ $service->machinetitle }}</h4>
+            <h4 style="font-weight: bold;">{{ $service->machinetitle }}</h4>
             <p>
                 {{ substr($service->description, 0, 90) }}{{ strlen($service->description) > 200 ? '...' : '' }}
             </p>

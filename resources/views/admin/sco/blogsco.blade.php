@@ -1,5 +1,6 @@
 @extends('admin.layouts.app')
 
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
 
 @section('content')
 <style type="text/css">
@@ -176,9 +177,12 @@
         <!-- ... (previous code) ... -->
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <!-- ... (other scripts) ... -->
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {

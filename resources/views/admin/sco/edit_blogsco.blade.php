@@ -2,6 +2,8 @@
 
 
 @section('content')
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+
 <style type="text/css">
     .ck-editor__editable_inline {
         height: 480Px;
@@ -307,6 +309,7 @@
 
 <!-- Your scripts -->
 <!-- ... (previous code) ... -->
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 
 <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
 

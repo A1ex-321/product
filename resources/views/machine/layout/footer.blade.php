@@ -129,43 +129,58 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-    $(document).ready(function() {
-        // Define the fetchAndUpdateLogo function
-        function fetchAndUpdateLogo() {
+   $(document).ready(function() {
+    // Define the fetchAndUpdateLogo function
+    function fetchAndUpdateLogo() {
+        // Check if the logo is already stored in local storage
+        var storedLogoUrl = localStorage.getItem('logo');
+
+        if (storedLogoUrl) {
             // Fetch the logo from the server
+            fetchLogo(storedLogoUrl);
+        } else {
+            // Fetch the logo from the server without passing any previous URL
             fetchLogo();
         }
+    }
 
-        function fetchLogo() {
-            $.ajax({
-                url: '/header', // Your route URL
-                type: 'GET',
-                success: function(response) {
-                    if (response.image) {
+    function fetchLogo(previousLogoUrl) {
+        $.ajax({
+            url: '/header', // Your route URL
+            type: 'GET',
+            success: function(response) {
+                if (response.image) {
+                    // Check if the fetched logo URL is different from the previous one
+                    if (previousLogoUrl !== response.image) {
                         // Update the logo
                         updateLogo(response.image);
+                        // Store the new logo URL in local storage
+                        localStorage.setItem('logo', response.image);
                     } else {
-                        console.error('No image found');
+                        // Display the previous logo
+                        updateLogo(previousLogoUrl);
                     }
-                },
-                error: function(error) {
-                    console.error('Error fetching logo:', error.responseText);
+                } else {
+                    console.error('No image found');
                 }
-            });
-        }
+            },
+            error: function(error) {
+                console.error('Error fetching logo:', error.responseText);
+            }
+        });
+    }
 
-        function updateLogo(imageUrl) {
-            $('#al').attr('src', imageUrl);
-            $('#al1').attr('src', imageUrl);
-            $('link[rel="shortcut icon"]').attr('href', imageUrl); // Update favicon
+    function updateLogo(imageUrl) {
+        $('#al').attr('src', imageUrl);
+        $('#al1').attr('src', imageUrl);
+        $('link[rel="shortcut icon"]').attr('href', imageUrl); // Update favicon
+    }
 
-            // Remove the logo from localStorage
-            localStorage.removeItem('logo');
-        }
+    // Call the fetchAndUpdateLogo function
+    fetchAndUpdateLogo();
+});
 
-        // Call the fetchAndUpdateLogo function
-        fetchAndUpdateLogo();
-    });
+
     $(document).ready(function() {
 
         $.ajax({

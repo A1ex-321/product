@@ -3,14 +3,23 @@
   color: white; /* Optionally, you can also change the text color */
 }
 </style> -->
-<header id="header" class="header fixed-top d-flex align-items-center">
+<header id="header" class="header fixed-top d-flex align-items-center" style="justify-content:space-between">
 
   <div class="d-flex align-items-center justify-content-between">
-    <a href="index.html" class="logo d-flex align-items-center">
-      <img src="{{ asset('public/images/1707991325_logo.png') }}" style="width:100px;"alt="">
-      <span class="d-none d-lg-block">NiceAdmin</span>
+    <a  class="logo d-flex align-items-center">
+      
+      <span class="d-none d-lg-block">Admin</span>
     </a>
     <i class="bi bi-list toggle-sidebar-btn"></i>
+    <a href="{{ url('/') }}" style="display: inline-block; width: 50px; height: 45px; text-align: center;">
+    <i class="bi bi-house-fill" style="font-size: 24px; margin-top: 20px;"></i>
+    <div style="font-size: 6px;">Home</div>
+</a>
+
+
+
+ 
+
   </div><!-- End Logo -->
 
   <div class="search-bar">
