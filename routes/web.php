@@ -228,7 +228,7 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     
     Route::get('admin/query/delete/{id}', [MachineController1::class, 'querydelete']);
     //message
-    Route::get('admin/maillist', [MailController::class, 'maillist']);
+    Route::get('admin/message', [MailController::class, 'maillist']);
     Route::get('admin/brand/deletemail/{id}', [MailController::class, 'deletemail']);
         //   SCO blog no sco
         Route::get('admin/blogseo/bloglist', [ScoController::class, 'bloglist'])->name('blogsco-list');

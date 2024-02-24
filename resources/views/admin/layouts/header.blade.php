@@ -118,7 +118,7 @@
     </li><!-- End Dashboard Nav -->
     @endif
     <li class="nav-item">
-      <a href="{{url('/admin/maillist')}}" class="nav-link {{ request()->segment(2) === 'maillist' ? '' : 'collapsed' }}">
+      <a href="{{url('/admin/message')}}" class="nav-link {{ request()->segment(2) === 'message' ? '' : 'collapsed' }}">
         <i class="bi bi-menu-button-wide"></i><span>Message</span>
       </a>
 

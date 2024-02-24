@@ -243,16 +243,7 @@
                 $('#gather').hide();
                 console.error('No gather data found');
             }
-            if (response && response.link.length > 0) {
-                var link = response.link[0]; // Access the first element of the array
-                
-                // Update the elements with the data from the gather object
-                $('meta[name="google-site-verification"]').attr('content', link.scolink);
-                // Show the gather section
-            } else {
-                // Hide the gather section if no data found
-                console.error('No link data found');
-            }
+            
             if (response && response.sociallink.length > 0) {
                 var sociallink = response.sociallink[0]; // Access the first element of the array
                 
@@ -306,167 +297,167 @@ $(document).ready(function() {
     var currentPath = window.location.pathname;
     
     // Check if the current path is "/"
-    if (currentPath === "/") {
-        // Execute this code block only if the current path is "/"
-        $.ajax({
-            url: '/allget',
-            type: 'GET',
-            success: function(response) {
-                if (response && response.home.length > 0) {
-                    var home = response.home[0]; // Access the first element of the array
+    // if (currentPath === "/") {
+    //     // Execute this code block only if the current path is "/"
+    //     $.ajax({
+    //         url: '/allget',
+    //         type: 'GET',
+    //         success: function(response) {
+    //             if (response && response.home.length > 0) {
+    //                 var home = response.home[0]; // Access the first element of the array
                     
-                    // Update meta tags with data from the home object
-                    $('title').text(home.metatitle);
-                    $('meta[name="description"]').attr('content', home.metadescription);
+    //                 // Update meta tags with data from the home object
+    //                 $('title').text(home.metatitle);
+    //                 $('meta[name="description"]').attr('content', home.metadescription);
                     
-                    $('meta[property="og:title"]').attr('content', home.ogtitle);
-                    $('meta[property="og:description"]').attr('content', home.ogdescription);
-                    $('meta[property="og:image"]').attr('content', home.ogimage);
-                    $('meta[property="og:url"]').attr('content', home.ogurl);
-                    $('meta[property="og:type"]').attr('content', home.ogtype);
+    //                 $('meta[property="og:title"]').attr('content', home.ogtitle);
+    //                 $('meta[property="og:description"]').attr('content', home.ogdescription);
+    //                 $('meta[property="og:image"]').attr('content', home.ogimage);
+    //                 $('meta[property="og:url"]').attr('content', home.ogurl);
+    //                 $('meta[property="og:type"]').attr('content', home.ogtype);
                     
-                    // Show the gather section
-                } else {
-                    // Hide the gather section if no data found
-                    console.error('No home data found');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-            }
-        });
-    }
-     else if (currentPath === "/about") {
-        // Execute this code block only if the current path is "/"
-        $.ajax({
-            url: '/allget',
-            type: 'GET',
-            success: function(response) {
-                if (response && response.about.length > 0) {
+    //                 // Show the gather section
+    //             } else {
+    //                 // Hide the gather section if no data found
+    //                 console.error('No home data found');
+    //             }
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error('Error:', error);
+    //         }
+    //     });
+    // }
+    //  if (currentPath === "/about") {
+    //     // Execute this code block only if the current path is "/"
+    //     $.ajax({
+    //         url: '/allget',
+    //         type: 'GET',
+    //         success: function(response) {
+    //             if (response && response.about.length > 0) {
 
-                    var about = response.about[0]; // Access the first element of the array
+    //                 var about = response.about[0]; // Access the first element of the array
                     
-                    // Update meta tags with data from the home object
-                    $('title').text(about.metatitle);
-                    $('meta[name="description"]').attr('content', about.metadescription);
+    //                 // Update meta tags with data from the home object
+    //                 $('title').text(about.metatitle);
+    //                 $('meta[name="description"]').attr('content', about.metadescription);
                     
-                    $('meta[property="og:title"]').attr('content', about.ogtitle);
-                    $('meta[property="og:description"]').attr('content', about.ogdescription);
-                    $('meta[property="og:image"]').attr('content', about.ogimage);
-                    $('meta[property="og:url"]').attr('content', about.ogurl);
-                    $('meta[property="og:type"]').attr('content', about.ogtype);
+    //                 $('meta[property="og:title"]').attr('content', about.ogtitle);
+    //                 $('meta[property="og:description"]').attr('content', about.ogdescription);
+    //                 $('meta[property="og:image"]').attr('content', about.ogimage);
+    //                 $('meta[property="og:url"]').attr('content', about.ogurl);
+    //                 $('meta[property="og:type"]').attr('content', about.ogtype);
                     
-                    // Show the gather section
-                } else {
-                    // Hide the gather section if no data found
-                    console.error('No home data found');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-            }
-        });
-    }
+    //                 // Show the gather section
+    //             } else {
+    //                 // Hide the gather section if no data found
+    //                 console.error('No home data found');
+    //             }
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error('Error:', error);
+    //         }
+    //     });
+    // }
     
-    else if (currentPath === "/blog") {
-        // Execute this code block only if the current path is "/"
-        $.ajax({
-            url: '/allget',
-            type: 'GET',
-            success: function(response) {
-                if (response && response.blog.length > 0) {
+    // else if (currentPath === "/blog") {
+    //     // Execute this code block only if the current path is "/"
+    //     $.ajax({
+    //         url: '/allget',
+    //         type: 'GET',
+    //         success: function(response) {
+    //             if (response && response.blog.length > 0) {
 
-                    var blog = response.blog[0]; // Access the first element of the array
+    //                 var blog = response.blog[0]; // Access the first element of the array
                     
-                    // Update meta tags with data from the home object
-                    $('title').text(blog.metatitle);
-                    $('meta[name="description"]').attr('content', blog.metadescription);
+    //                 // Update meta tags with data from the home object
+    //                 $('title').text(blog.metatitle);
+    //                 $('meta[name="description"]').attr('content', blog.metadescription);
                     
-                    $('meta[property="og:title"]').attr('content', blog.ogtitle);
-                    $('meta[property="og:description"]').attr('content', blog.ogdescription);
-                    $('meta[property="og:image"]').attr('content', blog.ogimage);
-                    $('meta[property="og:url"]').attr('content', blog.ogurl);
-                    $('meta[property="og:type"]').attr('content', blog.ogtype);
+    //                 $('meta[property="og:title"]').attr('content', blog.ogtitle);
+    //                 $('meta[property="og:description"]').attr('content', blog.ogdescription);
+    //                 $('meta[property="og:image"]').attr('content', blog.ogimage);
+    //                 $('meta[property="og:url"]').attr('content', blog.ogurl);
+    //                 $('meta[property="og:type"]').attr('content', blog.ogtype);
                     
-                    // Show the gather section
-                } else {
-                    // Hide the gather section if no data found
-                    console.error('No home data found');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-            }
-        });
-    }
+    //                 // Show the gather section
+    //             } else {
+    //                 // Hide the gather section if no data found
+    //                 console.error('No home data found');
+    //             }
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error('Error:', error);
+    //         }
+    //     });
+    // }
 
-    else if (currentPath === "/service") {
-        // Execute this code block only if the current path is "/"
-        $.ajax({
-            url: '/allget',
-            type: 'GET',
-            success: function(response) {
-                if (response && response.service.length > 0) {
+    // else if (currentPath === "/service") {
+    //     // Execute this code block only if the current path is "/"
+    //     $.ajax({
+    //         url: '/allget',
+    //         type: 'GET',
+    //         success: function(response) {
+    //             if (response && response.service.length > 0) {
 
-                    var service = response.service[0]; // Access the first element of the array
+    //                 var service = response.service[0]; // Access the first element of the array
                     
-                    // Update meta tags with data from the home object
-                    $('title').text(service.metatitle);
-                    $('meta[name="description"]').attr('content', service.metadescription);
+    //                 // Update meta tags with data from the home object
+    //                 $('title').text(service.metatitle);
+    //                 $('meta[name="description"]').attr('content', service.metadescription);
                     
-                    $('meta[property="og:title"]').attr('content', service.ogtitle);
-                    $('meta[property="og:description"]').attr('content', service.ogdescription);
-                    $('meta[property="og:image"]').attr('content', service.ogimage);
-                    $('meta[property="og:url"]').attr('content', service.ogurl);
-                    $('meta[property="og:type"]').attr('content', service.ogtype);
+    //                 $('meta[property="og:title"]').attr('content', service.ogtitle);
+    //                 $('meta[property="og:description"]').attr('content', service.ogdescription);
+    //                 $('meta[property="og:image"]').attr('content', service.ogimage);
+    //                 $('meta[property="og:url"]').attr('content', service.ogurl);
+    //                 $('meta[property="og:type"]').attr('content', service.ogtype);
                     
-                    // Show the gather section
-                } else {
-                    // Hide the gather section if no data found
-                    console.error('No home data found');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-            }
-        });
-    }
+    //                 // Show the gather section
+    //             } else {
+    //                 // Hide the gather section if no data found
+    //                 console.error('No home data found');
+    //             }
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error('Error:', error);
+    //         }
+    //     });
+    // }
 
-    else if (currentPath === "/contact") {
-        // Execute this code block only if the current path is "/"
-        $.ajax({
-            url: '/allget',
-            type: 'GET',
-            success: function(response) {
-                if (response && response.contact.length > 0) {
+    // else if (currentPath === "/contact") {
+    //     // Execute this code block only if the current path is "/"
+    //     $.ajax({
+    //         url: '/allget',
+    //         type: 'GET',
+    //         success: function(response) {
+    //             if (response && response.contact.length > 0) {
 
-                    var contact = response.contact[0]; // Access the first element of the array
+    //                 var contact = response.contact[0]; // Access the first element of the array
                     
-                    // Update meta tags with data from the home object
-                    $('title').text(contact.metatitle);
-                    $('meta[name="description"]').attr('content', contact.metadescription);
+    //                 // Update meta tags with data from the home object
+    //                 $('title').text(contact.metatitle);
+    //                 $('meta[name="description"]').attr('content', contact.metadescription);
                     
-                    $('meta[property="og:title"]').attr('content', contact.ogtitle);
-                    $('meta[property="og:description"]').attr('content', contact.ogdescription);
-                    $('meta[property="og:image"]').attr('content', contact.ogimage);
-                    $('meta[property="og:url"]').attr('content', contact.ogurl);
-                    $('meta[property="og:type"]').attr('content', contact.ogtype);
+    //                 $('meta[property="og:title"]').attr('content', contact.ogtitle);
+    //                 $('meta[property="og:description"]').attr('content', contact.ogdescription);
+    //                 $('meta[property="og:image"]').attr('content', contact.ogimage);
+    //                 $('meta[property="og:url"]').attr('content', contact.ogurl);
+    //                 $('meta[property="og:type"]').attr('content', contact.ogtype);
                     
-                    // Show the gather section
-                } else {
-                    // Hide the gather section if no data found
-                    console.error('No home data found');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Error:', error);
-            }
-        });
-    }
-    else{
-        console.error('no slash:', error);
+    //                 // Show the gather section
+    //             } else {
+    //                 // Hide the gather section if no data found
+    //                 console.error('No home data found');
+    //             }
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error('Error:', error);
+    //         }
+    //     });
+    // }
+    // else{
+    //     console.error('no slash:', error);
 
-    }
+    // }
     
 });
 

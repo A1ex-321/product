@@ -27,9 +27,12 @@ class MachineController extends Controller
 {
     public function index()
     {
+        $data['index']= home::get();
         $data['getRecord'] = Banner::get();
         $data['content'] = Machineservice::where('is_service', 0)->get();
         $data['service'] = Machineservice::where('is_service', 1)->get();
+        $data['link'] = Scolink::get();
+        // dd($data['link']);
 
 
         //   dd($data['content']);
@@ -39,24 +42,37 @@ class MachineController extends Controller
     }
     public function about()
     {
+        $data['about']= about::get();
+        $data['link'] = Scolink::get();
         $data['service'] = Machineservice::where('is_service', 0)->get();
         return view('machine.about', $data);
     }
-    public function service()
+    public function service()  
     {
         $data['content'] = Machineservice::where('is_service', 0)->get();
         $data['service'] = Machineservice::where('is_service', 1)->get();
+        $data['serviceseo'] = service::get();
+        $data['link'] = Scolink::get();
+
         return view('machine.service', $data);
     }
     public function blog()
     {
-        $data['getRecord'] = Blogsco::get();
-        // dd($data['getRecord']);
+        $data['link'] = Scolink::get();
+        $data['blogseo'] = soloblog::get();
+        $data['getRecord'] = Blogsco::get()->map(function ($item) {
+            $item->slug = str_replace(' ', '-', $item->slug);
+            return $item;
+        });
+                //  dd($data['blog']);
         return view('machine.blog', $data);
     }
     public function contact()
     {
-        return view('machine.contact');
+        $data['contact'] = contacts::get();
+        $data['link'] = Scolink::get();
+
+        return view('machine.contact',$data);
     }
     public function singleblog()
     {
@@ -196,19 +212,38 @@ class MachineController extends Controller
     }
     public function get_blog(Request $request, $id)
     {
-        $data['blog'] = Blogsco::find($id);
-        //  dd($data['blog']);
-        $data['getRecord'] = Blogsco::get();
-        $data['blog']['ogimage'] = asset('public/images/' . $data['blog']['ogimage']);
-        $jsonResponse = response()->json(['blog' => $data['blog']]);
-        
-                if ($request->expectsJson()) {
-            // Return JSON response if the request expects JSON
-            return $jsonResponse;
+        $data['link'] = Scolink::get();
+    
+        // Find the blog record with the given ID
+        $data['getRecord3'] = Blogsco::get()->map(function ($item) {
+            $item->slug = str_replace(' ', '-', $item->slug);
+            return $item;
+        });
+        $data['getRecord'] = Blogsco::find($id);
+        if ($data['getRecord']) {
+            $data['getRecord']->slug = str_replace(' ', '-', $data['getRecord']->slug);
         }
-        // $data['header_title'] = "Add New Brand";
-        return view('machine.singleblog', $data)->with('jsonResponse', $jsonResponse);
+        // $data['blog'] = Blogsco::find($id);
+        $blog = Blogsco::find($id);
+    
+        if ($blog) {
+            // If the blog record is found, update the ogimage property
+            $blog->ogimage = asset('public/images/' . $blog->ogimage);
+        
+            // Assign the modified blog record to the 'getRecord' key in the data array
+            $data['getRecord5'] = $blog;
+            // dd($data['getRecord']);
+        } else {
+            // If the blog record is not found, set $getRecord to null
+            $data['getRecord5'] = null;
+        }
+            //  dd($data['getRecord5']);
+        
+    
+        // Return the view with the data array
+        return view('machine.singleblog', $data);
     }
+    
 
 
 

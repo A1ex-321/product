@@ -5,8 +5,8 @@
     /* Define fixed width and height for images within the CKEditor content */
     #ck1 img {
         width: 100%;
-        Adjust width as needed
-        height: 350px;
+        height: 340px;
+        object-fit: cover;
         /* Maintain aspect ratio */
     }
     @media only screen and (max-width: 767px) {
@@ -41,16 +41,19 @@
             <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
                 <div class="blog-post">
                     <div class="single-blog-post">
-                        <div class="img-holder"id="im">
-                            <img src="{{ asset('public/images/' . $blog->image) }}" style="width:100%;height:380px;object-fit:cover;border-radius:8px;" alt="Awesome Image">
-                        </div>
-                        <div class="text-holder">
-                            <h3 class="blog-title">{{ $blog->title }}</h3>
-                            <div class="text">
-                                <p>{{ $blog->description }}</p>
-                            </div>
-                            <div id="ck1">{!! $blog->content !!}</div>
-                        </div>
+                    @if(isset($getRecord))
+    <div class="img-holder" id="im">
+        <img src="{{ asset('public/images/' . $getRecord->image) }}" style="width:100%;height:380px;object-fit:cover;border-radius:8px;" alt="Awesome Image">
+    </div>
+    <div class="text-holder">
+        <h3 class="blog-title">{{ $getRecord->title }}</h3>
+        <div class="text">
+            <p>{{ $getRecord->description }}</p>
+        </div>
+        <div id="ck1">{!! $getRecord->content !!}</div>
+    </div>
+@endif
+
                     </div>
                 </div>
             </div>
@@ -64,14 +67,14 @@
                             <span class="border"></span>
                         </div>
                         <ul class="recent-post">
-                            @foreach ($getRecord as $blog1)
+                            @foreach ($getRecord3 as $blog1)
                             <li>
                                 <div class="img-holder">
                                     <img src="{{ asset('public/images/' . $blog1->image) }}" alt="Awesome Image">
                                     <div class="overlay-style-two">
                                         <div class="box">
                                             <div class="content">
-                                                <a href="{{ url('singleblog', ['id' => $blog->id, 'slug' => $blog1->slug]) }}">
+                                                <a href="{{ url('singleblog', ['id' => $blog1->id, 'slug' => $blog1->slug]) }}">
                                                     <i class="fa fa-link" aria-hidden="true"></i>
                                                 </a>
                                             </div>
@@ -124,28 +127,6 @@
             }
         });
     });
-</script>
-<script>
-    // Display JSON response in console
-    console.log("this",@json($jsonResponse));
-
-
-
-    // Convert PHP $blog object to JSON and escape HTML entities
-        var jsonData = {!! json_encode($blog) !!};
-        console.log("data",jsonData);
-        console.log("Metatitle:", jsonData.metatitle);
-
-        // Set JSON data to HTML attributes
-         $('title').text(jsonData.metatitle);
-         $('meta[name="description"]').attr('content', jsonData.metadescription);
-         $('meta[property="og:title"]').attr('content', jsonData.ogtitle);
-         $('meta[property="og:description"]').attr('content', jsonData.ogdescription);
-         $('meta[property="og:image"]').attr('content', jsonData.ogimage);
-         $('meta[property="og:url"]').attr('content', jsonData.ogurl);
-         $('meta[property="og:type"]').attr('content', jsonData.ogtype);
-
-        // Display JSON data in console
 </script>
 
 

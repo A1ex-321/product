@@ -2,16 +2,84 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="google-site-verification" content="" />
+@if($link->isNotEmpty())
+    @foreach($link as $item2)
+    {!! $item2->scolink !!}
+@endforeach
+@endif
+@if(isset($index) && $index->isNotEmpty())
+    @foreach($index as $item)
+        <meta charset="UTF-8">
+        <title>{{ $item->metatitle }}</title>
+        <meta name="description" content="{{ $item->metadescription }}">
 
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:image" content="">
-    <meta property="og:url" content="">
-    <meta property="og:type" content="">
+        <meta property="og:title" content="{{ $item->ogtitle }}">
+        <meta property="og:description" content="{{ $item->ogdescription }}">
+        <meta property="og:image" content="{{ $item->ogimage }}">
+        <meta property="og:url" content="{{ $item->ogurl }}">
+        <meta property="og:type" content="{{ $item->ogtype }}">
+    @endforeach
+@elseif(isset($about) && $about->isNotEmpty())
+    @foreach($about as $aboutItem)
+        <meta charset="UTF-8">
+        <title>{{ $aboutItem->metatitle }}</title>
+        <meta name="description" content="{{ $aboutItem->metadescription }}">
+
+        <meta property="og:title" content="{{ $aboutItem->ogtitle }}">
+        <meta property="og:description" content="{{ $aboutItem->ogdescription }}">
+        <meta property="og:image" content="{{ $aboutItem->ogimage }}">
+        <meta property="og:url" content="{{ $aboutItem->ogurl }}">
+        <meta property="og:type" content="{{ $aboutItem->ogtype }}">
+    @endforeach
+    @elseif(isset($serviceseo) && $serviceseo->isNotEmpty())
+    @foreach($serviceseo as $serviceseo1)
+        <meta charset="UTF-8">
+        <title>{{ $serviceseo1->metatitle }}</title>
+        <meta name="description" content="{{ $serviceseo1->metadescription }}">
+
+        <meta property="og:title" content="{{ $serviceseo1->ogtitle }}">
+        <meta property="og:description" content="{{ $serviceseo1->ogdescription }}">
+        <meta property="og:image" content="{{ $serviceseo1->ogimage }}">
+        <meta property="og:url" content="{{ $serviceseo1->ogurl }}">
+        <meta property="og:type" content="{{ $serviceseo1->ogtype }}">
+    @endforeach
+    @elseif(isset($blogseo) && $blogseo->isNotEmpty())
+    @foreach($blogseo as $blog1)
+        <meta charset="UTF-8">
+        <title>{{ $blog1->metatitle }}</title>
+        <meta name="description" content="{{ $blog1->metadescription }}">
+
+        <meta property="og:title" content="{{ $blog1->ogtitle }}">
+        <meta property="og:description" content="{{ $blog1->ogdescription }}">
+        <meta property="og:image" content="{{ $blog1->ogimage }}">
+        <meta property="og:url" content="{{ $blog1->ogurl }}">
+        <meta property="og:type" content="{{ $blog1->ogtype }}">
+    @endforeach
+    @elseif(isset($contact) && $contact->isNotEmpty())
+    @foreach($contact as $contacts)
+        <meta charset="UTF-8">
+        <title>{{ $contacts->metatitle }}</title>
+        <meta name="description" content="{{ $contacts->metadescription }}">
+
+        <meta property="og:title" content="{{ $contacts->ogtitle }}">
+        <meta property="og:description" content="{{ $contacts->ogdescription }}">
+        <meta property="og:image" content="{{ $contacts->ogimage }}">
+        <meta property="og:url" content="{{ $contacts->ogurl }}">
+        <meta property="og:type" content="{{ $contacts->ogtype }}">
+    @endforeach
+    @elseif(isset($getRecord5))
+    <meta charset="UTF-8">
+    <title>{{ $getRecord5->metatitle }}</title>
+    <meta name="description" content="{{ $getRecord5->metadescription }}">
+
+    <meta property="og:title" content="{{ $getRecord5->ogtitle }}">
+    <meta property="og:description" content="{{ $getRecord5->ogdescription }}">
+    <meta property="og:image" content="{{ $getRecord5->ogimage }}">
+    <meta property="og:url" content="{{ $getRecord5->ogurl }}">
+    <meta property="og:type" content="{{ $getRecord5->ogtype }}">
+@endif
+
+
 
     <!-- responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
