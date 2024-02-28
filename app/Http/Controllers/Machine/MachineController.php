@@ -56,14 +56,21 @@ class MachineController extends Controller
 
         return view('machine.service', $data);
     }
+    public function getservice()  
+    {
+        $services = Machineservice::where('is_service', 1)->get();
+        return response()->json($services);
+    }
     public function blog()
     {
-        $data['link'] = Scolink::get();
         $data['blogseo'] = soloblog::get();
+
         $data['getRecord'] = Blogsco::get()->map(function ($item) {
             $item->slug = str_replace(' ', '-', $item->slug);
             return $item;
         });
+        $data['link'] = Scolink::get();
+        
                 //  dd($data['blog']);
         return view('machine.blog', $data);
     }

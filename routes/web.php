@@ -168,6 +168,8 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
  Route::get('/', [MachineController::class, 'index']);
  Route::get('/about', [MachineController::class, 'about']);
  Route::get('/service', [MachineController::class, 'service']);
+ Route::get('/getservice', [MachineController::class, 'getservice'])->name('getservice');
+
  Route::get('/blog', [MachineController::class, 'blog']);
  Route::get('/contact', [MachineController::class, 'contact']);
  Route::get('/singleblog', [MachineController::class, 'singleblog']);

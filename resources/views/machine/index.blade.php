@@ -10,6 +10,17 @@
         transform: scale(1.1);
         /* Scale up to 110% */
     }
+    #late
+    {
+        background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px;width:200px;
+    }
+    #contact{
+        background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px;
+    }
+    #gather
+    {
+        background-color: rgb(177, 118, 31); margin-bottom: 100px; height: 200px; display: flex; justify-content: center; align-items: center;
+    }
 </style>
 
 
@@ -105,47 +116,28 @@
         @endif
 
 
-        <div class="row">
-            @foreach ($service->take(6) as $service)
-            <div class="col-md-4 col-sm-6">
-                <div class="single-our-service">
-                    <figure class="img-box">
-                        <img src="{{ asset('public/images/'.$service->machineimage) }}" class="enlarge-img" alt="Awesome Image" style="width:100px;height:230px;width:100%;border: 2px solid #f0da37;border-radius: 5px;">
-
-                    </figure>
-                    <h4 style="font-weight: bold;">{{ $service->machinetitle }}</h4>
-                    <p>
-                        {{ substr($service->description, 0, 90) }}{{ strlen($service->description) > 200 ? '...' : '' }}
-                    </p>
-                </div>
-            </div>
-            @endforeach
-            <section id="" class="container" style=" margin-bottom: 100px; height: 5px; display: flex; justify-content: center; align-items: center;">
+        <div id="serviceContainer" class="row">
+    <!-- Service data will be dynamically added here -->
+</div>
+        </div>
+    </div>
+    <section id="" class="container" style=" margin-bottom: 100px; height: 5px; display: flex; justify-content: center; align-items: center;">
                 <div>
                     <div class="row">
                         <div class="col-md-6 text-center">
-                            <a href="{{ url('/service') }}" id="" class="colorful-btn" style="background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px;width:200px;">Read more_</a>
+                            <a href="{{ url('/service') }}" id="late" class="colorful-btn" style="">Read more_</a>
                         </div>
                     </div>
                 </div>
             </section>
-
-
-
-
-
-
-
-        </div>
-    </div>
 </section>
 
-<section id="gather" class="container" style="background-color: rgb(177, 118, 31); margin-bottom: 100px; height: 200px; display: flex; justify-content: center; align-items: center;">
+<section id="gather" class="container" style="">
     <div>
         <h3 id="des" style="color: aliceblue; margin-bottom: 30px;"></h3>
         <div class="row">
             <div class="col-md-6 text-center">
-                <a href="{{ url('/contact') }}" id="contact" class="colorful-btn" style="background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px;"></a>
+                <a href="{{ url('/contact') }}" id="contact" class="colorful-btn" style=""></a>
             </div>
         </div>
     </div>
@@ -157,4 +149,10 @@
 <script>
 
 </script>
+<script>
+
+</script>
+
+</script>
+
 @endpush

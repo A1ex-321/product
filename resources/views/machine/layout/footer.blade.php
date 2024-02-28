@@ -130,36 +130,18 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
    $(document).ready(function() {
-    // Define the fetchAndUpdateLogo function
+    // Fetch the logo from the server and update
     function fetchAndUpdateLogo() {
-        // Check if the logo is already stored in local storage
-        var storedLogoUrl = localStorage.getItem('logo');
-
-        if (storedLogoUrl) {
-            // Fetch the logo from the server
-            fetchLogo(storedLogoUrl);
-        } else {
-            // Fetch the logo from the server without passing any previous URL
-            fetchLogo();
-        }
-    }
-
-    function fetchLogo(previousLogoUrl) {
+        // Fetch the logo from the server
         $.ajax({
             url: '/header', // Your route URL
             type: 'GET',
             success: function(response) {
                 if (response.image) {
-                    // Check if the fetched logo URL is different from the previous one
-                    if (previousLogoUrl !== response.image) {
-                        // Update the logo
-                        updateLogo(response.image);
-                        // Store the new logo URL in local storage
-                        localStorage.setItem('logo', response.image);
-                    } else {
-                        // Display the previous logo
-                        updateLogo(previousLogoUrl);
-                    }
+                    // Update the logo
+                    updateLogo(response.image);
+                    // Store the new logo URL in local storage
+                    localStorage.setItem('logo', response.image);
                 } else {
                     console.error('No image found');
                 }
@@ -170,19 +152,31 @@
         });
     }
 
+    // Update the logo with the provided URL
     function updateLogo(imageUrl) {
         $('#al').attr('src', imageUrl);
         $('#al1').attr('src', imageUrl);
         $('link[rel="shortcut icon"]').attr('href', imageUrl); // Update favicon
     }
 
-    // Call the fetchAndUpdateLogo function
-    fetchAndUpdateLogo();
+    // Fetch logo from local storage if available
+    var storedLogoUrl = localStorage.getItem('logo');
+    if (storedLogoUrl) {
+        updateLogo(storedLogoUrl);
+    } else {
+        // Fetch and update the logo from the server
+        fetchAndUpdateLogo();
+    }
+
+    // Set up an interval to periodically check for logo updates
+    setInterval(fetchAndUpdateLogo, 10000); // Adjust the interval as needed
 });
 
 
-    $(document).ready(function() {
 
+$(document).ready(function() {
+    // Define a function to fetch profile data
+    function fetchProfileData() {
         $.ajax({
             url: '/profile', // Your route URL
             type: 'GET',
@@ -199,7 +193,6 @@
                     var phoneLink = 'tel:' + response.profile.dnumber;
                     $('#phoneLink').attr('href', phoneLink);
 
-
                     $('#addressLine').text(response.profile.address);
 
                     // Update phone number
@@ -211,15 +204,56 @@
                     $('#foot').text(response.profile.footer);
                     $('#head').text(response.profile.header);
 
-
-
+                    // Check if profile data has changed since last retrieval
+                    var storedProfileData = localStorage.getItem('profileData');
+                    if (storedProfileData !== JSON.stringify(response.profile)) {
+                        // Update local storage with new profile data
+                        localStorage.setItem('profileData', JSON.stringify(response.profile));
+                    }
                 } else {
                     console.error('No profile data found');
                 }
+            },
+            error: function(error) {
+                console.error('Error fetching profile data:', error.responseText);
             }
-
         });
-    });
+    }
+
+    // Check if profile data exists in local storage
+    var storedProfileData = localStorage.getItem('profileData');
+    if (storedProfileData) {
+        // Parse stored profile data
+        var parsedProfileData = JSON.parse(storedProfileData);
+        // Update HTML content with stored profile data
+        $('#address').text(parsedProfileData.address);
+        $('#dnumber').text(parsedProfileData.dnumber);
+        $('#mail').text(parsedProfileData.mail);
+        var whatsappLink = 'whatsapp://send?phone=' + parsedProfileData.wnumber;
+        $('#whatsappLink').attr('href', whatsappLink);
+
+        // Update phone link
+        var phoneLink = 'tel:' + parsedProfileData.dnumber;
+        $('#phoneLink').attr('href', phoneLink);
+
+        $('#addressLine').text(parsedProfileData.address);
+
+        // Update phone number
+        $('#phoneNumber').text(parsedProfileData.dnumber);
+
+        // Update email
+        $('#emailLink').attr('href', 'mailto:' + parsedProfileData.mail);
+        $('#email1').text(parsedProfileData.mail);
+        $('#foot').text(parsedProfileData.footer);
+        $('#head').text(parsedProfileData.header);
+    }
+
+    // Fetch profile data and update local storage
+    fetchProfileData();
+
+    // Set interval to periodically fetch profile data (e.g., every 10 minutes)
+    setInterval(fetchProfileData, 10000); // 600000 milliseconds = 10 minutes
+});
 
 
     
@@ -291,10 +325,70 @@ if (response && response.service) {
 
 });
 
-
+// 
 $(document).ready(function() {
+    const baseUrl = "{{ asset('public/images/') }}";
+    const storageKey = 'serviceData'; // Key for storing data in local storage
+
+    function fetchAndDisplayServices() {
+        // Check if service data is available in local storage
+        const storedServiceData = localStorage.getItem(storageKey);
+
+        // If service data is available in local storage, use it
+        if (storedServiceData) {
+            displayServices(JSON.parse(storedServiceData));
+        }
+
+        // Fetch service data from the server
+        $.ajax({
+            url: '{{ route("getservice") }}',
+            type: 'GET',
+            success: function(response) {
+                // Check if the fetched data is different from the stored data
+                if (JSON.stringify(response) !== storedServiceData) {
+                    // Update local storage with the new data
+                    localStorage.setItem(storageKey, JSON.stringify(response));
+                    displayServices(response);
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching services:', error);
+            }
+        });
+    }
+
+    function displayServices(data) {
+        // Clear existing service data
+        $('#serviceContainer').empty();
+
+        // Iterate through each service and add HTML content
+        data.slice(0, 6).forEach(function(service) {
+            var serviceHtml = `
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-our-service">
+                        <figure class="img-box">
+                            <img src="${baseUrl}/${service.machineimage}" class="enlarge-img" alt="Awesome Image" style="width:100px;height:230px;width:100%;border: 2px solid #f0da37;border-radius: 5px;">
+                        </figure>
+                        <h4 style="font-weight: bold;">${service.machinetitle}</h4>
+                        <p>${service.description.length > 50 ? service.description.substr(0, 100) + '...' : service.description}</p>
+                    </div>
+                </div>
+            `;
+            $('#serviceContainer').append(serviceHtml);
+        });
+    }
+
+    // Initial fetch and display of services
+    fetchAndDisplayServices();
+
+    // Set interval to periodically fetch services (adjust interval as needed)
+    setInterval(fetchAndDisplayServices, 10000); // 600000 milliseconds = 10 minutes
+});
+
+
+// $(document).ready(function() {
     // Get the current URL path
-    var currentPath = window.location.pathname;
+    // var currentPath = window.location.pathname;
     
     // Check if the current path is "/"
     // if (currentPath === "/") {
@@ -459,7 +553,7 @@ $(document).ready(function() {
 
     // }
     
-});
+// });
 
 </script>
 <script>

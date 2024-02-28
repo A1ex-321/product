@@ -103,11 +103,11 @@
         <script src="js/html5shiv.js"></script>
     <![endif]-->
 <!-- Loader.css CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
 </head>
 <style>
@@ -173,7 +173,7 @@ align-items: center;    }
         <!--Start Top bar area -->
         <section class="top-bar-area">
             <div class="container">
-                <div class="clearfix">
+                <div class="clearfix"style="height:35px;">
                     <div class="pull-left">
                         <p id="head"></p>
                     </div>
