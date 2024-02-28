@@ -13,7 +13,6 @@
         object-fit: cover; /* Maintain aspect ratio */
         border: 2px solid #4CAF50; /* Border style */
         border-radius: 5px; /* Rounded corners */
-        transition: transform 0.3s ease; /* Smooth transition effect */
     }
 
     /* Hover effect to enlarge image */

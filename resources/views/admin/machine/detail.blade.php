@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row mb-0">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Detais</h1>
+                            <h1 class="m-0">Details</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <div class="float-sm-right">

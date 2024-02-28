@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\ScoController;
 use App\Http\Controllers\Machine\MachineController;
 use App\Http\Controllers\Admin\MachineController1;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\SitemapController;
 
 
 // use App\Http\Controllers\Admin\Website;
@@ -180,6 +181,7 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
  Route::get('/singleblog/{id}/{slug}', [MachineController::class, 'get_blog']);
  Route::get('/allget', [MachineController::class, 'get_all']);
  Route::get('/singleblog/{id}', [MachineController::class, 'get_single_blog']);
+ Route::get('sitemap.xml', [SitemapController::class, 'index']);
 
 
 

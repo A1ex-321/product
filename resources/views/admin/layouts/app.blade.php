@@ -84,7 +84,7 @@
         <!-- jQuery -->
         
         @stack('scripts')
-
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
         <script src="{{ url('public/admin/assets/plugins/jquery/jquery.min.js') }}"></script>

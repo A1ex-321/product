@@ -193,7 +193,7 @@ align-items: center;    }
                     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                <img id="al1" src="" loading="lazy" alt="Awesome Logo"  height="60px">
+                                <img id="al1" src="" loading="lazy" alt=""  height="60px">
                             </a>
                         </div>
                     </div>
