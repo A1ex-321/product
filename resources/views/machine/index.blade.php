@@ -3,23 +3,54 @@
 @section('content')
 <style>
     /* CSS for image */
-   
+
 
     /* Hover effect to enlarge image */
-    .enlarge-img:hover {
-        transform: scale(1.1);
-        /* Scale up to 110% */
+    .enlarge-img {
+    transition: transform 0.3s ease; /* Add transition property */
+}
+
+.enlarge-img:hover {
+    transform: scale(1.1); /* Scale up to 110% */
+}
+
+
+    #late {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 200px;
     }
-    #late
-    {
-        background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px;width:200px;
+
+    #contact {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px;
     }
-    #contact{
-        background-color: #4CAF50; /* Green */ border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 8px;
-    }
-    #gather
-    {
-        background-color: rgb(177, 118, 31); margin-bottom: 100px; height: 200px; display: flex; justify-content: center; align-items: center;
+
+    #gather {
+        background-color: rgb(177, 118, 31);
+        margin-bottom: 100px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 
@@ -116,20 +147,40 @@
         @endif
 
 
-        <div id="serviceContainer" class="row">
-    <!-- Service data will be dynamically added here -->
-</div>
+        <div id="serviceContainer`" class="row">
+            <!-- Service data will be dynamically added here -->
+            @php $count = 0; @endphp <!-- Initialize a counter variable -->
+@foreach($service as $item)
+    @if($count < 6) <!-- Check if the counter is less than 6 -->
+        <div class="col-md-4 col-sm-6">
+            <div class="single-our-service">
+                <figure class="img-box">
+                    <!-- Assuming 'machineimage' contains the path of the image relative to your public directory -->
+                    <img src="{{ asset('public/images/'.$item->machineimage) }}" class="enlarge-img" alt="Awesome Image" style="height:230px;width:100%;border: 2px solid #f0da37;border-radius: 5px;">
+                </figure>
+                <h4 style="font-weight: bold;">{{ $item->machinetitle }}</h4>
+                <p>{{ substr($item->description, 0, 100) }}{{ strlen($item->description) > 100 ? '...' : '' }}</p> <!-- Limiting description to 100 characters -->
+            </div>
+        </div>
+        @php $count++; @endphp <!-- Increment the counter after each iteration -->
+    @else
+        @break <!-- Exit the loop after the 6th iteration -->
+    @endif
+@endforeach
+
+
         </div>
     </div>
+    </div>
     <section id="" class="container" style=" margin-bottom: 100px; height: 5px; display: flex; justify-content: center; align-items: center;">
-                <div>
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <a href="{{ url('/service') }}" id="late" class="colorful-btn" style="">Read more_</a>
-                        </div>
-                    </div>
+        <div>
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <a href="{{ url('/service') }}" id="late" class="colorful-btn" style="">Read more_</a>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 </section>
 
 <section id="gather" class="container" style="">
@@ -147,12 +198,10 @@
 
 @push('scripts')
 <script>
-
-</script>
-<script>
-
-</script>
-
+    document.addEventListener("DOMContentLoaded", function() {
+        // Display the service content
+        document.getElementById("our-services").style.display = "block";
+    });
 </script>
 
 @endpush

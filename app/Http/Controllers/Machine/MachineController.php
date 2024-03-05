@@ -30,7 +30,7 @@ class MachineController extends Controller
         $data['index']= home::get();
         $data['getRecord'] = Banner::get();
         $data['content'] = Machineservice::where('is_service', 0)->get();
-        $data['service'] = Machineservice::where('is_service', 1)->get();
+        $data['service'] = Machineservice::where('is_service', 1)->select('machinetitle', 'machineimage', 'description')->get();
         $data['link'] = Scolink::get();
         // dd($data['link']);
 
@@ -56,19 +56,20 @@ class MachineController extends Controller
 
         return view('machine.service', $data);
     }
-    public function getservice()  
-    {
-        $services = Machineservice::where('is_service', 1)->get();
-        return response()->json($services);
-    }
+    // public function getservice()  
+    // {
+    //     $services = Machineservice::where('is_service', 1)->get();
+    //     return response()->json($services);
+    // }
     public function blog()
     {
         $data['blogseo'] = soloblog::get();
-
-        $data['getRecord'] = Blogsco::get()->map(function ($item) {
+// dd($data['blogseo']);
+        $data['getRecord'] = Blogsco::select('id','title', 'description', 'image', 'slug')->get()->map(function ($item) {
             $item->slug = str_replace(' ', '-', $item->slug);
             return $item;
         });
+        
         $data['link'] = Scolink::get();
         
                 //  dd($data['blog']);

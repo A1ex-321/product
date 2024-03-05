@@ -99,6 +99,11 @@
 
 @push('scripts')
 <script>
+// Wait for the document to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Display the service content
+    document.getElementById("gather").style.display = "block";
+});
 
 </script>
 @endpush
