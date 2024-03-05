@@ -89,23 +89,37 @@ class MachineController1 extends Controller
         return redirect('admin/service1/list')->with('success', 'updated successfully.');
     }
     public function service_add(Request $request)
-    {
-        if ($request->hasFile('machineimage')) {
-            $images = $request->file('machineimage');
-
-            $filename = time() . '_' . str_replace(' ', '_', $images->getClientOriginalName());
-            $images->move(public_path('images'), $filename);
-        }
+{
+    // Validate the request data
+    $request->validate([
+        'machineimage' => 'required|image|mimes:jpeg,png,jpg,gif,png|max:1500', // Adjust max file size as needed
       
-        Machineservice::create([
-            'machineimage' => $filename,
-            'machinetitle' => $request->machinetitle,
-            'description' => $request->description,
-            'is_service' => 1,
+    ]);
 
-        ]);
-        return redirect('admin/service1/list')->with('success', 'uploaded successfully.');
+    // Check if the request contains the 'machineimage' file
+    if ($request->hasFile('machineimage')) {
+        // Get the 'machineimage' file from the request
+        $image = $request->file('machineimage');
+
+        // Generate a unique filename for the image
+        $filename = time() . '_' . str_replace(' ', '_', $image->getClientOriginalName());
+
+        // Move the uploaded image to the 'public/images' directory
+        $image->move(public_path('images'), $filename);
     }
+
+    // Create a new Machineservice record with the uploaded image and other data
+    Machineservice::create([
+        'machineimage' => $filename,
+        'machinetitle' => $request->machinetitle,
+        'description' => $request->description,
+        'is_service' => 1,
+    ]);
+
+    // Redirect back with a success message
+    return redirect('admin/service1/list')->with('success', 'Uploaded successfully.');
+}
+
     public function client_update(Request $request,$id)
     {
         $user = Machineservice::find($id);

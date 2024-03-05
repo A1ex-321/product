@@ -61,7 +61,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">Content</label>
                                     <textarea class="form-control" id="message-text" name="content" required></textarea>
@@ -73,14 +73,14 @@
 
                                 <h5 class="modal-title" id="exampleModalLabel">Add ourservice service</h5>
                                 <div class="col-md-12"> <!-- Each input takes half of the row width on medium screens -->
-                                        <div class="form-group">
-                                            <label for="spantitle" class="col-form-label">Service Title</label>:</label>
-                                            <input type="text" class="form-control" id="spantitle" name="servicetitle" >
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="spantitle" class="col-form-label">Service Title</label>:</label>
+                                        <input type="text" class="form-control" id="spantitle" name="servicetitle">
                                     </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="message-text" class="col-form-label">service content</label>
-                                    <textarea class="form-control" id="message-text" name="servicedescription" ></textarea>
+                                    <textarea class="form-control" id="message-text" name="servicedescription"></textarea>
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -93,100 +93,105 @@
             </div>
 
             <div class="modal fade" id="test" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add service</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="{{ route('add-service') }}" method="post" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Title</label>
-
-                                    <input type="text" class="form-control" id="recipient-name" name="machinetitle" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Description:</label>
-                                    <textarea class="form-control" id="message-text" name="description" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">photo:</label>
-
-                                    <input type="file" class="form-control" id="recipient-name" name="machineimage" required>
-                                </div>
-                                
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add</button>
-                        </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="editModal1" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Record</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add service</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editForm1" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="title" class="col-form-label">Title:</label>
-                                <input type="text" class="form-control" id="1" name="title" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="spantitle" class="col-form-label">Color Title:</label>
-                                <input type="text" class="form-control" id="2" name="spantitle" required>
-                            </div>
-                        </div>
-                    </div>
-
+                <form action="{{ route('add-service') }}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="content" class="col-form-label">Content</label>
-                        <textarea class="form-control" id="3" name="content" required></textarea>
+                        <label for="recipient-name" class="col-form-label">Title:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="machinetitle" required value="{{ old('machinetitle') }}">
+                        @error('machinetitle')
+                        <div id="title-error" class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
-                        <label for="image" class="col-form-label">Photo:</label>
-                        <input type="file" class="form-control" id="image" name="image" >
+                        <label for="message-text" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="message-text" name="description" required>{{ old('description') }}</textarea>
+                        @error('description')
+                        <div id="description-error" class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
-                    <img src="" alt="Image" id="4" width="100px" height="100px">
-
-                    <h5 class="modal-title" id="exampleModalLabel">Add ourservice </h5>
-                                <div class="col-md-12"> <!-- Each input takes half of the row width on medium screens -->
-                                        <div class="form-group">
-                                            <label for="spantitle" class="col-form-label">Service Title</label>:</label>
-                                            <input type="text" class="form-control" id="servicetitle" name="servicetitle" >
-                                        </div>
-                                    </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">service content</label>
-                                    <textarea class="form-control" id="servicedescription" name="servicedescription" ></textarea>
-                                </div>
-                </form>
+                    <div class="form-group">
+                        <label for="machineimage" class="col-form-label">Photo:</label>
+                        <input type="file" class="form-control" id="machineimage" name="machineimage" required>
+                        @error('machineimage')
+                        <div id="image-error" class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="updateRecord1">Save changes</button>
+                <button type="submit" class="btn btn-primary">Add</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
+
+            <div class="modal fade" id="editModal1" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Edit Record</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editForm1" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="title" class="col-form-label">Title:</label>
+                                            <input type="text" class="form-control" id="1" name="title" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="spantitle" class="col-form-label">Color Title:</label>
+                                            <input type="text" class="form-control" id="2" name="spantitle" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="content" class="col-form-label">Content</label>
+                                    <textarea class="form-control" id="3" name="content" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image" class="col-form-label">Photo:</label>
+                                    <input type="file" class="form-control" id="image" name="image">
+                                </div>
+                                <img src="" alt="Image" id="4" width="100px" height="100px">
+
+                                <h5 class="modal-title" id="exampleModalLabel">Add ourservice </h5>
+                                <div class="col-md-12"> <!-- Each input takes half of the row width on medium screens -->
+                                    <div class="form-group">
+                                        <label for="spantitle" class="col-form-label">Service Title</label>:</label>
+                                        <input type="text" class="form-control" id="servicetitle" name="servicetitle">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">service content</label>
+                                    <textarea class="form-control" id="servicedescription" name="servicedescription"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="updateRecord1">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
             <section class="section">
@@ -194,7 +199,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
-                            <p style="color: red;">(*First Record only Display.Delete Exists*)</p>
+                                <p style="color: red;">(*First Record only Display.Delete Exists*)</p>
                                 <div class="card-body">
                                     <h5 class="card-title"> Tables</h5>
 
@@ -265,7 +270,8 @@
                                                     <th>#</th>
                                                     <th>Title</th>
                                                     <th>Description</th>
-                                                    <th>photo</th>                                                        <th>Action</th>
+                                                    <th>photo</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -300,20 +306,20 @@
                                                         <form id="editForm" method="post" enctype="multipart/form-data">
                                                             @csrf
                                                             <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Title</label>
+                                                                <label for="message-text" class="col-form-label">Title</label>
 
-                                    <input type="text" class="form-control" id="5" name="machinetitle" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Description:</label>
-                                    <textarea class="form-control" id="6" name="description" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">photo:</label>
+                                                                <input type="text" class="form-control" id="5" name="machinetitle" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="message-text" class="col-form-label">Description:</label>
+                                                                <textarea class="form-control" id="6" name="description" required></textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="message-text" class="col-form-label">photo:</label>
 
-                                    <input type="file" class="form-control" id="" name="machineimage" >
-                                </div>
-                                <img src="" alt="Image" id="7" width="100px" height="100px">
+                                                                <input type="file" class="form-control" id="" name="machineimage">
+                                                            </div>
+                                                            <img src="" alt="Image" id="7" width="100px" height="100px">
                                                             <!-- Add more input fields for other data if needed -->
                                                         </form>
                                                     </div>
@@ -508,6 +514,16 @@
         });
     });
 </script>
+
+<script>
+    // Check if there are validation errors, and if so, show the modal
+    @if ($errors->any())
+        $(document).ready(function() {
+            $('#test').modal('show');
+        });
+    @endif
+</script>
+
 
 
 @section('style')

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Intervention\Image\Facades\Image;
 
 return [
 
@@ -157,6 +158,7 @@ return [
     'providers' => [
         // ...
         App\Providers\DynamicConfigServiceProvider::class,
+        
     ],
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
@@ -166,6 +168,7 @@ return [
         /*
          * Application Service Providers...
          */
+        
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -188,7 +191,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-        
+        'Image' => Image::class,
+
     ])->toArray(),
 
 ];

@@ -20,7 +20,10 @@
         border: 2px solid #4CAF50; /* Border style */
         border-radius: 5px; /* Rounded corners */
     }
-
+    .enlarge-img {
+        transition: transform 0.3s ease;
+        /* Add transition property */
+    }
     /* Hover effect to enlarge image */
     .enlarge-img:hover {
         transform: scale(1.1); /* Scale up to 110% */

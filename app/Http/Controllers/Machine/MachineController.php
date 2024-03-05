@@ -13,6 +13,9 @@ use App\Models\social;
 use App\Models\about;
 use App\Models\service;
 use App\Models\soloblog;
+use Illuminate\Support\Facades\Log; // Don't forget to import the Log facade
+use Illuminate\Support\Carbon;
+
 
 use App\Models\contacts;
 use Illuminate\Http\Request;
@@ -21,10 +24,17 @@ use App\Models\Mailstores;
 use App\Models\Blogsco;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 
 class MachineController extends Controller
 {
+    public function testRedisConnection()
+{
+    Redis::set('test_key', 'test_value');
+    $value = Redis::get('test_key');
+    return $value;
+}
     public function index()
     {
         $data['index']= home::get();
@@ -47,13 +57,22 @@ class MachineController extends Controller
         $data['service'] = Machineservice::where('is_service', 0)->get();
         return view('machine.about', $data);
     }
-    public function service()  
+    public function service()
     {
         $data['content'] = Machineservice::where('is_service', 0)->get();
-        $data['service'] = Machineservice::where('is_service', 1)->get();
+        $cacheKey = 'machineservice_is_service_1';
+    
+        // Attempt to retrieve data from the cache
+        $data['service'] = Cache::remember($cacheKey, now()->addHours(1), function () use ($cacheKey) {
+            // Log that a cache miss occurred and data is being fetched from the database
+            Log::info("Cache miss for key: {$cacheKey}. Fetching from database.");
+            return Machineservice::where('is_service', 1)->get();
+        });
+    
+        // Additional data fetching
         $data['serviceseo'] = service::get();
         $data['link'] = Scolink::get();
-
+    
         return view('machine.service', $data);
     }
     // public function getservice()  
@@ -63,18 +82,51 @@ class MachineController extends Controller
     // }
     public function blog()
     {
+        // Check if the cache key exists
+        $cacheKey = 'cached_get_record';
+        $cachedTimestamp = Cache::get('cached_get_record_timestamp');
+    
+        // Fetch the latest timestamp from the database
+        $latestTimestamp = Blogsco::latest('updated_at')->pluck('updated_at')->first();
+    
+        // If there is no cached timestamp or if the latest timestamp is different from the cached one
+        if (!$cachedTimestamp || $latestTimestamp != $cachedTimestamp) {
+            // Fetch data from the database
+            $getRecord = Blogsco::select('id','title', 'description', 'image', 'slug')->get()->map(function ($item) {
+                $item->slug = str_replace(' ', '-', $item->slug);
+                return $item;
+            });
+    
+            // Cache the data and update the timestamp
+            Cache::forever($cacheKey, $getRecord);
+            Cache::forever('cached_get_record_timestamp', $latestTimestamp);
+    
+            // Assign the data to the $data array
+            $data['getRecord'] = $getRecord;
+        } else {
+            // If the cached data is up to date, retrieve it from the cache
+            $data['getRecord'] = Cache::get($cacheKey);
+        }
+    
+        // Fetch other data that you want to include in the view
         $data['blogseo'] = soloblog::get();
-// dd($data['blogseo']);
-        $data['getRecord'] = Blogsco::select('id','title', 'description', 'image', 'slug')->get()->map(function ($item) {
-            $item->slug = str_replace(' ', '-', $item->slug);
-            return $item;
-        });
-        
         $data['link'] = Scolink::get();
-        
-                //  dd($data['blog']);
+    
+        // Return the view with the $data array
         return view('machine.blog', $data);
     }
+    
+    public function updateDatabase()
+{
+    // Perform the database update
+
+    // Clear the cache for the 'getRecord' data
+    $cacheKey = 'cached_get_record';
+    Cache::forget($cacheKey);
+}
+
+    
+    
     public function contact()
     {
         $data['contact'] = contacts::get();

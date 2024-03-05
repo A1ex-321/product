@@ -13,5 +13,6 @@ class Blogsco extends Model
     protected $fillable = [
         'title','description' ,'image','content'
     ];
+    
  
 }

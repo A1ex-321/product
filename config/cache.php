@@ -14,7 +14,11 @@ return [
     | not explicitly specified when executing a given caching function.
     |
     */
-
+    'redis' => [
+        'driver' => 'redis',
+        'connection' => 'cache',
+        'lock_connection' => 'default',
+    ],
     'default' => env('CACHE_DRIVER', 'file'),
 
     /*
