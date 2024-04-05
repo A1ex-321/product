@@ -75,11 +75,7 @@ class MachineController extends Controller
     
         return view('machine.service', $data);
     }
-    // public function getservice()  
-    // {
-    //     $services = Machineservice::where('is_service', 1)->get();
-    //     return response()->json($services);
-    // }
+
     public function blog()
     {
         // Check if the cache key exists

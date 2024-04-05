@@ -9,17 +9,17 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-col">
                         <div class="logo-part">
-                            <a class="footer-logo text-uppercase">
-                                <img id="al" src="" alt="logo" loading="lazy">
-                            </a>
+                            
+                                <img id="al" src="" aria-label="logo" loading="lazy">
+                            
                         </div>
                         <p class="footer-words" id="foot">
                         </p>
                         <ul id="social-links" class="list-inline footer-social">
-                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="" aria-label="Google"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
                         </ul>
 
 
@@ -70,7 +70,7 @@
                                         <span class="fa fa-home"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <h5>Address</h5>
+                                    <h4 style="color:wheat;">Address</h4>
                                         <p id="address"></p>
                                     </div>
                                 </li>
@@ -79,7 +79,7 @@
                                         <span class="icon-technology-1"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <h6>Call Us On</h6>
+                                        <h4 style="color:wheat;">Call Us On</h4>
                                         <p id="dnumber"></p>
                                     </div>
                                 </li>
@@ -88,7 +88,7 @@
                                         <span class="icon-letter-1"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <h6>Mail Us @</h6>
+                                        <h4 style="color:wheat;">Mail Us @</h4>
                                         <p id="mail"></p>
                                     </div>
                                 </li>
@@ -111,8 +111,8 @@
                         <ul class="list-inline">
                             <li><a href="{{ url('/') }}">home</a></li>
                             <li><a href="{{ url('/service') }}">services</a></li>
-                            <li><a>term &amp; condition</a></li>
-                            <li><a>privacy policy</a></li>
+                            <li>term &amp; condition</li>
+                            <li>privacy policy</li>
                             <li><a href="{{ url('/contact') }}">contact us</a></li>
                         </ul>
                     </nav>
@@ -125,9 +125,9 @@
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Spin.js CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css">
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <script>
    $(document).ready(function() {
     // Fetch the logo from the server and update
@@ -192,6 +192,8 @@ $(document).ready(function() {
                     // Update phone link
                     var phoneLink = 'tel:' + response.profile.dnumber;
                     $('#phoneLink').attr('href', phoneLink);
+                    $('#up').attr('href', phoneLink);
+
 
                     $('#addressLine').text(response.profile.address);
 
@@ -235,6 +237,7 @@ $(document).ready(function() {
         // Update phone link
         var phoneLink = 'tel:' + parsedProfileData.dnumber;
         $('#phoneLink').attr('href', phoneLink);
+        $('#up').attr('href', phoneLink);
 
         $('#addressLine').text(parsedProfileData.address);
 
@@ -326,64 +329,6 @@ if (response && response.service) {
 });
 
 // 
-$(document).ready(function() {
-    const baseUrl = "{{ asset('public/images/') }}";
-    const storageKey = 'serviceData'; // Key for storing data in local storage
-
-    function fetchAndDisplayServices() {
-        // Check if service data is available in local storage
-        const storedServiceData = localStorage.getItem(storageKey);
-
-        // If service data is available in local storage, use it
-        if (storedServiceData) {
-            displayServices(JSON.parse(storedServiceData));
-        }
-
-        // Fetch service data from the server
-        $.ajax({
-            url: '{{ route("getservice") }}',
-            type: 'GET',
-            success: function(response) {
-                // Check if the fetched data is different from the stored data
-                if (JSON.stringify(response) !== storedServiceData) {
-                    // Update local storage with the new data
-                    localStorage.setItem(storageKey, JSON.stringify(response));
-                    displayServices(response);
-                }
-            },
-            error: function(error) {
-                console.error('Error fetching services:', error);
-            }
-        });
-    }
-
-    function displayServices(data) {
-        // Clear existing service data
-        $('#serviceContainer').empty();
-
-        // Iterate through each service and add HTML content
-        data.slice(0, 6).forEach(function(service) {
-            var serviceHtml = `
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-our-service">
-                        <figure class="img-box">
-                            <img src="${baseUrl}/${service.machineimage}" class="enlarge-img" alt="Awesome Image" style="width:100px;height:230px;width:100%;border: 2px solid #f0da37;border-radius: 5px;">
-                        </figure>
-                        <h4 style="font-weight: bold;">${service.machinetitle}</h4>
-                        <p>${service.description.length > 50 ? service.description.substr(0, 100) + '...' : service.description}</p>
-                    </div>
-                </div>
-            `;
-            $('#serviceContainer').append(serviceHtml);
-        });
-    }
-
-    // Initial fetch and display of services
-    fetchAndDisplayServices();
-
-    // Set interval to periodically fetch services (adjust interval as needed)
-    setInterval(fetchAndDisplayServices, 10000); // 600000 milliseconds = 10 minutes
-});
 
 
 // $(document).ready(function() {

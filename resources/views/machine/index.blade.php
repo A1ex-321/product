@@ -4,7 +4,14 @@
 <style>
     /* CSS for image */
 
+    #err{
+    height:230px;
+    width:100%;
+    border: 2px solid #f0da37;
+    border-radius: 5px;
+        object-fit: cover; /* Adjusts the image to cover the entire container while maintaining aspect ratio */
 
+}
     /* Hover effect to enlarge image */
     .enlarge-img {
         transition: transform 0.3s ease;
@@ -97,7 +104,7 @@
 <!--End rev slider wrapper-->
 
 
-<section class="about-us sec-padd-top">
+<!-- <section class="about-us sec-padd-top">
     <div class="container">
         <div class="row">
             @foreach ($content as $machineService)
@@ -124,6 +131,35 @@
             @endif
             @endforeach
 
+        </div>
+    </div>
+</section> -->
+<section class="about-us sec-padd-top">
+    <div class="container">
+        <div class="row">
+            @foreach ($content as $machineService)
+                @if ($machineService->image && $machineService->title && $machineService->spantitle)
+                    <div class="col-md-6 col-sm-12">
+                        <figure class="about-img">
+                            <img src="{{ asset('public/images/' . $machineService->image) }}" alt="about titan builders photo" width="100%" height="auto">
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="about-text">
+                            <h2>
+                                {{ $machineService->title }} <span class="thm-color">{{ $machineService->spantitle }}</span>
+                            </h2>
+                            <div class="text">
+                                @if ($machineService->content)
+                                    <p>{{ $machineService->content }}</p>
+                                @else
+                                    <p>No description available</p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
         </div>
     </div>
 </section>
@@ -158,9 +194,9 @@
                     <div class="single-our-service">
                         <figure class="img-box">
                             <!-- Assuming 'machineimage' contains the path of the image relative to your public directory -->
-                            <img src="{{ asset('public/images/'.$item->machineimage) }}" class="enlarge-img" alt="Awesome Image" style="height:230px;width:100%;border: 2px solid #f0da37;border-radius: 5px;">
+                            <img src="{{ asset('public/images/'.$item->machineimage) }}" class="enlarge-img" alt="Awesome Image" id="err">
                         </figure>
-                        <h4 style="font-weight: bold;">{{ $item->machinetitle }}</h4>
+                        <h3 style="font-weight: bold;">{{ $item->machinetitle }}</h3>
                         <p>{{ substr($item->description, 0, 100) }}{{ strlen($item->description) > 100 ? '...' : '' }}</p> <!-- Limiting description to 100 characters -->
                     </div>
                 </div>
@@ -204,6 +240,14 @@
         // Display the service content
         document.getElementById("our-services").style.display = "block";
     });
+</script>
+<script>
+
+document.getElementById('yourNextPageButtonId').addEventListener('click', function() {
+    var api = revapi.revnext(); // Assume revapi is your Revolution Slider API variable
+    // Optionally, directly jump to a specific slide if needed
+    // api.revshowslide(index);
+});
 </script>
 
 @endpush

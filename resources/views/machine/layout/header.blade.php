@@ -80,7 +80,6 @@
 @endif
 
 
-
     <!-- responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- For IE -->
@@ -192,8 +191,8 @@ align-items: center;    }
                 <div class="row">
                     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
                         <div class="logo">
-                            <a href="{{ url('/') }}">
-                                <img id="al1" src="" loading="lazy" alt=""  height="60px">
+                            <a href="{{ url('/') }}" aria-label="Back to home">
+                                <img id="al1" src="" loading="lazy" aria-label="Back to home"  style="width: 210px; height: 60px;">
                             </a>
                         </div>
                     </div>
@@ -247,7 +246,7 @@ align-items: center;    }
                             <!--Start mainmenu-->
                             <nav class="main-menu">
                                 <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <button type="button" class="navbar-toggle" aria-label="Toggle navigation" data-toggle="collapse" data-target=".navbar-collapse">
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
@@ -331,7 +330,7 @@ Blogs</a>
 
                             </div>
                             <div class="link_btn float_right">
-                                <a href="{{ url('/contact') }}" class="thm-btn bg-clr1">Call Us</a>
+                                <a href="" class="thm-btn bg-clr1" id="up">Call Us</a>
                             </div>
                         </div>
 
