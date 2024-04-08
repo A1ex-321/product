@@ -281,12 +281,12 @@
 
 
                                             </div>
+                                           
+
                                             <div class="form-group">
                                                 <label for="editor">Content</label>
-                                                <textarea name="content" id="editor" style="height: 250px; visibility: hidden;">{{$getRecord->content}}</textarea>
+                                                <textarea name="content" id="description" cols="30" rows="10">{{$getRecord->content}}</textarea>
                                             </div>
-
-
                                             <!-- /.card-body -->
                                             <div class="card-footer">
                                                 <button type="submit" class="btn btn-info">Submit</button>
@@ -309,7 +309,20 @@
         </div>
 
 
+       
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $('#description').summernote({
+            placeholder: 'description...',
+            tabsize:1,
+            height:300
+        });
+    </script>
 
         <!-- Your scripts -->
         <!-- ... (previous code) ... -->

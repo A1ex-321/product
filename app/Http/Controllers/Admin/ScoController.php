@@ -23,9 +23,10 @@ use App\Models\work;
 use App\Models\solowork;
 use App\Models\soloblog;
 use Illuminate\Support\Facades\Validator;
-
-
+use DOMDocument;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+
 
 use Illuminate\Support\Facades\Log;
 use App\Models\Contentblog;
@@ -449,11 +450,58 @@ class ScoController extends Controller
     }
     public function create_blogsco(Request $request)
     {
-        //  dd($request->all());
+        //   dd($request->all());
+
         $data = new blogsco();
         $data->title = $request->title;
         $data->description = $request->description;
-        $data->content = $request->content;
+
+
+
+        $content = $request->content;
+
+        $dom = new DOMDocument();
+        $dom->loadHTML($content,9);
+
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $key => $img) {
+            // Get the source attribute value of the image
+            $src = $img->getAttribute('src');
+            
+            // Check if the source attribute value is not empty and contains a comma
+            if (!empty($src) && strpos($src, ',') !== false) {
+                // Decode the base64-encoded image data
+                $decodedData = base64_decode(explode(',', $src)[1]);
+                        
+                // Generate a unique image name
+                $image_name = '_' . time(). $key.'.png';
+                
+                // Set the path where you want to save the image within your assets directory
+                $path = public_path('/images').'/'.$image_name;
+                
+                // Save the image to the desired directory
+                file_put_contents($path, $decodedData);
+                
+                // Get the base URL for your assets directory
+                $base_url = asset('public/images').'/'.$image_name;
+                
+                // Set the image source attribute to the base URL
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $base_url);
+            }
+        }
+        
+        
+        
+        
+        // Save the modified HTML content
+        $content1 = $dom->saveHTML();
+        $data->content = $content1;
+        
+
+
+
         if ($request->hasFile('image')) {
             $images = $request->file('image');
 
@@ -492,7 +540,51 @@ class ScoController extends Controller
         $data = blogsco::find($id);
         $data->title = $request->title;
         $data->description = $request->description;
-        $data->content = $request->content;
+
+
+        $content = $request->content;
+
+        $dom = new DOMDocument();
+        $dom->loadHTML($content,9);
+
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($images as $key => $img) {
+            // Get the source attribute value of the image
+            $src = $img->getAttribute('src');
+            
+            // Check if the source attribute value is not empty and contains a comma
+            if (!empty($src) && strpos($src, ',') !== false) {
+                // Decode the base64-encoded image data
+                $decodedData = base64_decode(explode(',', $src)[1]);
+                        
+                // Generate a unique image name
+                $image_name = '_' . time(). $key.'.png';
+                
+                // Set the path where you want to save the image within your assets directory
+                $path = public_path('/images').'/'.$image_name;
+                
+                // Save the image to the desired directory
+                file_put_contents($path, $decodedData);
+                
+                // Get the base URL for your assets directory
+                $base_url = asset('public/images').'/'.$image_name;
+                
+                // Set the image source attribute to the base URL
+                $img->removeAttribute('src');
+                $img->setAttribute('src', $base_url);
+            }
+        }
+        
+        
+        
+        
+        // Save the modified HTML content
+        $content1 = $dom->saveHTML();
+        $data->content = $content1;
+
+
+
         if ($request->hasFile('image')) {
             $images = $request->file('image');
 
