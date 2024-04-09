@@ -21,11 +21,11 @@ class AuthController extends Controller
     public function auth_login_admin(Request $request){
         // dd($request->all());
         $remember = !empty($request->remember)?true:false;
-        if(Auth::attempt(['email'=> $request->email, 'password'=> $request->password,  'status'=>0,'role'=>'SuperAdmin'], $remember)){
+        if(Auth::attempt(['email'=> $request->email, 'password'=> $request->password,  'status'=>0], $remember)){
             return redirect('admin/message');
             
         }
-        else if(Auth::attempt(['email'=> $request->email, 'password'=> $request->password, 'status'=>0,'role'=>'Admin'], $remember)){
+        else if(Auth::attempt(['email'=> $request->email, 'password'=> $request->password, 'status'=>0], $remember)){
             return redirect('admin/message');
 
         }

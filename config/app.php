@@ -158,7 +158,7 @@ return [
     'providers' => [
         // ...
         App\Providers\DynamicConfigServiceProvider::class,
-        
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+
     ])->toArray(),
 
     /*
@@ -191,7 +193,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-        'Image' => Image::class,
+        // 'Image' => Image::class,
 
     ])->toArray(),
 

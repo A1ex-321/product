@@ -39,7 +39,7 @@ class AdminMiddleware
 {
         //  dd(auth()->check(), auth()->user()->role);
 
-    if (auth()->check() && auth()->user()->role === 'Admin' ) {
+    if (auth()->check() ) {
        return $next($request);
 
     }

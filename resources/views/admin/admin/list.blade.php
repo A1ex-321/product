@@ -32,7 +32,7 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <section class="section">		For general inquiries, partnership opportunities, or any other questions
+    <section class="section">		
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -48,7 +48,7 @@
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Status</th>
+                                        <th>Permission</th>
                                         <th>Role</th>
                                         <th>Action</th>
                                     </tr>
@@ -59,7 +59,14 @@
                                         <td>{{$value->id}}</td>
                                         <td>{{$value->name}}</td>
                                         <td>{{$value->email}}</td>
-                                        <td>{{$value->status == 0 ? 'Active' : 'Inactive'}}</td>
+                                        <!-- <td>{{$value->status == 0 ? 'Active' : 'Inactive'}}</td> -->
+                                        <td>
+                                            @if(!empty($value->getRoleNames()))
+                                            @foreach($value->getRoleNames() as $rolename)
+                                            <label class="badge bg-primary mx-1">{{$rolename}}</label>
+                                            @endforeach
+                                            @endif
+                                        </td>
                                         <td>{{$value->role == 'Admin' ? 'Admin' : 'Super Admin'}}</td>
                                         <td>
                                             <a href="{{url('admin/admin/edit/'.$value->id)}}" class="btn btn-info"><i

@@ -20,9 +20,15 @@ use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\Contentblog;
+use Illuminate\Support\Facades\Gate;
 
 class BlogController extends Controller
 {
+    public function __construct()
+    {
+    $this->middleware('permission:delete posts',['only' => ['gallery_delete']]);
+        
+    }
     public function uploadMultiple(Request $request)
     {
         if ($request->hasFile('multipleimage')) {
@@ -275,6 +281,9 @@ class BlogController extends Controller
     }
     public function gallery_delete($id, Request $request)
     {
+        if (!Gate::allows('delete posts')) {
+            abort(404);
+        }
         $image = Gallery::find($id);
         $image->delete();
         return redirect('admin/logo/logo')->with('success', 'Deleted successful');

@@ -31,7 +31,37 @@ use App\Http\Controllers\SitemapController;
 
 // use App\Http\Controllers\Admin\Website;
 // use App\Http\Controllers\web\Website;
+Route::group(['middleware' => ['role:Super_Admin|Admin']],function () {
 
+
+    Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
+//admin
+Route::get('admin/admin/list', [AdminController::class, 'admin_list']);
+Route::get('admin/admin/add', [AdminController::class, 'admin_add']);
+Route::post('admin/admin/add', [AdminController::class, 'add_admin_insert']);
+Route::get('admin/admin/edit/{id}', [AdminController::class, 'add_admin_edit']);
+Route::post('admin/admin/edit/{id}', [AdminController::class, 'admin_add_update']);
+Route::get('admin/admin/delete/{id}', [AdminController::class, 'admin_add_delete']);
+//role
+Route::get('admin/role/role', [AdminController::class, 'role_list']);
+Route::get('admin/role/permissionto/{id}', [AdminController::class, 'addpermission']);
+
+Route::post('admin/role/givepermission/{id}', [AdminController::class, 'givepermission']);
+   //logo
+   Route::get('admin/logo/logo', [BlogController::class, 'logo'])->name('blog-logo');
+   Route::post('admin/addlogo/logo', [BlogController::class, 'create_logo'])->name('create-logo');
+   Route::get('admin/logo/delete/{id}', [BlogController::class, 'gallery_delete'])->name('delete-brand');
+      //   SCO blog no sco
+      Route::get('admin/blogseo/bloglist', [ScoController::class, 'bloglist'])->name('blogsco-list');
+      Route::post('admin/blogseo/addblog', [ScoController::class, 'create_blogsco'])->name('create-blogsco');
+      Route::get('admin/blogseo/delete/{id}', [ScoController::class, 'blogsco_delete']);
+      Route::get('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_edit']);
+      Route::post('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_update'])->name('blogsco-update');
+  
+      Route::post('admin/sco/edit/{id}', [ScoController::class, 'sco_update'])->name('sco-update');
+      Route::get('view_blogcontent/{id}', [ScoController::class, 'content_view'])->name('view_blogcontent');
+ 
+});
 
 
 /*
@@ -44,17 +74,11 @@ use App\Http\Controllers\SitemapController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// role:SuperAdmin
 Route::middleware('SuperAdmin')->group(function(){
     //  Route::get('admin/brand/mail1', function () {Mail::to('@gmail.com')->send(new SendMail($data));});
-    Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
-//admin
-Route::get('admin/admin/list', [AdminController::class, 'admin_list']);
-Route::get('admin/admin/add', [AdminController::class, 'admin_add']);
-Route::post('admin/admin/add', [AdminController::class, 'add_admin_insert']);
-Route::get('admin/admin/edit/{id}', [AdminController::class, 'add_admin_edit']);
-Route::post('admin/admin/edit/{id}', [AdminController::class, 'admin_add_update']);
-Route::get('admin/admin/delete/{id}', [AdminController::class, 'admin_add_delete']);
+
+
 
 
 
@@ -187,7 +211,7 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 
-    Route::middleware('auth')->group(function () {
+    Route::group(['middleware' => ['role:']],function () {
             // service
     Route::get('admin/service1/list', [MachineController1::class, 'client_list'])->name('ser-list');
     Route::post('admin/service1/add', [MachineController1::class, 'client_add'])->name('add-client');
@@ -234,19 +258,9 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     //message
     Route::get('admin/message', [MailController::class, 'maillist']);
     Route::get('admin/brand/deletemail/{id}', [MailController::class, 'deletemail']);
-        //   SCO blog no sco
-        Route::get('admin/blogseo/bloglist', [ScoController::class, 'bloglist'])->name('blogsco-list');
-        Route::post('admin/blogseo/addblog', [ScoController::class, 'create_blogsco'])->name('create-blogsco');
-        Route::get('admin/blogseo/delete/{id}', [ScoController::class, 'blogsco_delete']);
-        Route::get('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_edit']);
-        Route::post('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_update'])->name('blogsco-update');
-    
-        Route::post('admin/sco/edit/{id}', [ScoController::class, 'sco_update'])->name('sco-update');
-        Route::get('view_blogcontent/{id}', [ScoController::class, 'content_view'])->name('view_blogcontent');
+  
         //logo
-        Route::get('admin/logo/logo', [BlogController::class, 'logo'])->name('blog-logo');
-        Route::post('admin/addlogo/logo', [BlogController::class, 'create_logo'])->name('create-logo');
-        Route::get('admin/logo/delete/{id}', [BlogController::class, 'gallery_delete'])->name('delete-brand');
+   
         //doubt
         Route::get('admin/blog/list', [BlogController::class, 'list'])->name('blog-list');
 

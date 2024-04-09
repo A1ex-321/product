@@ -99,9 +99,16 @@
                 <tr>
                     <td>{{ $counter++ }}</td>
                     <td><img src="{{ asset('public/images/' . $value->image) }}" alt="Image" width="80" height="80"></td>
+                    @can('delete posts')
                     <td>
-                        <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('admin/logo/delete/'.$value->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+    <a onclick="return confirm('Are you sure you want to delete?')" href="{{ url('admin/logo/delete/'.$value->id) }}" class="btn btn-danger">
+        <i class="fas fa-trash"></i> Delete
+    </a>
+
+                        
+
                     </td>
+                    @endcan
                 </tr>
                 @endforeach
             </tbody>

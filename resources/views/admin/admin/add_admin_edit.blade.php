@@ -38,8 +38,8 @@
 
             <div class="col-md-12">
               <!-- jquery validation -->
-              <div class="card " >
-                                <div class="card-header" style="background-color:#6e9ee6;" >
+              <div class="card ">
+                <div class="card-header" style="background-color:#6e9ee6;">
                   <h3 class="card-title">Editing Added Admin <small>Page</small></h3>
                 </div>
                 <!-- /.card-header -->
@@ -60,33 +60,43 @@
                       </div>
                     </div>
                     <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="exampleInputPassword1">Status</label>
-                      <select name="status" class="form-control">
-                        <option {{($getRecord->status==0)? 'selected':''}} value="0">Active</option>
-                        <option {{($getRecord->status==1)? 'selected':''}} value="1">Inactive</option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="exampleInputPassword1">role</label>
-                      <select name="role" class="form-control">
-                        <option {{($getRecord->role=='Admin')? 'selected':''}} value="Admin">Admin</option>
-                        <option {{($getRecord->role=='SuperAdmin')? 'selected':''}} value="SuperAdmin">SuperAdmin</option>
-                      </select>
-                    </div>
-                    </div>
-                    <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" name="" class="form-control" id="exampleInputPassword1" placeholder="Password" value="{{$getRecord->password}}" readonly>
+                      <div class="form-group col-md-6">
+                        <label for="exampleInputPassword1">Status</label>
+                        <select name="status" class="form-control">
+                          <option {{($getRecord->status==0)? 'selected':''}} value="0">Active</option>
+                          <option {{($getRecord->status==1)? 'selected':''}} value="1">Inactive</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="exampleInputPassword1">role</label>
+                        <select name="role" class="form-control">
+                          <option {{($getRecord->role=='Admin')? 'selected':''}} value="Admin">Admin</option>
+                          <option {{($getRecord->role=='SuperAdmin')? 'selected':''}} value="SuperAdmin">SuperAdmin</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+    <label for="role">Permission</label>
+    <select name="permission[]" class="form-control" multiple required>
+        <option value="" disabled selected>select permission</option>
+        @foreach($roles as $item)
+            <option value="{{$item}}" {{in_array($item, $userRoles) ? 'selected' : ''}}>{{$item}}</option>
+        @endforeach
+    </select>
+</div>
 
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="exampleInputPassword1">Enter your New Password</label>
-                      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="" class="form-control" id="exampleInputPassword1" placeholder="Password" value="{{$getRecord->password}}" readonly>
+
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="exampleInputPassword1">Enter your New Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="">
+                      </div>
                     </div>
-                    </div>
-                   
+
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
