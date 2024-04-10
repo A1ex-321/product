@@ -7,7 +7,7 @@
     .ck-editor__editable_inline {
         height: 470px;
     }
-    
+
     @media (min-width: 1200px) {
         .container {
             width: 996px !important;
@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Blog</title>
-   
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -42,7 +42,11 @@
                 <div class="container-fluid">
                     <div class="row mb-0">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Add blog</h1>
+                        @can('create posts')
+        <h1 class="m-0">Add blog</h1>
+@endcan
+
+
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -62,10 +66,12 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                        <div class="card card-primary">
+                            <div class="card card-primary">
                                 <div class="card-header" style="background-color:
 #6e9ee6
 ;">
+                                                    @can('create posts')
+
                                     <h3 class="card-title">Add Blog data <small></small></h3>
                                 </div>
                                 <div class="container">
@@ -110,6 +116,7 @@
 
 
                                 </div>
+                                @endcan
 
 
                             </div>
@@ -120,62 +127,70 @@
 
 
             <section class="section">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Enabled Blogs</h5>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Enabled Blogs</h5>
 
-                        <!-- Table with stripped rows -->
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover datatable">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Thumb Image</th>
-                                        <th>View Content</th>
-                                        <th>Edit & Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php $counter = 1; @endphp
-                                    @foreach ($getRecord as $value)
-                                    <tr>
-                                        <td>{{ $counter++ }}</td>
-                                        <td>{{ $value->title }}</td>
-                                        <td>{{ $value->description }}</td>
-                                        <td><img src="{{ asset('public/images/' . $value->image) }}" alt="Thumb Image" style="max-width: 100px; max-height: 100px;"></td>
-                                        <td>
+                                    <!-- Table with stripped rows -->
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover datatable">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Description</th>
+                                                    <th>Thumb Image</th>
+                                                    <!-- <th>View Content</th> -->
+                                                    <th>Edit & Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @php $counter = 1; @endphp
+                                                @foreach ($getRecord as $value)
+                                                <tr>
+                                                    <td>{{ $counter++ }}</td>
+                                                    <td>{{ $value->title }}</td>
+                                                    <td>{{ $value->description }}</td>
+                                                    <td><img src="{{ asset('public/images/' . $value->image) }}" alt="Thumb Image" style="max-width: 100px; max-height: 100px;"></td>
+                                                    <!-- <td>
                                             <button class="btn btn-success">
                                                 <a href="{{route('view_blogcontent', ['id' => $value->id])}}" style="color: #fff; text-decoration: none;">
                                                     <i class="fas fa-eye"></i>  Content
                                                 </a>
                                             </button>
-                                        </td>
-                                        <td>
-                                            <a href="{{url('admin/blogseo/edit/'.$value->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                            <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('admin/blogseo/delete/'.$value->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- End Table with stripped rows -->
+                                        </td> -->
 
+                                                    <td>
+                                                        @can('edit posts')
+
+                                                        <a href="{{url('admin/blogseo/edit/'.$value->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                        @endcan
+                                                        @can('delete posts')
+                                                        <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('admin/blogseo/delete/'.$value->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                        @endcan
+
+                                                    </td>
+
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- End Table with stripped rows -->
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-@include('admin.layouts.message')
+            </section>
+            @include('admin.layouts.message')
 
             <!-- Main content -->
-           
+
             <!-- /.content -->
         </div>
 
@@ -183,15 +198,15 @@
 
 
 
-    
+
         <script>
-        $('#description').summernote({
-            placeholder: 'description...',
-            tabsize:1,
-            height:300
-        });
-    </script>
-</script>
+            $('#description').summernote({
+                placeholder: 'description...',
+                tabsize: 1,
+                height: 300
+            });
+        </script>
+        </script>
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">

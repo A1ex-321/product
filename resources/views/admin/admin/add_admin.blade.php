@@ -73,14 +73,15 @@
                       </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                       <label for="role">Role</label>
                       <select name="role" class="form-control" required>
                         <option value="Admin">Admin</option>
                         <option value="SuperAdmin">Super Admin</option>
                       </select>
-                    </div>
-                    <div class="form-group">
+                    </div> -->
+                    
+                    <!-- <div class="form-group">
                       <label for="role">Permission</label>
                       <select name="permission[]" class="form-control" multiple required>
                         <option value="" disabled selected>select permission</option>
@@ -88,7 +89,18 @@
                         <option value="{{$item}}">{{$item}}</option>
                         @endforeach
                       </select>
-                    </div>
+                    </div> -->
+                    <div class="form-group">
+    <label for="role">Permission</label>
+    <select name="permission[]" class="form-control" multiple required>
+        <option value="" disabled selected>select permission</option>
+        @foreach($role as $item)
+            @if ($item != 'All')
+                <option value="{{ $item }}">{{ $item }}</option>
+            @endif
+        @endforeach
+    </select>
+</div>
 
                   </div>
                   <!-- /.card-body -->

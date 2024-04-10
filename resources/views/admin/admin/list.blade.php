@@ -49,7 +49,6 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Permission</th>
-                                        <th>Role</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -60,14 +59,23 @@
                                         <td>{{$value->name}}</td>
                                         <td>{{$value->email}}</td>
                                         <!-- <td>{{$value->status == 0 ? 'Active' : 'Inactive'}}</td> -->
-                                        <td>
+                                        <!-- <td>
                                             @if(!empty($value->getRoleNames()))
                                             @foreach($value->getRoleNames() as $rolename)
                                             <label class="badge bg-primary mx-1">{{$rolename}}</label>
                                             @endforeach
                                             @endif
-                                        </td>
-                                        <td>{{$value->role == 'Admin' ? 'Admin' : 'Super Admin'}}</td>
+                                        </td> -->
+                                        <td>
+    @if (!empty($value->getRoleNames()))
+        @foreach ($value->getRoleNames() as $rolename)
+            @if ($rolename != 'All')
+                <label class="badge bg-primary mx-1">{{ $rolename }}</label>
+            @endif
+        @endforeach
+    @endif
+</td>
+
                                         <td>
                                             <a href="{{url('admin/admin/edit/'.$value->id)}}" class="btn btn-info"><i
                                                     class="fas fa-edit"></i></a>

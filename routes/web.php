@@ -31,101 +31,39 @@ use App\Http\Controllers\SitemapController;
 
 // use App\Http\Controllers\Admin\Website;
 // use App\Http\Controllers\web\Website;
-Route::group(['middleware' => ['role:Super_Admin|Admin']],function () {
+
+Route::group(['middleware' => ['role:Super_Admin|Admin|All']], function () {
 
 
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
-//admin
-Route::get('admin/admin/list', [AdminController::class, 'admin_list']);
-Route::get('admin/admin/add', [AdminController::class, 'admin_add']);
-Route::post('admin/admin/add', [AdminController::class, 'add_admin_insert']);
-Route::get('admin/admin/edit/{id}', [AdminController::class, 'add_admin_edit']);
-Route::post('admin/admin/edit/{id}', [AdminController::class, 'admin_add_update']);
-Route::get('admin/admin/delete/{id}', [AdminController::class, 'admin_add_delete']);
-//role
-Route::get('admin/role/role', [AdminController::class, 'role_list']);
-Route::get('admin/role/permissionto/{id}', [AdminController::class, 'addpermission']);
+    //admin
+    Route::get('admin/admin/list', [AdminController::class, 'admin_list']);
+    Route::get('admin/admin/add', [AdminController::class, 'admin_add']);
+    Route::post('admin/admin/add', [AdminController::class, 'add_admin_insert']);
+    Route::get('admin/admin/edit/{id}', [AdminController::class, 'add_admin_edit']);
+    Route::post('admin/admin/edit/{id}', [AdminController::class, 'admin_add_update']);
+    Route::get('admin/admin/delete/{id}', [AdminController::class, 'admin_add_delete']);
+    //role
+    Route::get('admin/role/role', [AdminController::class, 'role_list']);
+    Route::get('admin/role/permissionto/{id}', [AdminController::class, 'addpermission']);
 
-Route::post('admin/role/givepermission/{id}', [AdminController::class, 'givepermission']);
-   //logo
-   Route::get('admin/logo/logo', [BlogController::class, 'logo'])->name('blog-logo');
-   Route::post('admin/addlogo/logo', [BlogController::class, 'create_logo'])->name('create-logo');
-   Route::get('admin/logo/delete/{id}', [BlogController::class, 'gallery_delete'])->name('delete-brand');
-      //   SCO blog no sco
-      Route::get('admin/blogseo/bloglist', [ScoController::class, 'bloglist'])->name('blogsco-list');
-      Route::post('admin/blogseo/addblog', [ScoController::class, 'create_blogsco'])->name('create-blogsco');
-      Route::get('admin/blogseo/delete/{id}', [ScoController::class, 'blogsco_delete']);
-      Route::get('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_edit']);
-      Route::post('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_update'])->name('blogsco-update');
-  
-      Route::post('admin/sco/edit/{id}', [ScoController::class, 'sco_update'])->name('sco-update');
-      Route::get('view_blogcontent/{id}', [ScoController::class, 'content_view'])->name('view_blogcontent');
- 
-});
+    Route::post('admin/role/givepermission/{id}', [AdminController::class, 'givepermission']);
+    //logo
+    Route::get('admin/logo/logo', [BlogController::class, 'logo'])->name('blog-logo');
+    Route::post('admin/addlogo/logo', [BlogController::class, 'create_logo'])->name('create-logo');
+    Route::get('admin/logo/delete/{id}', [BlogController::class, 'gallery_delete'])->name('delete-brand');
+    //   SCO blog no sco
+    Route::get('admin/blogseo/bloglist', [ScoController::class, 'bloglist'])->name('blogsco-list');
+    Route::post('admin/blogseo/addblog', [ScoController::class, 'create_blogsco'])->name('create-blogsco');
+    Route::get('admin/blogseo/delete/{id}', [ScoController::class, 'blogsco_delete']);
+    Route::get('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_edit']);
+    Route::post('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_update'])->name('blogsco-update');
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-// role:SuperAdmin
-Route::middleware('SuperAdmin')->group(function(){
-    //  Route::get('admin/brand/mail1', function () {Mail::to('@gmail.com')->send(new SendMail($data));});
-
-
-
-
-
-    Route::get('admin/category/list', [CategoryController::class, 'category_list']);
-    Route::get('admin/category/add', [CategoryController::class, 'category_add']);
-    Route::post('admin/category/add', [CategoryController::class, 'category_insert']);
-    Route::get('admin/category/edit/{id}', [CategoryController::class, 'category_edit']);
-    Route::post('admin/category/edit/{id}', [CategoryController::class, 'category_update']);
-    Route::get('admin/category/delete/{id}', [CategoryController::class, 'category_delete']);
-
-
-    Route::get('admin/brand/add', [MailController::class, 'brand_add'])->name('add-new');
-    Route::post('admin/brand/add', [MailController::class, 'store']);
-    Route::get('admin/brand/list', [MailController::class, 'list'])->name('brand-list');
-    Route::get('admin/brand/edit/{id}', [MailController::class, 'brand_edit'])->name('edit-brand');
-    Route::post('admin/brand/edit/{id}', [MailController::class, 'brand_update']);
-    Route::get('admin/brand/delete/{id}', [MailController::class, 'brand_delete'])->name('delete-brand');
- 
-    Route::get('admin/franchiselist', [FranchiseController::class, 'list'])->name('franchiselist');
-    Route::get('admin/franchise/delete/{id}', [FranchiseController::class, 'delete']);
-
-
-
-    // Route::get('admin/brand/mail/{arg1}/{arg2}', [BrandController::class, 'mail']);
-
-
-
-
-    Route::resource('admin/products', ProductController::class);
-
-    Route::get('admin/allOrders', [OrdersController::class, 'listOrders'])->name('list-orders');
-    Route::patch('/orders/{orderId}/update-status', [OrdersController::class, 'updateStatus'])->name('orders.updateStatus');
-    Route::delete('/orders/{orderId}', [OrdersController::class, 'destroy'])->name('orders.destroy');
-    Route::get('admin/orders/{orderId}/invoice', [OrdersController::class, 'generateInvoice'])->name('orders.generateInvoice');
-    Route::resource('admin/gallery', GalleryController::class);
-    // Route::get('mail1', [Website::class, 'mail']);
-    
-    Route::post('/upload-images', [DemoController::class, 'upload'])->name('upload.images');
-    Route::post('image/upload/store', [DemoController::class, 'fileStore']);
-    Route::post('/image/remove', 'DemoController@fileRemove')->name('file.remove');
-    // routes/web.php or routes/web/web.php (depending on your Laravel version)
-
-
-    Route::post('upload-multiple', [BlogController::class, 'uploadMultiple']);
-    Route::get('fetch-images', [BlogController::class, 'fetchImages'])->name('fetch.images');
-    //   Route::delete('delete-image/{filename}', [BlogController::class, 'deleteImage'])->name('delete.image');
-    Route::delete('/delete-image/{id}', [BlogController::class, 'deleteimage']);
+    Route::post('admin/sco/edit/{id}', [ScoController::class, 'sco_update'])->name('sco-update');
+    Route::get('view_blogcontent/{id}', [ScoController::class, 'content_view'])->name('view_blogcontent');
+    //message
+    Route::get('admin/message', [MailController::class, 'maillist']);
+    Route::get('admin/brand/deletemail/{id}', [MailController::class, 'deletemail']);
     //   SCO link
     Route::get('admin/seo/seolist', [ScoController::class, 'scolist'])->name('sco-list');
     Route::post('admin/seo/addlink', [ScoController::class, 'create_link'])->name('create-link');
@@ -138,6 +76,46 @@ Route::middleware('SuperAdmin')->group(function(){
     Route::get('admin/home/delete/{id}', [ScoController::class, 'home_delete']);
     Route::get('admin/home/edit/{id}', [ScoController::class, 'home_edit']);
     Route::post('admin/home/edit/{id}', [ScoController::class, 'home_update'])->name('home-update');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+// role:SuperAdmin
+Route::middleware('SuperAdmin')->group(function () {
+    //  Route::get('admin/brand/mail1', function () {Mail::to('@gmail.com')->send(new SendMail($data));});
+
+
+
+
+
+
+
+
+
+
+    // Route::get('admin/brand/mail/{arg1}/{arg2}', [BrandController::class, 'mail']);
+
+
+
+
+
+    // Route::get('mail1', [Website::class, 'mail']);
+
+
+    // routes/web.php or routes/web/web.php (depending on your Laravel version)
+
+
+
+    //   Route::delete('delete-image/{filename}', [BlogController::class, 'deleteImage'])->name('delete.image');
+
     //   SCO About
     Route::get('admin/about/aboutlist', [ScoController::class, 'aboutlist'])->name('about-list');
     Route::post('admin/about/addabout', [ScoController::class, 'create_about'])->name('create-about');
@@ -183,108 +161,58 @@ Route::middleware('SuperAdmin')->group(function(){
     Route::post('admin/oneblog/edit/{id}', [ScoController::class, 'oneblog_update'])->name('oneblog-update');
     Route::post('/check-slug-availability', [ScoController::class, 'checkSlugAvailability']);
     Route::post('/validate-slug', 'ScoController@validateSlug')->name('validate-slug');
-
-
-
 });
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
- Route::get('/', [MachineController::class, 'index']);
- Route::get('/about', [MachineController::class, 'about']);
- Route::get('/service', [MachineController::class, 'service']);
- Route::get('/getservice', [MachineController::class, 'getservice'])->name('getservice');
+Route::get('/', [MachineController::class, 'index']);
+Route::get('/about', [MachineController::class, 'about']);
+Route::get('/service', [MachineController::class, 'service']);
+Route::get('/getservice', [MachineController::class, 'getservice'])->name('getservice');
 
- Route::get('/blog', [MachineController::class, 'blog']);
- Route::get('/contact', [MachineController::class, 'contact']);
- Route::get('/singleblog', [MachineController::class, 'singleblog']);
- Route::get('admin', [AuthController::class, 'login']);
- Route::post('admin', [AuthController::class, 'auth_login_admin']);
- Route::get('admin/logout', [AuthController::class, 'logout_admin']);
- Route::get('/header', [MachineController::class, 'get_logo1']);
- Route::post('/contact', [MachineController::class, 'store'])->name('contact.store');
- Route::get('/profile', [MachineController::class, 'get_profile']);
- Route::get('/service1', [MachineController::class, 'get_service']);
- Route::get('/singleblog/{id}/{slug}', [MachineController::class, 'get_blog']);
- Route::get('/allget', [MachineController::class, 'get_all']);
- Route::get('/singleblog/{id}', [MachineController::class, 'get_single_blog']);
- Route::get('sitemap.xml', [SitemapController::class, 'index']);
+Route::get('/blog', [MachineController::class, 'blog']);
+Route::get('/contact', [MachineController::class, 'contact']);
+Route::get('/singleblog', [MachineController::class, 'singleblog']);
+Route::get('admin', [AuthController::class, 'login']);
+Route::post('admin', [AuthController::class, 'auth_login_admin']);
+Route::get('admin/logout', [AuthController::class, 'logout_admin']);
+Route::get('/header', [MachineController::class, 'get_logo1']);
+Route::post('/contact', [MachineController::class, 'store'])->name('contact.store');
+Route::get('/profile', [MachineController::class, 'get_profile']);
+Route::get('/service1', [MachineController::class, 'get_service']);
+Route::get('/singleblog/{id}/{slug}', [MachineController::class, 'get_blog']);
+Route::get('/allget', [MachineController::class, 'get_all']);
+Route::get('/singleblog/{id}', [MachineController::class, 'get_single_blog']);
+Route::get('sitemap.xml', [SitemapController::class, 'index']);
 
 
 
-    Route::group(['middleware' => ['role:']],function () {
-            // service
-    Route::get('admin/service1/list', [MachineController1::class, 'client_list'])->name('ser-list');
-    Route::post('admin/service1/add', [MachineController1::class, 'client_add'])->name('add-client');
-    Route::post('admin/client/test', [MachineController1::class, 'test_add'])->name('add-test');
-    Route::get('admin/client/edit/{id}', [MachineController1::class, 'clientedit']);
-    Route::post('admin/client/update/{id}', [MachineController1::class, 'client_update'])->name('updateclient');
-    Route::post('admin/service1/update/{id}', [MachineController1::class, 'client_update1'])->name('updateclient1');
-    Route::get('admin/service1/edit/{id}', [MachineController1::class, 'serviceedit']);
-    Route::post('admin/service2/add', [MachineController1::class, 'service_add'])->name('add-service');
-    Route::get('admin/addclient/deleteclient/{id}', [MachineController1::class, 'deleteclient']);
-    
-    Route::get('admin/test/delete/{id}', [MachineController1::class, 'testdelete']);
-//Banner
-    Route::get('admin/Banner/Bannerlist', [MachineController1::class, 'Bannerlist'])->name('Banner-list');
-    Route::post('admin/banner/add', [MachineController1::class, 'create_banner'])->name('create-banner');
-    Route::get('admin/banner/delete/{id}', [MachineController1::class, 'banner_delete']);
-    Route::get('admin/banner/edit/{id}', [MachineController1::class, 'banner_edit']);
-    Route::post('admin/banner/update/{id}', [MachineController1::class, 'banner_update'])->name('banner-update');
+Route::group(['middleware' => ['role:']], function () {
+
+
+
     //details
     Route::get('admin/detail/list', [MachineController1::class, 'detail_list'])->name('detail-list');
-     Route::post('admin/detail/add', [MachineController1::class, 'detail_add'])->name('add-detail');
+    Route::post('admin/detail/add', [MachineController1::class, 'detail_add'])->name('add-detail');
 
-     Route::post('admin/detail/update/{id}', [MachineController1::class, 'detail_update'])->name('updatedetail');
-     Route::get('admin/detail/edit/{id}', [MachineController1::class, 'detailedit']);
-    
-     Route::get('admin/detail/delete/{id}', [MachineController1::class, 'detaildelete']);   
+    Route::post('admin/detail/update/{id}', [MachineController1::class, 'detail_update'])->name('updatedetail');
+    Route::get('admin/detail/edit/{id}', [MachineController1::class, 'detailedit']);
 
-      Route::get('admin/admin1/list', [AdminController::class, 'admin_list1']);
+    Route::get('admin/detail/delete/{id}', [MachineController1::class, 'detaildelete']);
+
+    Route::get('admin/admin1/list', [AdminController::class, 'admin_list1']);
 
     //link and Query
     Route::get('admin/social/list', [MachineController1::class, 'social_list'])->name('social-list');
     Route::post('admin/social/add', [MachineController1::class, 'social_add'])->name('add-social');
     // Route::post('admin/client/test', [MachineController1::class, 'test_add'])->name('add-test');
-      Route::get('admin/social/edit/{id}', [MachineController1::class, 'socialedit']);
+    Route::get('admin/social/edit/{id}', [MachineController1::class, 'socialedit']);
     Route::post('admin/social/update/{id}', [MachineController1::class, 'social_update'])->name('updatesocial');
 
-     Route::post('admin/query/update/{id}', [MachineController1::class, 'query_update'])->name('updatequery');
-     Route::get('admin/query/edit/{id}', [MachineController1::class, 'queryedit']);
-     Route::post('admin/query/add', [MachineController1::class, 'query_add'])->name('add-query');
+    Route::post('admin/query/update/{id}', [MachineController1::class, 'query_update'])->name('updatequery');
+    Route::get('admin/query/edit/{id}', [MachineController1::class, 'queryedit']);
+    Route::post('admin/query/add', [MachineController1::class, 'query_add'])->name('add-query');
 
-     Route::get('admin/social/delete/{id}', [MachineController1::class, 'socialclient']);
-    
+    Route::get('admin/social/delete/{id}', [MachineController1::class, 'socialclient']);
+
     Route::get('admin/query/delete/{id}', [MachineController1::class, 'querydelete']);
-    //message
-    Route::get('admin/message', [MailController::class, 'maillist']);
-    Route::get('admin/brand/deletemail/{id}', [MailController::class, 'deletemail']);
-  
-        //logo
-   
-        //doubt
-        Route::get('admin/blog/list', [BlogController::class, 'list'])->name('blog-list');
-
-    Route::get('admin/addblog/add', [BlogController::class, 'blog_add'])->name('add-blog');
-    Route::post('admin/addblog/add', [BlogController::class, 'create_blog'])->name('create-blog');
-  
-    Route::get('admin/brand/delete/{id}', [BlogController::class, 'delete'])->name('delete-brand');
-    Route::get('admin/blog/edit/{id}', [BlogController::class, 'blog_edit']);
-    Route::post('admin/blog/edit/{id}', [BlogController::class, 'blog_update'])->name('update-brand');
-    Route::get('add-blogcontent/{id}', [BlogController::class, 'content_add'])->name('add-blogcontent');
-    Route::post('admin/addcontentblog/add', [BlogController::class, 'create_content_blog'])->name('create-content-blog');
-    Route::get('view-blogcontent/{id}', [BlogController::class, 'content_view'])->name('view-blogcontent');
-    Route::get('admin/blog/delete/{id}', [BlogController::class, 'delete_blog'])->name('delete-blog');
-    // routes/web.php or routes/api.php
-    Route::post('/upload-image', [BlogController::class, 'uploadImage'])->name('upload.image.route');
-    Route::get('/content_add1', function () {
-        return view('editor');
-    });
-    Route::get('/editor', [BlogController::class, 'content_add1']);
-    // routes/web.php
-    Route::post('ckeditor/upload', [BlogController::class, 'upload'])->name('ckeditor.upload');
-    Route::get('admin/contentblog/edit/{id}', [BlogController::class, 'content_edit']);
-    Route::post('admin/updateblog/edit/{id}', [BlogController::class, 'create_content_update_blog'])->name('update-content');
-    Route::get('admin/alex', [BlogController::class, 'demo']);
-
-    });
-    
+});

@@ -18,7 +18,7 @@ class SuperAdminMiddleware
     {
         // dd(auth()->check(), auth()->user()->role);
         // dd(auth()->check(), auth()->user()->role);
-        if (auth()->check() && (auth()->user()->role === 'SuperAdmin')) {
+        if (Auth::check() && Auth::user()->is_delete === 2) {
             return $next($request);
         }
 

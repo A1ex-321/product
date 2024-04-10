@@ -15,7 +15,7 @@ class AdminController extends Controller
     // public function __construct()
     // {
     // $this->middleware('permission:delete posts',['only' => ['delete']]);
-        
+
     // }
     public function admin_list()
     {
@@ -27,7 +27,9 @@ class AdminController extends Controller
     }
     public function role_list()
     {
-        $data['getRecord'] = Role::get();
+        // $data['getRecord'] = Role::get();
+        $data['getRecord'] = Role::whereNotIn('name', ['All'])->get();
+
         $data['header_title'] = "Admin List";
 
         return view('admin.admin.role', $data);
@@ -42,7 +44,7 @@ class AdminController extends Controller
     public function admin_add()
     {
         $data['header_title'] = "Add Admin ";
-        $data['role'] = Role::pluck('name','name')->all();
+        $data['role'] = Role::pluck('name', 'name')->all();
 
         return view('admin.admin.add_admin', $data);
     }
@@ -57,15 +59,14 @@ class AdminController extends Controller
 
         // return view('admin.admin.add_admin_edit', $data);
         // return $user;
-         $getRecord = User::findorfail($user);
-// dd($getRecord);
-        $roles = Role::pluck('name','name')->all();
+        $getRecord = User::findorfail($user);
+        // dd($getRecord);
+        $roles = Role::pluck('name', 'name')->all();
         $userRoles = $getRecord->roles->pluck('name', 'name')->all();
-//  dd($userRoles);
+        //  dd($userRoles);
 
 
-        return view('admin.admin.add_admin_edit', ['user' => $user,'roles' => $roles,'userRoles'=> $userRoles,'getRecord' =>  $getRecord]);
-
+        return view('admin.admin.add_admin_edit', ['user' => $user, 'roles' => $roles, 'userRoles' => $userRoles, 'getRecord' =>  $getRecord]);
     }
     public function admin_add_update($id, Request $request)
     {
@@ -81,7 +82,7 @@ class AdminController extends Controller
         }
         $user->status = $request->status;
         $user->is_admin = 1;
-        $user->role = $request->role;
+        $user->role = 0;
         $user->save();
         $user->syncRoles($request->permission);
 
@@ -98,37 +99,37 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'Admin Successfully Deleted');
     }
     public function add_admin_insert(Request $request)
-{
-    // Validate the request
-    request()->validate([
-        'email' => 'required|email|unique:users',
-        'name' => 'required',
-        'password' => 'required',
-        'status' => 'required',
-        'role' => 'required', // You may want to validate the role field as well
-        'permission' => 'required|array', // Assuming you expect an array of permissions
-    ]);
+    {
+        // Validate the request
+        request()->validate([
+            'email' => 'required|email|unique:users',
+            'name' => 'required',
+            'password' => 'required',
+            'status' => 'required',
+            // You may want to validate the role field as well
+            'permission' => 'required|array', // Assuming you expect an array of permissions
+        ]);
 
-    // Create a new user instance
-    $user = new User();
-    $user->name = $request->name;
-    $user->email = $request->email;
-    $user->password = Hash::make($request->password);
-    $user->status = $request->status;
-    $user->is_admin = 1; // Assuming this field is necessary for admin users
-    $user->role=$request->role;
+        // Create a new user instance
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->status = $request->status;
+        $user->is_admin = 1; // Assuming this field is necessary for admin users
+        $user->role = 0;
 
-    // Save the user
-    $user->save();
+        // Save the user
+        $user->save();
 
-    // Assign the role to the user
+        // Assign the role to the user
 
-    // Sync permissions with the user
-    $user->syncRoles($request->permission);
+        // Sync permissions with the user
+        $user->syncRoles($request->permission);
 
-    // Redirect with success message
-    return redirect('admin/admin/list')->with('success', 'Admin Successfully Created');
-}
+        // Redirect with success message
+        return redirect('admin/admin/list')->with('success', 'Admin Successfully Created');
+    }
 
     public function addpermission($roleid)
     {

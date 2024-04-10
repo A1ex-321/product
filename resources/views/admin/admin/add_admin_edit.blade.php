@@ -3,7 +3,6 @@
 
 @section('content')
 
-
 <main id="main" class="main">
   <section class="section dashboard" style="margin-left: -260px;
 ">
@@ -67,19 +66,31 @@
                           <option {{($getRecord->status==1)? 'selected':''}} value="1">Inactive</option>
                         </select>
                       </div>
-                      <div class="form-group col-md-6">
+
+                      <!-- <div class="form-group col-md-6">
                         <label for="exampleInputPassword1">role</label>
                         <select name="role" class="form-control">
                           <option {{($getRecord->role=='Admin')? 'selected':''}} value="Admin">Admin</option>
                           <option {{($getRecord->role=='SuperAdmin')? 'selected':''}} value="SuperAdmin">SuperAdmin</option>
                         </select>
-                      </div>
+                      </div> -->
+                      <!-- <div class="form-group">
+                        <label for="role">Permission</label>
+                        <select name="permission[]" class="form-control" multiple required>
+                          <option value="" disabled selected>select permission</option>
+                          @foreach($roles as $item)
+                          <option value="{{$item}}" {{in_array($item, $userRoles) ? 'selected' : ''}}>{{$item}}</option>
+                          @endforeach
+                        </select>
+                      </div> -->
                       <div class="form-group">
     <label for="role">Permission</label>
     <select name="permission[]" class="form-control" multiple required>
         <option value="" disabled selected>select permission</option>
         @foreach($roles as $item)
-            <option value="{{$item}}" {{in_array($item, $userRoles) ? 'selected' : ''}}>{{$item}}</option>
+            @if ($item != 'All')
+                <option value="{{ $item }}" {{ in_array($item, $userRoles) ? 'selected' : '' }}>{{ $item }}</option>
+            @endif
         @endforeach
     </select>
 </div>
@@ -98,7 +109,7 @@
                     </div>
 
                   </div>
-                  <!-- /.card-body -->
+                  <!-- /.card-body {{$condition ? 'This content will be displayed if the condition is true.' : 'This content will be displayed if the condition is false.'}} -->
                   <div class="card-footer">
                     <button type="submit" class="btn btn-info">Update</button>
                   </div>

@@ -73,15 +73,9 @@
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
-            @auth
             <a href="#" class="d-block">
-              @if(auth()->user()->role == 'SuperAdmin')
-              Super Admin
-              @else
-              Admin
-              @endif
+            
             </a>
-            @endauth
 
             <span></span>
           </li>
@@ -111,42 +105,24 @@
 <aside id="sidebar" class="sidebar">
 
   <ul class="sidebar-nav" id="sidebar-nav">
-  @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{url('/admin/role/role')}}" class="nav-link {{ request()->segment(2) === 'role' ? '' : 'collapsed' }}"> <i class="fa fa-tasks"></i>
         <span>Role</span>
       </a>
     </li><!-- End Dashboard Nav -->
-    @endif
-  @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
+  
     <li class="nav-item">
       <a href="{{url('/admin/admin/list')}}" class="nav-link {{ request()->segment(2) === 'admin' ? '' : 'collapsed' }}"> <i class="bi bi-grid"></i>
         <span>User</span>
       </a>
     </li><!-- End Dashboard Nav -->
-    @endif
     <li class="nav-item">
       <a href="{{url('/admin/message')}}" class="nav-link {{ request()->segment(2) === 'message' ? '' : 'collapsed' }}">
         <i class="bi bi-menu-button-wide"></i><span>Message</span>
       </a>
 
-    </li><!-- End Components Nav -->
-    <!-- <li class="nav-item">
-      <a href="{{route('ser-list')}}" class="nav-link {{ request()->segment(2) === 'service1' ? '' : 'collapsed' }}">
-        <i class="bi bi-person"></i><span>Service</span>
-      </a>
     </li>
-    <li class="nav-item">
-      <a href="{{route('Banner-list')}}" class="nav-link {{ request()->segment(2) === 'Banner' ? '' : 'collapsed' }}">
-      <i class="bi-align-center"></i><span>Banner</span>
-      </a>
-    </li> -->
-    <!-- <li class="nav-item">
-      <a href="{{route('blog-list')}}" class="nav-link {{ request()->segment(2) === 'blog' ? '' : 'collapsed' }}">
-        <i class="bi bi-journal-text"></i><span>Work</span>
-      </a>
-    </li> -->
-    <!-- End Forms Nav -->
+  
    
     <li class="nav-item">
       <a href="{{ route('blogsco-list') }}" class="nav-link {{ request()->is('admin/blogseo/*') ? '' : 'collapsed' }}">
@@ -169,28 +145,19 @@
         <i class="bi bi-bar-chart" aria-hidden="true"></i><span>Logo</span>
       </a>
     </li><!-- End Charts Nav -->
-   
 
-
-   
-    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-heading">SEO Pages</li>
-    @endif
 
-    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('sco-list') }}" class="nav-link {{ request()->is('admin/seo/*') ? '' : 'collapsed' }}">
         <i class="bi bi-question-circle" aria-hidden="true"></i><span>SEO link</span>
       </a>
     </li><!-- End Charts Nav -->
-    @endif
-    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('home-list') }}" class="nav-link {{ request()->is('admin/home/*') ? '' : 'collapsed' }}">
         <i class="bi bi-person" aria-hidden="true"></i><span>Home</span>
       </a>
     </li><!-- End Charts Nav -->
-    @endif
     <!-- @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('about-list') }}" class="nav-link {{ request()->is('admin/about/*') ? '' : 'collapsed' }}">
