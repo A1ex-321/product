@@ -128,7 +128,18 @@
       <a href="{{ route('blogsco-list') }}" class="nav-link {{ request()->is('admin/blogseo/*') ? '' : 'collapsed' }}">
         <i class="bi bi-layout-text-window-reverse" aria-hidden="true"></i><span> Blog</span>
       </a>
-    </li><!-- End Tables Nav -->
+    </li>
+    <li class="nav-item">
+      <a href="{{ route('detail-list') }}" class="nav-link {{ request()->is('admin/detail/*') ? '' : 'collapsed' }}">
+        <i class="bi bi-ticket-detailed-fill" aria-hidden="true"></i><span> category</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ route('tag-list') }}" class="nav-link {{ request()->is('admin/tag/*') ? '' : 'collapsed' }}">
+        <i class="bi bi-airplane-fill" aria-hidden="true"></i><span> Tag</span>
+      </a>
+    </li>
+    <!-- End Tables Nav -->
     <!-- <li class="nav-item">
       <a href="{{ route('detail-list') }}" class="nav-link {{ request()->is('admin/detail/*') ? '' : 'collapsed' }}">
         <i class="bi bi-ticket-detailed-fill" aria-hidden="true"></i><span> Details</span>

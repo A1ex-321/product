@@ -117,6 +117,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ url('public/assets/js/main.js') }}"></script>
+  
 </body>
 
 </html>

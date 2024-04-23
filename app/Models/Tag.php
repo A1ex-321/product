@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Detail extends Model
+class Tag extends Model
 {
     use HasFactory;
-    protected $table = 'detail';
+    protected $table = 'tag';
 
     protected $fillable = [
-        'id','category', 'wnumber', 'mail','address','header','footer'
+        'id','tag'
     ];
     
 }

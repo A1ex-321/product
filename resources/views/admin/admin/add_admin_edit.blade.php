@@ -109,7 +109,7 @@
                     </div>
 
                   </div>
-                  <!-- /.card-body {{$condition ? 'This content will be displayed if the condition is true.' : 'This content will be displayed if the condition is false.'}} -->
+                  <!-- /.card-body  -->
                   <div class="card-footer">
                     <button type="submit" class="btn btn-info">Update</button>
                   </div>
@@ -130,7 +130,7 @@
 
             {{-- End - Content comes here --}}
           </div>
-          <!-- /.row end -->
+          <!-- /.row end row end -->
         </div>
         <!-- /.container-fluid -->
       </div>

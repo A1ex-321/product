@@ -42,16 +42,17 @@
                 <div class="container-fluid">
                     <div class="row mb-0">
                         <div class="col-sm-6">
-                        @can('create posts')
-        <h1 class="m-0">Add blog</h1>
-@endcan
+                           
 
 
                         </div><!-- /.col -->
+                        @can('create posts')
+
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active"></li>
+                                <li class="breadcrumb-item"><a href="{{ route('create-blog') }}" class="btn btn-primary" style="color:black;">Create Blog</a>
+</li>
+@endcan
 
 
 
@@ -62,68 +63,7 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card card-primary">
-                                <div class="card-header" style="background-color:
-#6e9ee6
-;">
-                                                    @can('create posts')
-
-                                    <h3 class="card-title">Add Blog data <small></small></h3>
-                                </div>
-                                <div class="container">
-                                    <form action="{{ route('create-blogsco') }}" method="post" enctype="multipart/form-data">
-                                        {{csrf_field()}}
-
-
-                                        <div class="card-body">
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">Title<span style="color:red">*</span></label>
-                                                        <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Title" value="{{ old('title') }}" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">Thumb Image<span style="color:red">*</span></label>
-                                                        <input type="file" name="image" class="form-control" id="exampleInputEmail1" placeholder="Image" value="{{ old('image') }}" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Description<span style="color:red"></span></label>
-                                                <textarea name="description" class="form-control" id="exampleInputEmail1" placeholder="Description" style="width: 100%; height: 100px;">{{ old('description') }}</textarea>
-
-
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="editor">Content</label>
-                                                <textarea name="content" id="description" cols="30" rows="10"></textarea>
-                                            </div>
-
-
-                                            <!-- /.card-body -->
-                                            <div class="card-footer">
-                                                <button type="submit" class="btn btn-info">Submit</button>
-                                            </div>
-                                    </form>
-
-
-
-                                </div>
-                                @endcan
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
 
             <section class="section">

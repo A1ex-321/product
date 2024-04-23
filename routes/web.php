@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\DemoController;
 use App\Http\Controllers\Admin\ScoController;
 use App\Http\Controllers\Machine\MachineController;
 use App\Http\Controllers\Admin\MachineController1;
+use App\Http\Controllers\Admin\NewsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SitemapController;
 
@@ -34,7 +35,19 @@ use App\Http\Controllers\SitemapController;
 
 Route::group(['middleware' => ['role:Super_Admin|Admin|All']], function () {
 
-
+//category
+Route::get('admin/detail/list', [NewsController::class, 'detail_list'])->name('detail-list');
+Route::post('admin/detail/add', [NewsController::class, 'detail_add'])->name('add-detail');
+Route::post('admin/detail/update/{id}', [NewsController::class, 'detail_update'])->name('updatedetail');
+Route::get('admin/detail/edit/{id}', [NewsController::class, 'detailedit']);
+Route::get('admin/detail/delete/{id}', [NewsController::class, 'detaildelete']);
+//tag
+Route::get('admin/tag/list', [NewsController::class, 'tag_list'])->name('tag-list');
+Route::post('admin/tag/add', [NewsController::class, 'tag_add'])->name('tag-detail');
+Route::post('admin/tag/update/{id}', [NewsController::class, 'tag_update'])->name('updatetag');
+Route::get('admin/tag/edit/{id}', [NewsController::class, 'tagedit']);
+Route::get('admin/tag/delete/{id}', [NewsController::class, 'tagdelete']);
+//no
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     //admin
     Route::get('admin/admin/list', [AdminController::class, 'admin_list']);
@@ -54,6 +67,8 @@ Route::group(['middleware' => ['role:Super_Admin|Admin|All']], function () {
     Route::get('admin/logo/delete/{id}', [BlogController::class, 'gallery_delete'])->name('delete-brand');
     //   SCO blog no sco
     Route::get('admin/blogseo/bloglist', [ScoController::class, 'bloglist'])->name('blogsco-list');
+    Route::get('admin/blogseo/blogcreate', [ScoController::class, 'createblog'])->name('create-blog');
+    Route::get('/getTags', [ScoController::class, 'getTags']);
     Route::post('admin/blogseo/addblog', [ScoController::class, 'create_blogsco'])->name('create-blogsco');
     Route::get('admin/blogseo/delete/{id}', [ScoController::class, 'blogsco_delete']);
     Route::get('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_edit']);
@@ -191,13 +206,13 @@ Route::group(['middleware' => ['role:']], function () {
 
 
     //details
-    Route::get('admin/detail/list', [MachineController1::class, 'detail_list'])->name('detail-list');
-    Route::post('admin/detail/add', [MachineController1::class, 'detail_add'])->name('add-detail');
+    // Route::get('admin/detail/list', [MachineController1::class, 'detail_list'])->name('detail-list');
+    // Route::post('admin/detail/add', [MachineController1::class, 'detail_add'])->name('add-detail');
 
-    Route::post('admin/detail/update/{id}', [MachineController1::class, 'detail_update'])->name('updatedetail');
-    Route::get('admin/detail/edit/{id}', [MachineController1::class, 'detailedit']);
+    // Route::post('admin/detail/update/{id}', [MachineController1::class, 'detail_update'])->name('updatedetail');
+    // Route::get('admin/detail/edit/{id}', [MachineController1::class, 'detailedit']);
 
-    Route::get('admin/detail/delete/{id}', [MachineController1::class, 'detaildelete']);
+    // Route::get('admin/detail/delete/{id}', [MachineController1::class, 'detaildelete']);
 
     Route::get('admin/admin1/list', [AdminController::class, 'admin_list1']);
 

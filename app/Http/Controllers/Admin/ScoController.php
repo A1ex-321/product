@@ -29,7 +29,8 @@ use Illuminate\Support\Str;
 
 
 use Illuminate\Support\Facades\Log;
-use App\Models\Contentblog;
+use App\Models\Tag;
+use App\Models\Detail;
 
 class ScoController extends Controller
 {
@@ -441,12 +442,24 @@ class ScoController extends Controller
         $data->save();
         return redirect('admin/oneblog/onebloglist')->with('success', ' updated');
     }
-    // blog
+    // blog createblog
     public function bloglist(Request $request)
     {
         $data['getRecord'] = blogsco::all();
 
         return view('admin.sco.blogsco', $data);
+    }
+    public function createblog(Request $request)
+    {
+        $data['getRecord'] = Detail::all();
+        // $data['tag'] = Tag::all();
+
+        return view('admin.sco.create_blog', $data);
+    }
+    public function getTags()
+    {
+        $tags = Tag::pluck('tag')->toArray(); // Assuming 'name' is the column name for tag names
+        return response()->json($tags);
     }
     public function create_blogsco(Request $request)
     {

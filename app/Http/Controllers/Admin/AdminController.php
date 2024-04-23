@@ -90,41 +90,28 @@ class AdminController extends Controller
     }
     public function admin_add_delete($id)
     {
-
-
         $user = User::getSingle($id);
-
         $user->is_delete = 1;
         $user->save();
         return redirect()->back()->with('success', 'Admin Successfully Deleted');
     }
     public function add_admin_insert(Request $request)
     {
-        // Validate the request
         request()->validate([
             'email' => 'required|email|unique:users',
             'name' => 'required',
             'password' => 'required',
             'status' => 'required',
-            // You may want to validate the role field as well
-            'permission' => 'required|array', // Assuming you expect an array of permissions
+            'permission' => 'required|array', 
         ]);
-
-        // Create a new user instance
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->status = $request->status;
-        $user->is_admin = 1; // Assuming this field is necessary for admin users
+        $user->is_admin = 1; 
         $user->role = 0;
-
-        // Save the user
         $user->save();
-
-        // Assign the role to the user
-
-        // Sync permissions with the user
         $user->syncRoles($request->permission);
 
         // Redirect with success message
@@ -142,6 +129,7 @@ class AdminController extends Controller
             ->all();
         return view('admin.admin.roleedit', $data);
     }
+    
     public function givepermission(Request $request, $role)
     {
         $role = Role::findorfail($role);

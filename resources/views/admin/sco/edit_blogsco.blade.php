@@ -330,22 +330,6 @@
 
         <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
 
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#editor'), {
-                    ckfinder: {
-                        uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}"
-                    }
-                    // ,
-                    //  plugins: ['color', 'fontSize', 'fontFamily', 'fontBackgroundColor', 'fontColor', 'ckfinder'],
-                    //  toolbar: ['heading', '|', 'bold', 'italic', 'underline', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|', 'colorPicker', 'bulletedList', 'numberedList', '|', 'undo', 'redo'],
-
-                })
-
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
         <!-- Include jQuery library -->
         <!-- Include jQuery library -->
         <scrip>

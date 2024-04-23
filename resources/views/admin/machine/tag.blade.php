@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row mb-0">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Category</h1>
+                            <h1 class="m-0">Tag</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <div class="float-sm-right">
@@ -26,7 +26,7 @@
                                     <li class="breadcrumb-item active">Dashboard</li>
                                 </ol>
 
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-plus"></i> Add  Category</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-plus"></i> Add  Tag</button>
                                 
                             </div>
                         </div>
@@ -39,18 +39,18 @@
                 <div class="modal-dialog modal-lg" role="document"> <!-- Added modal-lg class for large width -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add content service</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Add  </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="{{ route('add-detail') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('tag-detail') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-md-12"> <!-- Each input takes half of the row width on medium screens -->
                                         <div class="form-group">
-                                            <label for="title" class="col-form-label">Category:</label>
+                                            <label for="title" class="col-form-label">Tag:</label>
                                             <input type="text" class="form-control" id="title" name="dnumber" >
                                         </div>
                                     </div>                                
@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title" class="col-form-label">Category:</label>
+                                <label for="title" class="col-form-label">Tag:</label>
                                 <input type="text" class="form-control" id="1" name="dnumber" >
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>category</th>
+                                                    <th>Tag</th>
                                                   
                                                     <th>Action</th>
                                                 </tr>
@@ -125,7 +125,7 @@
                                                 @foreach($getRecord as $value)
                                                 <tr>
                                                     <td>{{$value->id}}</td>
-                                                    <td>{{$value->category}}</td>
+                                                    <td>{{$value->tag}}</td>
                                                    
 
                                                    
@@ -135,7 +135,7 @@
                                                     <td>
                                                         <a href="#" class="btn btn-info edit-btn1" data-id="{{ $value->id }}" data-toggle="modal" data-target="#editModal1"><i class="fas fa-edit"></i></a>
 
-                                                        <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('admin/detail/delete/'.$value->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                        <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('admin/tag/delete/'.$value->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -283,12 +283,12 @@
     $(document).ready(function() {
         $('.edit-btn1').on('click', function() {
             var id = $(this).data('id');
-            $('#editForm1').attr('action', "{{ route('updatedetail', '') }}" + '/' + id);
+            $('#editForm1').attr('action', "{{ route('updatetag', '') }}" + '/' + id);
             $.ajax({
                 type: "GET",
-                url: "{{ url('admin/detail/edit') }}" + '/' + id,
+                url: "{{ url('admin/tag/edit') }}" + '/' + id,
                 success: function(response) {
-                    $('#1').val(response.category);
+                    $('#1').val(response.tag);
 
                     // Update other input fields as needed
                 }
