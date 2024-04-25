@@ -109,5 +109,22 @@ class NewsController extends Controller
         $user->delete();
         return redirect()->back()->with('success', 'Deleted');
     }
+    public function getStates()
+{
+    $states = Tag::all(); // Fetch all states from the database
+    return response()->json($states);
+}
+public function store(Request $request)
+{
+    // Retrieve the tag value from the request
+    $tag = $request->input('tag');
+
+    // Store the tag in the database
+    $newTag = Tag::create(['tag' => $tag]);
+
+    // Return the newly created tag along with the success message
+    return response()->json(['tag' => $newTag, 'message' => 'Tag stored successfully'], 200);
+}
+
 
 }

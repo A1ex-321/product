@@ -7,8 +7,7 @@
     <title>Shop | {{ !empty($header_title) ? $header_title : '' }}</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ url('public/admin/assets/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- IonIcons -->
@@ -82,42 +81,21 @@
         <!-- REQUIRED SCRIPTS -->
 
         <!-- jQuery -->
-        
-        @stack('scripts')
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-
-        <script src="{{ url('public/admin/assets/plugins/jquery/jquery.min.js') }}"></script>
-        <script src="{{ url('public/admin/assets/plugins/jquery/jquery.min.js') }}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <!-- Bootstrap -->
         <script src="{{ url('public/admin/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <!-- AdminLTE -->
-        {{-- <script src="{{url('public/admin/assets/dist/js/adminlte.js')}}"></script> --}}
 
-        <!-- OPTIONAL SCRIPTS -->
-        <script src="{{ url('public/admin/assets/plugins/chart.js/Chart.min.js') }}"></script>
-        <!-- AdminLTE for demo purposes -->
-        {{-- <script src="public/admin/assets/dist/js/demo.js"></script> --}}
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="{{ url('public/admin/assets/dist/js/pages/dashboard3.js') }}"></script>
+        <!-- Select2 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.js-example-basic-multiple').select2();
+            });
+        </script>
 
-        <!-- Bootstrap Switch -->
-        <script src="{{ url('public/admin/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
+        <!-- Other scripts... -->
 
-
-
-        <script src="assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
-  <script src="{{ url('public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ url('public/assets/vendor/chart.js/chart.umd.js') }}"></script>
-  <script src="{{ url('public/assets/vendor/echarts/echarts.min.js') }}"></script>
-  <script src="{{ url('public/assets/vendor/quill/quill.min.js') }}"></script>
-  <script src="{{ url('public/assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
-  <script src="{{ url('public/assets/vendor/tinymce/tinymce.min.js') }}"></script>
-  <script src="{{ url('public/assets/vendor/php-email-form/validate.js') }}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{{ url('public/assets/js/main.js') }}"></script>
-  
 </body>
 
 </html>

@@ -69,6 +69,9 @@ Route::get('admin/tag/delete/{id}', [NewsController::class, 'tagdelete']);
     Route::get('admin/blogseo/bloglist', [ScoController::class, 'bloglist'])->name('blogsco-list');
     Route::get('admin/blogseo/blogcreate', [ScoController::class, 'createblog'])->name('create-blog');
     Route::get('/getTags', [ScoController::class, 'getTags']);
+    Route::get('/get-states', [NewsController::class, 'getStates'])->name('get-states');
+    Route::post('/store-tag', [NewsController::class, 'store'])->name('store-tag');
+
     Route::post('admin/blogseo/addblog', [ScoController::class, 'create_blogsco'])->name('create-blogsco');
     Route::get('admin/blogseo/delete/{id}', [ScoController::class, 'blogsco_delete']);
     Route::get('admin/blogseo/edit/{id}', [ScoController::class, 'blogsco_edit']);

@@ -8,6 +8,72 @@
     .ck-editor__editable_inline {
         height: 480Px;
     }
+
+    li.select2-selection__choice {
+        color: black !important;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
 </style>
 <style>
     /* Add your custom styles for the modal and input text boxes here */
@@ -38,6 +104,9 @@
     <!-- <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script> -->
     <!-- <script src="https://cdn.ckeditor.com/4.16.2/standard-all/ckeditor.js"></script> -->
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- Include Select2 from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet">
@@ -59,9 +128,8 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item active">
-                                    @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
+
                                     <button id="errorsco" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#feedback-modal">SEO</button>
-                                    @endif
 
                                 </li>
                             </ol>
@@ -258,6 +326,40 @@
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
+                                                        <label for="exampleInputEmail1">Category<span style="color:red">*</span></label>
+                                                        <select name="category" id="category" class="form-control" required>
+                                                            <option value="" disabled>select a category</option>
+                                                            @foreach($getRecord1 as $record)
+                                                            <option value="{{ $record->id }}" @if($getRecord->id == $record->id) selected @endif>{{ $record->category }}</option>
+                                                            @endforeach
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                                                        <div class="form-group row">
+                                                            <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Tag<span style="color:red">*</span></label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control" id="exampleInputEmail12" placeholder="New Tag">
+                                                            </div>
+
+                                                            <div class="col-sm-2">
+                                                                <button type="button" class="btn btn-primary" id="addTagBtn">+</button>
+                                                            </div>
+                                                        </div>
+                                                        <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple" required>
+
+                                                            <!-- Add more options here -->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label for="exampleInputEmail1">Title<span style="color:red">*</span></label>
                                                         <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="title" value="{{$getRecord->title}}" required>
                                                     </div>
@@ -281,11 +383,21 @@
 
 
                                             </div>
-                                           
+
 
                                             <div class="form-group">
                                                 <label for="editor">Content</label>
                                                 <textarea name="content" id="description" cols="30" rows="10">{{$getRecord->content}}</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Feature News</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="check" @if($getRecord->check == 'on') checked @endif>
+                                                    <span class="slider round"></span>
+                                                </label>
+
+
+
                                             </div>
                                             <!-- /.card-body -->
                                             <div class="card-footer">
@@ -309,20 +421,20 @@
         </div>
 
 
-       
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- include summernote css/js -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <script>
-        $('#description').summernote({
-            placeholder: 'description...',
-            tabsize:1,
-            height:300
-        });
-    </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <!-- include summernote css/js -->
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+        <script>
+            $('#description').summernote({
+                placeholder: 'description...',
+                tabsize: 1,
+                height: 300
+            });
+        </script>
 
         <!-- Your scripts -->
         <!-- ... (previous code) ... -->
@@ -356,8 +468,94 @@
 
     </section>
 </main>
+<!-- Include Select2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/get-states',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Loop through the received data and append options to the select element
+                $.each(data, function(index, state) {
+                    // Append each option to the select element
+                    $('.js-example-basic-multiple').append('<option value="' + state.id + '">' + state.tag + '</option>');
+                });
+
+                // Initialize Select2 after populating options
+                $('.js-example-basic-multiple').select2();
+
+                // Get the states from the variable
+                var states = {!! json_encode($getRecord->states) !!};
+
+
+                // Convert the string to an array of IDs
+                var selectedIds = states.split(',');
+
+                // Set the selected options based on the array of IDs
+                $('.js-example-basic-multiple').val(selectedIds).trigger('change');
+
+            },
+
+            error: function(xhr, status, error) {
+                console.error('Error fetching states:', error);
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#addTagBtn').click(function() {
+            var newTag = $('#exampleInputEmail12').val();
+
+            // AJAX request to store tag in the database
+            $.ajax({
+                url: '/store-tag',
+                method: 'POST',
+                data: {
+                    tag: newTag,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    console.log("fdsafsadf", response.tag.tag);
+                    // Display success message using SweetAlert
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Tag added successfully!',
+                        position: 'top-end',
+                        customClass: {
+                            popup: 'swal2-small', // Apply custom CSS class for the alert
+                        },
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+
+
+                    $('.js-example-basic-multiple').append('<option value="' + response.tag.id + '" selected>' + response.tag.tag + '</option>');
+
+                    $('.js-example-basic-multiple').trigger('change');
+
+                    // Clear the text box
+                    $('#exampleInputEmail12').val('');
+                },
+                error: function(xhr, status, error) {
+                    // Display error message using SweetAlert
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    });
+                }
+            });
+        });
+    });
+</script>
+
 @endsection
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 

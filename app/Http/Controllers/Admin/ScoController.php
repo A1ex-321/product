@@ -463,16 +463,22 @@ class ScoController extends Controller
     }
     public function create_blogsco(Request $request)
     {
-        //   dd($request->all());
-
+        // dd($request->all());
         $data = new blogsco();
+        $data->category = $request->category;
+        $statesAsString = implode(',', $request->states);
+        $data->states = $statesAsString;
         $data->title = $request->title;
         $data->description = $request->description;
-
-
-
+        if($request->check)
+        {
+            $data->check = $request->check;
+        }
+        else
+        {
+            $data->check = 'off';
+        }
         $content = $request->content;
-
         $dom = new DOMDocument();
         $dom->loadHTML($content,9);
 
@@ -544,6 +550,8 @@ class ScoController extends Controller
     public function blogsco_edit($id, Request $request)
     {
         $data['getRecord'] = blogsco::find($id);
+        $data['getRecord1'] = Detail::all();
+
         return view('admin.sco.edit_blogsco', $data);
     }
     public function blogsco_update($id, Request $request)
@@ -551,9 +559,19 @@ class ScoController extends Controller
 
       
         $data = blogsco::find($id);
+        $data->category = $request->category;
+        $statesAsString = implode(',', $request->states);
+        $data->states = $statesAsString;
         $data->title = $request->title;
         $data->description = $request->description;
-
+        if($request->check=='off')
+        {
+            $data->check = 'off';
+        }
+        else
+        {
+            $data->check = $request->check;
+        }
 
         $content = $request->content;
 
@@ -607,6 +625,7 @@ class ScoController extends Controller
         } else {
             $data->image = $data->image;
         }
+        
         $data->save();
         return redirect('admin/blogseo/bloglist')->with('success', ' updated');
     }
