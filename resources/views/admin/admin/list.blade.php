@@ -29,7 +29,7 @@
 </div>
 
         </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div><!-- /.container-fluid --> 
     </div>
     <!-- /.content-header -->
     <section class="section">		

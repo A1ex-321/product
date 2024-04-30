@@ -28,26 +28,28 @@ use App\Http\Controllers\Admin\MachineController1;
 use App\Http\Controllers\Admin\NewsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SitemapController;
+use Spatie\Permission\Models\Role;     
+
+    $user = Role::all();
+    $userRoles = $user->pluck('name')->toArray();
+    $middlewareString = 'role:' . implode('|', $userRoles);
+
+    Route::group(['middleware' => [$middlewareString]], function () {
 
 
-// use App\Http\Controllers\Admin\Website;
-// use App\Http\Controllers\web\Website;
-
-Route::group(['middleware' => ['role:Super_Admin|Admin|All']], function () {
-
-//category
-Route::get('admin/detail/list', [NewsController::class, 'detail_list'])->name('detail-list');
-Route::post('admin/detail/add', [NewsController::class, 'detail_add'])->name('add-detail');
-Route::post('admin/detail/update/{id}', [NewsController::class, 'detail_update'])->name('updatedetail');
-Route::get('admin/detail/edit/{id}', [NewsController::class, 'detailedit']);
-Route::get('admin/detail/delete/{id}', [NewsController::class, 'detaildelete']);
-//tag
-Route::get('admin/tag/list', [NewsController::class, 'tag_list'])->name('tag-list');
-Route::post('admin/tag/add', [NewsController::class, 'tag_add'])->name('tag-detail');
-Route::post('admin/tag/update/{id}', [NewsController::class, 'tag_update'])->name('updatetag');
-Route::get('admin/tag/edit/{id}', [NewsController::class, 'tagedit']);
-Route::get('admin/tag/delete/{id}', [NewsController::class, 'tagdelete']);
-//no
+    //category
+    Route::get('admin/detail/list', [NewsController::class, 'detail_list'])->name('detail-list');
+    Route::post('admin/detail/add', [NewsController::class, 'detail_add'])->name('add-detail');
+    Route::post('admin/detail/update/{id}', [NewsController::class, 'detail_update'])->name('updatedetail');
+    Route::get('admin/detail/edit/{id}', [NewsController::class, 'detailedit']);
+    Route::get('admin/detail/delete/{id}', [NewsController::class, 'detaildelete']);
+    //tag
+    Route::get('admin/tag/list', [NewsController::class, 'tag_list'])->name('tag-list');
+    Route::post('admin/tag/add', [NewsController::class, 'tag_add'])->name('tag-detail');
+    Route::post('admin/tag/update/{id}', [NewsController::class, 'tag_update'])->name('updatetag');
+    Route::get('admin/tag/edit/{id}', [NewsController::class, 'tagedit']);
+    Route::get('admin/tag/delete/{id}', [NewsController::class, 'tagdelete']);
+    //no
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
     //admin
     Route::get('admin/admin/list', [AdminController::class, 'admin_list']);
@@ -61,6 +63,10 @@ Route::get('admin/tag/delete/{id}', [NewsController::class, 'tagdelete']);
     Route::get('admin/role/permissionto/{id}', [AdminController::class, 'addpermission']);
 
     Route::post('admin/role/givepermission/{id}', [AdminController::class, 'givepermission']);
+    Route::post('admin/create_role/create_role', [AdminController::class, 'add_role'])->name('add_role');
+    Route::post('admin/edit_role/edit_role', [AdminController::class, 'update'])->name('update_role');
+    Route::post('admin/role/roledelete/{id}', [AdminController::class, 'roledelete']);
+
     //logo
     Route::get('admin/logo/logo', [BlogController::class, 'logo'])->name('blog-logo');
     Route::post('admin/addlogo/logo', [BlogController::class, 'create_logo'])->name('create-logo');
@@ -95,6 +101,7 @@ Route::get('admin/tag/delete/{id}', [NewsController::class, 'tagdelete']);
     Route::get('admin/home/edit/{id}', [ScoController::class, 'home_edit']);
     Route::post('admin/home/edit/{id}', [ScoController::class, 'home_update'])->name('home-update');
 });
+// }
 
 /*
 |--------------------------------------------------------------------------

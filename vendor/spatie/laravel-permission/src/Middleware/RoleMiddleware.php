@@ -28,11 +28,24 @@ class RoleMiddleware
             throw UnauthorizedException::missingTraitHasRoles($user);
         }
 
-        $roles = is_array($role)
-            ? $role
-            : explode('|', $role);
+        // $roles = is_array($role)
+        //     ? $role
+        //     : explode('|', $role);
 
+        // if (! $user->hasAnyRole($roles)) {
+        //     throw UnauthorizedException::forRoles($roles);
+        // }
+        $user = Auth::user();
+
+        // Fetch roles associated with the user from the database
+        $userRoles = $user->roles->pluck('name')->toArray();
+
+        // Split the provided role string into an array of roles
+        $roles = is_array($role) ? $role : explode('|', $role);
+
+        // Check if user has any of the required roles specified in the route
         if (! $user->hasAnyRole($roles)) {
+            // If the user doesn't have any required role, throw an UnauthorizedException
             throw UnauthorizedException::forRoles($roles);
         }
 

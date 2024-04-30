@@ -36,15 +36,12 @@ class AdminMiddleware
     //     }
     // }
     public function handle($request, Closure $next)
-{
+    {
         //  dd(auth()->check(), auth()->user()->role);
 
-    if (auth()->check() ) {
-       return $next($request);
-
+        if (auth()->check()) {
+            return $next($request);
+        }
+        abort(403, 'Unauthorized');
     }
-    abort(403, 'Unauthorized'); 
-
-}
-
 }

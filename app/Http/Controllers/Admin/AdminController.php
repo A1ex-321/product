@@ -102,14 +102,14 @@ class AdminController extends Controller
             'name' => 'required',
             'password' => 'required',
             'status' => 'required',
-            'permission' => 'required|array', 
+            'permission' => 'required|array',
         ]);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->status = $request->status;
-        $user->is_admin = 1; 
+        $user->is_admin = 1;
         $user->role = 0;
         $user->save();
         $user->syncRoles($request->permission);
@@ -129,7 +129,7 @@ class AdminController extends Controller
             ->all();
         return view('admin.admin.roleedit', $data);
     }
-    
+
     public function givepermission(Request $request, $role)
     {
         $role = Role::findorfail($role);
@@ -137,4 +137,34 @@ class AdminController extends Controller
 
         return redirect('admin/role/role')->with('success', ' Successfully update ');
     }
+    public function add_role(Request $request)
+    {
+        request()->validate([
+            'name' => 'required',
+        ]);
+        $user = new Role();
+        $user->name = $request->name;
+
+        $user->save();
+
+        // Redirect with success message
+        return redirect('admin/role/role')->with('success', 'Role Successfully Created');
+    }
+    public function update(Request $request)
+    {
+        $role = Role::findOrFail($request->role_id);
+        // dd($role);
+
+        $role->name = $request->name;
+
+        $role->save();
+        return redirect('admin/role/role')->with('success', 'Successfully');
+    }
+    public function roledelete($id)
+    {
+        $role = Role::find($id);
+        $role->delete();
+        return redirect()->back()->with('success', 'Successfully Deleted');
+    }
+    
 }
