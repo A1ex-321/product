@@ -391,13 +391,41 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="">Feature News</label>
+                                                <input type="hidden" name="check" value="off">
+                                                <input type="hidden" name="latest" value="off">
+                                                <input type="hidden" name="popular" value="off">
+                                                <input type="hidden" name="read" value="off">
+                                                <input type="hidden" name="recent" value="off">
+                                                <input type="hidden" name="viewed" value="off">
                                                 <label class="switch">
                                                     <input type="checkbox" name="check" @if($getRecord->check == 'on') checked @endif>
                                                     <span class="slider round"></span>
                                                 </label>
-
-
-
+                                                <label for="">Latest News</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="latest" @if($getRecord->latest == 'on') checked @endif>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Popular News</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="popular" @if($getRecord->popular == 'on') checked @endif>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Most Viewed</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="viewed" @if($getRecord->viewed == 'on') checked @endif>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Most Recent</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="recent" @if($getRecord->recent == 'on') checked @endif>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Most read</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="read" @if($getRecord->read == 'on') checked @endif>
+                                                    <span class="slider round"></span>
+                                                </label>
                                             </div>
                                             <!-- /.card-body -->
                                             

@@ -81,7 +81,7 @@ class ScoController extends Controller
         $data->metadescription = $request->metadescription;
         $data->ogtitle = $request->ogtitle;
         $data->ogdescription = $request->ogdescription;
-        
+
 
         $data->ogimage = $request->ogimage;
 
@@ -110,8 +110,8 @@ class ScoController extends Controller
         $data->metatitle = $request->metatitle;
         $data->metadescription = $request->metadescription;
         $data->ogtitle = $request->ogtitle;
-        $data->ogdescription = $request->ogdescription;       
-        $data->ogimage = $request->ogimage;       
+        $data->ogdescription = $request->ogdescription;
+        $data->ogimage = $request->ogimage;
         $data->ogurl = $request->ogurl;
         $data->ogtype = $request->ogtype;
         $data->save();
@@ -463,61 +463,62 @@ class ScoController extends Controller
     }
     public function create_blogsco(Request $request)
     {
-        // dd($request->all());
+        //   dd($request->all());
         $data = new blogsco();
         $data->category = $request->category;
         $statesAsString = implode(',', $request->states);
         $data->states = $statesAsString;
         $data->title = $request->title;
         $data->description = $request->description;
-        if($request->check)
-        {
-            $data->check = $request->check;
-        }
-        else
-        {
-            $data->check = 'off';
-        }
+        $data->check = $request->has('check') ? 'on' : 'off';
+        $data->latest = $request->has('latest') ? 'on' : 'off';
+        $data->popular = $request->has('popular') ? 'on' : 'off';
+        $data->viewed = $request->has('viewed') ? 'on' : 'off';
+        $data->read = $request->has('read') ? 'on' : 'off';
+        $data->recent = $request->has('recent') ? 'on' : 'off';
+
+        
+
         $content = $request->content;
         $dom = new DOMDocument();
-        $dom->loadHTML($content,9);
+        $dom->loadHTML($content, 9);
 
         $images = $dom->getElementsByTagName('img');
 
         foreach ($images as $key => $img) {
             // Get the source attribute value of the image
             $src = $img->getAttribute('src');
-            
+
             // Check if the source attribute value is not empty and contains a comma
             if (!empty($src) && strpos($src, ',') !== false) {
                 // Decode the base64-encoded image data
                 $decodedData = base64_decode(explode(',', $src)[1]);
-                        
+
                 // Generate a unique image name
-                $image_name = '_' . time(). $key.'.png';
-                
+                $image_name = '_' . time() . $key . '.png';
+
                 // Set the path where you want to save the image within your assets directory
-                $path = public_path('/images').'/'.$image_name;
-                
+                $path = public_path('/images') . '/' . $image_name;
+
                 // Save the image to the desired directory
                 file_put_contents($path, $decodedData);
-                
+
                 // Get the base URL for your assets directory
-                $base_url = asset('public/images').'/'.$image_name;
-                
+                $base_url = asset('public/images') . '/' . $image_name;
+
                 // Set the image source attribute to the base URL
                 $img->removeAttribute('src');
                 $img->setAttribute('src', $base_url);
             }
         }
-        
-        
-        
-        
+
+
+
+
         // Save the modified HTML content
         $content1 = $dom->saveHTML();
         $data->content = $content1;
-        
+
 
 
 
@@ -557,59 +558,59 @@ class ScoController extends Controller
     public function blogsco_update($id, Request $request)
     {
 
-      
+        //    dd($request->all());
+
         $data = blogsco::find($id);
         $data->category = $request->category;
         $statesAsString = implode(',', $request->states);
         $data->states = $statesAsString;
         $data->title = $request->title;
         $data->description = $request->description;
-        if($request->check=='off')
-        {
-            $data->check = 'off';
-        }
-        else
-        {
-            $data->check = $request->check;
-        }
+        
+        $data->check = $request->check=='on' ? 'on' : 'off';
+        $data->latest = $request->latest=='on' ? 'on' : 'off';
+        $data->popular = $request->popular=='on' ? 'on' : 'off';
+        $data->viewed = $request->viewed=='on' ? 'on' : 'off';
+        $data->read = $request->read=='on' ? 'on' : 'off';
+        $data->recent = $request->recent=='on' ? 'on' : 'off';
 
         $content = $request->content;
 
         $dom = new DOMDocument();
-        $dom->loadHTML($content,9);
+        $dom->loadHTML($content, 9);
 
         $images = $dom->getElementsByTagName('img');
 
         foreach ($images as $key => $img) {
             // Get the source attribute value of the image
             $src = $img->getAttribute('src');
-            
+
             // Check if the source attribute value is not empty and contains a comma
             if (!empty($src) && strpos($src, ',') !== false) {
                 // Decode the base64-encoded image data
                 $decodedData = base64_decode(explode(',', $src)[1]);
-                        
+
                 // Generate a unique image name
-                $image_name = '_' . time(). $key.'.png';
-                
+                $image_name = '_' . time() . $key . '.png';
+
                 // Set the path where you want to save the image within your assets directory
-                $path = public_path('/images').'/'.$image_name;
-                
+                $path = public_path('/images') . '/' . $image_name;
+
                 // Save the image to the desired directory
                 file_put_contents($path, $decodedData);
-                
+
                 // Get the base URL for your assets directory
-                $base_url = asset('public/images').'/'.$image_name;
-                
+                $base_url = asset('public/images') . '/' . $image_name;
+
                 // Set the image source attribute to the base URL
                 $img->removeAttribute('src');
                 $img->setAttribute('src', $base_url);
             }
         }
-        
-        
-        
-        
+
+
+
+
         // Save the modified HTML content
         $content1 = $dom->saveHTML();
         $data->content = $content1;
@@ -625,7 +626,7 @@ class ScoController extends Controller
         } else {
             $data->image = $data->image;
         }
-        
+
         $data->save();
         return redirect('admin/blogseo/bloglist')->with('success', ' updated');
     }
@@ -676,9 +677,9 @@ class ScoController extends Controller
     {
         $slug = $request->input('slug');
         $id = $request->input('id'); // You may need to adjust this based on your actual form structure
-    
+
         $isSlugExist = blogsco::where('slug', $slug)->where('id', '!=', $id)->exists();
-    
+
         return response()->json(['exists' => $isSlugExist]);
     }
 

@@ -193,19 +193,43 @@
                                             </div>
                                             <div class="form-group">
 
-                                                <div class="form-group">
-                                                    <label for="">Feature News</label>
-                                                    <label class="switch">
-                                                        <input type="checkbox" name="check">
-                                                        <span class="slider round"></span>
-                                                    </label>
+                                                <label for="">Feature News</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="check">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Latest News</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="latest">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Popular News</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="popular">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Most Viewed</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="viewed">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Most Read</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="read">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <label for="">Most Recent</label>
+                                                <label class="switch">
+                                                    <input type="checkbox" name="recent">
+                                                    <span class="slider round"></span>
+                                                </label>
 
 
-                                                </div>
-                                                <!-- /.card-body -->
-                                                <div class="card-footer">
-                                                    <button type="submit" class="btn btn-info">Submit</button>
-                                                </div>
+                                            </div>
+                                            <!-- /.card-body -->
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-info">Submit</button>
+                                            </div>
                                     </form>
                                 </div>
                                 @endcan
@@ -229,6 +253,82 @@
 <!-- Include Select2 JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script>
+    // $(document).ready(function() {
+    //     // Initialize Select2 with tagging enabled
+    //     $('.js-example-basic-multiple').select2({
+    //         tags: true,
+    //         tokenSeparators: [',', ' '],
+    //         createTag: function(params) {
+    //             var term = $.trim(params.term);
+    //             if (term === '') {
+    //                 return null;
+    //             }
+    //             return {
+    //                 id: term,
+    //                 text: term,
+    //                 newTag: true
+    //             };
+    //         }
+    //     });
+
+    //     // Function to add new options to the select2 dropdown
+    //     function addOption(value, text) {
+    //         var $select = $('.js-example-basic-multiple');
+    //         var optionExists = $select.find('option[value="' + value + '"]').length > 0;
+    //         if (!optionExists) {
+    //             var newOption = new Option(text, value, true, true);
+    //             $select.append(newOption).trigger('change');
+    //         }
+    //     }
+
+    //     // Event listener for input changes and Enter key press
+    //     $('.js-example-basic-multiple').on('select2:open', function() {
+    //         var $search = $('.select2-search__field');
+
+    //         // Handle blur event
+    //         $search.off('blur.addOption').on('blur.addOption', function() {
+    //             var value = $search.val().trim();
+    //             if (value !== '') {
+    //                 addOption(value, value);
+    //             }
+    //         });
+
+    //         // Handle keypress event
+    //         $search.off('keypress.addOption').on('keypress.addOption', function(event) {
+    //             if (event.which === 13) { // Check if Enter key is pressed
+    //                 var value = $search.val().trim();
+    //                 if (value !== '') {
+    //                     addOption(value, value);
+    //                     $search.val(''); // Clear the input field after adding the option
+    //                 }
+    //             }
+    //         });
+    //     });
+
+    //     // Handle adding option when clicking outside the dropdown
+    //     $(document).on('click', function(event) {
+    //         var $search = $('.select2-search__field');
+    //         var isSelect2Input = $(event.target).closest('.select2-container').length > 0;
+    //         var isSearchInput = $(event.target).hasClass('select2-search__field');
+
+    //         if (!isSelect2Input && !isSearchInput) {
+    //             var value = $search.val().trim();
+    //             if (value !== '') {
+    //                 addOption(value, value);
+    //                 $search.val(''); // Clear the input field after adding the option
+    //             }
+    //         }
+    //     });
+    // });
+
+
+
+
+
+
+
+
+
     $(document).ready(function() {
         $.ajax({
             url: '/get-states',
@@ -250,7 +350,7 @@
     });
 </script>
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
         $('#addTagBtn').click(function() {
             var newTag = $('#exampleInputEmail1').val();
 
@@ -263,7 +363,7 @@ $(document).ready(function() {
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    console.log("fdsafsadf",response.tag.tag);
+                    console.log("fdsafsadf", response.tag.tag);
                     // Display success message using SweetAlert
                     Swal.fire({
                         icon: 'success',
@@ -278,9 +378,9 @@ $(document).ready(function() {
 
 
 
-                     $('.js-example-basic-multiple').append('<option value="' + response.tag.id + '" selected>' + response.tag.tag + '</option>');
+                    $('.js-example-basic-multiple').append('<option value="' + response.tag.id + '" selected>' + response.tag.tag + '</option>');
 
-                     $('.js-example-basic-multiple').trigger('change');
+                    $('.js-example-basic-multiple').trigger('change');
 
                     // Clear the text box
                     $('#exampleInputEmail1').val('');
