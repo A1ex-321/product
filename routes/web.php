@@ -25,10 +25,11 @@ use App\Http\Controllers\Admin\DemoController;
 use App\Http\Controllers\Admin\ScoController;
 use App\Http\Controllers\Machine\MachineController;
 use App\Http\Controllers\Admin\MachineController1;
-use App\Http\Controllers\Admin\NewsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\SitemapController;
 use Spatie\Permission\Models\Role;     
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\News\NewsController1;
 
     $user = Role::all();
     $userRoles = $user->pluck('name')->toArray();
@@ -189,7 +190,14 @@ Route::middleware('SuperAdmin')->group(function () {
 });
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/', [MachineController::class, 'index']);
+Route::get('/', [NewsController1::class, 'index'])->name('home');
+Route::get('/singlepage', [NewsController1::class, 'singlepage']);
+Route::get('/contacts', [NewsController1::class, 'contact'])->name('contacts');
+
+
+
+
+
 Route::get('/about', [MachineController::class, 'about']);
 Route::get('/service', [MachineController::class, 'service']);
 Route::get('/getservice', [MachineController::class, 'getservice'])->name('getservice');

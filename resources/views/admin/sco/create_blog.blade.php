@@ -189,8 +189,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="editor">Content</label>
-                                                <textarea name="content" id="description" cols="30" rows="10" required></textarea>
+                                                <textarea name="content" id="description" cols="30" rows="10">{{ old('content') }}</textarea>
                                             </div>
+
                                             <div class="form-group">
 
                                                 <label for="">Feature News</label>

@@ -92,8 +92,14 @@
                                                 @foreach ($getRecord as $value)
                                                 <tr>
                                                     <td>{{ $counter++ }}</td>
-                                                    <td>{{ $value->title }}</td>
-                                                    <td>{{ $value->description }}</td>
+                                                    <td>
+    {{ Str::words($value->title, 10, '...') }}
+</td>
+
+<td>
+    {{ Str::words($value->description, 10, '...') }}
+</td>
+
                                                     <td><img src="{{ asset('public/images/' . $value->image) }}" alt="Thumb Image" style="max-width: 100px; max-height: 100px;"></td>
                                                     <!-- <td>
                                             <button class="btn btn-success">

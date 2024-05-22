@@ -330,7 +330,7 @@
                                                         <select name="category" id="category" class="form-control" required>
                                                             <option value="" disabled>select a category</option>
                                                             @foreach($getRecord1 as $record)
-                                                            <option value="{{ $record->id }}" @if($getRecord->id == $record->id) selected @endif>{{ $record->category }}</option>
+                                                            <option value="{{ $record->id }}" @if($getRecord->category == $record->id) selected @endif>{{ $record->category }}</option>
                                                             @endforeach
                                                         </select>
 
