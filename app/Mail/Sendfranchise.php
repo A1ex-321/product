@@ -31,7 +31,7 @@ class Sendfranchise extends Mailable
         $this->city = $city;
 
 
-        //   Log::info('Razorpay API Request: ' . json_encode($name,$email,$msg));
+        ///   Log::info('Razorpay API Request: ' . json_encode($name,$email,$msg));
     }
 
     /**
