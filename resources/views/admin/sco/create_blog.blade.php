@@ -109,9 +109,7 @@
                 <div class="container-fluid">
                     <div class="row mb-0">
                         <div class="col-sm-6">
-                            @can('create posts')
-                            <h1 class="m-0">Add blog</h1>
-                            @endcan
+                            <h1 class="m-0">Add sub</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -129,17 +127,16 @@
                         <div class="col-md-12">
                             <div class="card card-primary">
                                 <div class="card-header" style="background-color: #6e9ee6;">
-                                    @can('create posts')
-                                    <h3 class="card-title">Add Blog data <small></small></h3>
+                                    <h3 class="card-title">Add <small></small></h3>
                                 </div>
                                 <div class="container">
                                     <form action="{{ route('create-blogsco') }}" method="post" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="card-body">
                                             <div class="form-row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Category<span style="color:red">*</span></label>
+                                                        <label for="exampleInputEmail1">product<span style="color:red">*</span></label>
                                                         <select name="category" id="category" class="form-control" required>
                                                             <option value="" selected disabled>select a category</option>
                                                             @foreach($getRecord as $record)
@@ -148,26 +145,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-                                                        <div class="form-group row">
-                                                            <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Tag<span style="color:red">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="New Tag">
-                                                            </div>
-
-                                                            <div class="col-sm-2">
-                                                                <button type="button" class="btn btn-primary" id="addTagBtn">+</button>
-                                                            </div>
-                                                        </div>
-                                                        <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple" required>
-
-                                                            <!-- Add more options here -->
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
@@ -183,57 +161,19 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Description<span style="color:red"></span></label>
-                                                <textarea name="description" class="form-control" id="exampleInputEmail1" placeholder="Description" style="width: 100%; height: 100px;" required>{{ old('description') }}</textarea>
-                                            </div>
+                                           
                                             <div class="form-group">
                                                 <label for="editor">Content</label>
                                                 <textarea name="content" id="description" cols="30" rows="10">{{ old('content') }}</textarea>
                                             </div>
 
-                                            <div class="form-group">
-
-                                                <label for="">Feature News</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="check">
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Latest News</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="latest">
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Popular News</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="popular">
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Most Viewed</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="viewed">
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Most Read</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="read">
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Most Recent</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="recent">
-                                                    <span class="slider round"></span>
-                                                </label>
-
-
-                                            </div>
+                                            
                                             <!-- /.card-body -->
                                             <div class="card-footer">
                                                 <button type="submit" class="btn btn-info">Submit</button>
                                             </div>
                                     </form>
                                 </div>
-                                @endcan
                             </div>
                         </div>
                     </div>

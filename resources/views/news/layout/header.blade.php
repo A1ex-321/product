@@ -3,160 +3,142 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Newsers - Free HTML Magazine Template</title>
+    <title>Logistica - Shipping Company Website Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@100;600;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{ asset('public/news/lib/animate/animate.min.css') }}" rel="stylesheet">
-<link href="{{ asset('public/news/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/pro/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/pro/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
-<link href="{{ asset('public/news/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('public/pro/css/bootstrap.min.css') }}" rel="stylesheet">
 
-<link href="{{ asset('public/news/css/style.css') }}" rel="stylesheet">
-
-    <style>
-        .tabcontent {
-  display: none;
- 
-}
-        .data1 {
-            max-width: 551px;
-            /* Adjust the height as needed */
-            overflow-y: auto;
-        }
-
-        .scrollable-content {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-    </style>
+    <!-- Template Stylesheet -->
+    <link href="{{ asset('public/pro/css/style.css') }}" rel="stylesheet">
 </head>
+<style>
+    #late {
+        background-color: #e3101e;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 200px;
+    }
+
+    /* Add this style to control z-index */
+    /* .dropdown-menu {
+        z-index: 1000; /* Adjust the value as needed 
+    } */
+    .submenu {
+    padding: 10px;
+    font-size: 17px;
+    background-color: white;
+    position: absolute;
+    width: 400px;
+    right: 100%; /* Position the submenu to the right of the category title */
+    top: 20px; /* Added 'px' unit */
+}
+
+.submenu a {
+    display: block; /* Display anchor tags as block-level elements */
+    margin-bottom: 5px; /* Add some spacing between each anchor tag */
+    text-decoration: none; /* Remove default underline */
+    color: black; /* Set anchor tag color */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    .submenu {
+        right: auto; /* Remove right positioning */
+        left: 0; /* Position the submenu to the left */
+        top: auto; /* Remove top positioning */
+        bottom: 0; /* Position the submenu at the bottom */
+    }
+}
+@media (max-width: 767px) {
+    .dropdown-item:hover {
+    background-color: #db2504!important; /* Change background color on hover */
+}
+.blog-link {
+    padding: 4px;
+    background-color: #9596de; /* Change background color on hover */
+    color:black;
+    border-radius: 3px;
+
+}
+}
+
+
+.blog-link:hover {
+    background-color: #db2504; /* Change background color on hover */
+    color:#4648e8;
+    border-radius: 3px;
+    padding: 4px;
+
+}
+.dropdown-item:hover{
+    color:#4648e8;
+}
+.dropdown-item:hover {
+    background-color: #db2504!important; /* Change background color on hover */
+}
+</style>
 
 <body>
-
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
     </div>
     <!-- Spinner End -->
 
 
-    <!-- Navbar start -->
-    <div class="container-fluid sticky-top px-0">
-        <!-- <div class="container-fluid topbar bg-dark d-none d-lg-block">
-                <div class="container px-0">
-                    <div class="topbar-top d-flex justify-content-between flex-lg-wrap">
-                         <div class="top-info flex-grow-0">
-                            <span class="rounded-circle btn-sm-square bg-primary me-2">
-                                <i class="fas fa-bolt text-white"></i>
-                            </span>
-                            <div class="pe-2 me-3 border-end border-white d-flex align-items-center">
-                                <p class="mb-0 text-white fs-6 fw-normal">Trending</p>
-                            </div>
-                            <div class="overflow-hidden" style="width: 735px;">
-                                <div id="note" class="ps-2">
-                                    <img src="img/features-fashion.jpg" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
-                                    <a href="#"><p class="text-white mb-0 link-hover">Newsan unknown printer took a galley of type andscrambled Newsan.</p></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="top-link flex-lg-wrap">
-                            <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"> <span class="text-body">Tuesday, Sep 12, 2024</span></i>
-                            <div class="d-flex icon">
-                                <p class="mb-0 text-white me-2">Follow Us:</p>
-                                <a href="" class="me-2"><i class="fab fa-facebook-f text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-twitter text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-linkedin-in text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-skype text-body link-hover"></i></a>
-                                <a href="" class=""><i class="fab fa-pinterest-p text-body link-hover"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        <div class="container-fluid bg-light">
-            <div class="container px-0">
-                <nav class="navbar navbar-light navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand mt-3">
-                        <p class="text-primary display-6 mb-2" style="line-height: 0;">Newsers</p>
-                        <small class="text-body fw-normal" style="letter-spacing: 12px;">Nespaper</small>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
+        <a href="{{ url('/') }}" class="navbar-brand bg-primary d-flex align-items-center px-4 px-lg-5" style="background-color:white!important;">
+            <img src="{{ asset('public/pro/img/lo.jpg') }}" style="height:67px;" alt="">
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{{ url('/') }}" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                <a href="{{ url('/about1') }}" class="nav-item nav-link {{ Request::is('about1') ? 'active' : '' }}">About</a>
+                <div class="nav-item dropdown">
+                    <a href="{{ url('/product') }}" class="nav-link nav-link {{ Request::is('product*') ? 'active' : '' }}">
+                        Product <i class="fas fa-chevron-down"></i>
                     </a>
-                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto border-top">
-                        <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
-                            <!-- <a href="detail-page.html" class="nav-item nav-link">Detail Page</a> -->
-                            <!-- <a href="404.html" class="nav-item nav-link">404 Page</a> -->
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
-                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="#" class="dropdown-item">Dropdown 1</a>
-                                    <a href="#" class="dropdown-item">Dropdown 2</a>
-                                    <a href="#" class="dropdown-item">Dropdown 3</a>
-                                    <a href="#" class="dropdown-item">Dropdown 4</a>
-                                </div>
-                            </div>
-                            <a href="{{ route('contacts') }}" class="nav-item nav-link">Contact Us</a>
-                        </div>
-                        <!-- <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0">
-                            <div class="d-flex">
-                            <img src="{{ asset('public/news/img/weather-icon.png') }}" class="img-fluid w-100 me-2" alt="">
-
-                                <div class="d-flex align-items-center">
-                                    <strong class="fs-4 text-secondary">31°C</strong>
-                                    <div class="d-flex flex-column ms-2" style="width: 150px;">
-                                        <span class="text-body">NEW YORK,</span>
-                                        <small>Mon. 10 jun 2024</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <button
-                                class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto"
-                                data-bs-toggle="modal" data-bs-target="#searchModal"><i
-                                    class="fas fa-search text-primary"></i></button>
-                        </div> -->
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Navbar End -->
-
-
-    <!-- Modal Search Start -->
-    <div class="modal fade " id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center">
-                    <div class="input-group w-75 mx-auto d-flex">
-                        <input type="search" class="form-control p-3" placeholder="keywords"
-                            aria-describedby="search-icon-1">
-                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                    <div class="dropdown-menu fade-up m-0" id="categoryDropdown">
+                        <!-- Dropdown items will be dynamically added here -->
                     </div>
                 </div>
+
+                <a href="{{ url('/contacts') }}" class="nav-item nav-link {{ Request::is('contacts') ? 'active' : '' }}">Contact</a>
             </div>
+            <h4 class="m-0 pe-lg-5 d-none d-lg-block"><i class="fa fa-headphones text-primary me-3"></i>+91 9710742032</h4>
         </div>
-    </div>
+
+    </nav>

@@ -11,8 +11,11 @@ class Blogsco extends Model
     protected $table = 'blogsco';
 
     protected $fillable = [
-        'title','description' ,'image','content'
+        'title','description' ,'image','content','category'
     ];
-    
+    public function detail()
+    {
+        return $this->belongsTo(Detail::class, 'id');
+    }
  
 }

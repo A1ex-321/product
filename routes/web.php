@@ -35,7 +35,7 @@ use App\Http\Controllers\News\NewsController1;
     $userRoles = $user->pluck('name')->toArray();
     $middlewareString = 'role:' . implode('|', $userRoles);
 
-    Route::group(['middleware' => [$middlewareString]], function () {
+    Route::group(['middleware' => 'auth'], function () {
 
 
     //category
@@ -193,6 +193,10 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', [NewsController1::class, 'index'])->name('home');
 Route::get('/singlepage', [NewsController1::class, 'singlepage']);
 Route::get('/contacts', [NewsController1::class, 'contact'])->name('contacts');
+Route::get('/about1', [NewsController1::class, 'about']);
+Route::get('/product', [NewsController1::class, 'product']);
+// routes/web.php
+Route::get('/blog/{id}', [NewsController1::class, 'getBlogData'])->name('blog');
 
 
 
@@ -211,7 +215,7 @@ Route::get('admin/logout', [AuthController::class, 'logout_admin']);
 Route::get('/header', [MachineController::class, 'get_logo1']);
 Route::post('/contact', [MachineController::class, 'store'])->name('contact.store');
 Route::get('/profile', [MachineController::class, 'get_profile']);
-Route::get('/service1', [MachineController::class, 'get_service']);
+Route::get('/service1', [NewsController1::class, 'get_service']);
 Route::get('/singleblog/{id}/{slug}', [MachineController::class, 'get_blog']);
 Route::get('/allget', [MachineController::class, 'get_all']);
 Route::get('/singleblog/{id}', [MachineController::class, 'get_single_blog']);

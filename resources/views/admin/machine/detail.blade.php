@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row mb-0">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Category</h1>
+                            <h1 class="m-0">product</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <div class="float-sm-right">
@@ -26,7 +26,7 @@
                                     <li class="breadcrumb-item active">Dashboard</li>
                                 </ol>
 
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-plus"></i> Add  Category</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-plus"></i> Add  Product</button>
                                 
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                 <div class="modal-dialog modal-lg" role="document"> <!-- Added modal-lg class for large width -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add content service</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Add content </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -50,7 +50,7 @@
                                 <div class="row">
                                     <div class="col-md-12"> <!-- Each input takes half of the row width on medium screens -->
                                         <div class="form-group">
-                                            <label for="title" class="col-form-label">Category:</label>
+                                            <label for="title" class="col-form-label">product:</label>
                                             <input type="text" class="form-control" id="title" name="dnumber" >
                                         </div>
                                     </div>                                
@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="title" class="col-form-label">Category:</label>
+                                <label for="title" class="col-form-label">product:</label>
                                 <input type="text" class="form-control" id="1" name="dnumber" >
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>category</th>
+                                                    <th>product</th>
                                                   
                                                     <th>Action</th>
                                                 </tr>

@@ -127,11 +127,11 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item active">
+                                <!-- <li class="breadcrumb-item active">
 
                                     <button id="errorsco" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#feedback-modal">SEO</button>
 
-                                </li>
+                                </li> -->
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -324,9 +324,9 @@
 
                                         <div class="card-body">
                                             <div class="form-row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">Category<span style="color:red">*</span></label>
+                                                        <label for="exampleInputEmail1">product<span style="color:red">*</span></label>
                                                         <select name="category" id="category" class="form-control" required>
                                                             <option value="" disabled>select a category</option>
                                                             @foreach($getRecord1 as $record)
@@ -336,26 +336,7 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-                                                        <div class="form-group row">
-                                                            <label for="exampleInputEmail1" class="col-sm-2 col-form-label">Tag<span style="color:red">*</span></label>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="exampleInputEmail12" placeholder="New Tag">
-                                                            </div>
-
-                                                            <div class="col-sm-2">
-                                                                <button type="button" class="btn btn-primary" id="addTagBtn">+</button>
-                                                            </div>
-                                                        </div>
-                                                        <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple" required>
-
-                                                            <!-- Add more options here -->
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
@@ -377,56 +358,14 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Description<span style="color:red"></span></label>
-                                                <textarea name="description" class="form-control" id="exampleInputEmail1" placeholder="Description" style="width: 100%; height: 70px;">{{$getRecord->description}}</textarea>
-
-
-                                            </div>
+                                          
 
 
                                             <div class="form-group">
                                                 <label for="editor">Content</label>
                                                 <textarea name="content" id="description" cols="30" rows="10">{{$getRecord->content}}</textarea>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="">Feature News</label>
-                                                <input type="hidden" name="check" value="off">
-                                                <input type="hidden" name="latest" value="off">
-                                                <input type="hidden" name="popular" value="off">
-                                                <input type="hidden" name="read" value="off">
-                                                <input type="hidden" name="recent" value="off">
-                                                <input type="hidden" name="viewed" value="off">
-                                                <label class="switch">
-                                                    <input type="checkbox" name="check" @if($getRecord->check == 'on') checked @endif>
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Latest News</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="latest" @if($getRecord->latest == 'on') checked @endif>
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Popular News</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="popular" @if($getRecord->popular == 'on') checked @endif>
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Most Viewed</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="viewed" @if($getRecord->viewed == 'on') checked @endif>
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Most Recent</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="recent" @if($getRecord->recent == 'on') checked @endif>
-                                                    <span class="slider round"></span>
-                                                </label>
-                                                <label for="">Most read</label>
-                                                <label class="switch">
-                                                    <input type="checkbox" name="read" @if($getRecord->read == 'on') checked @endif>
-                                                    <span class="slider round"></span>
-                                                </label>
-                                            </div>
+                                            
                                             <!-- /.card-body -->
                                             
                                             <div class="card-footer">

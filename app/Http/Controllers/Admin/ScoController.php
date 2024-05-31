@@ -466,16 +466,9 @@ class ScoController extends Controller
         //   dd($request->all());
         $data = new blogsco();
         $data->category = $request->category;
-        $statesAsString = implode(',', $request->states);
-        $data->states = $statesAsString;
+       
         $data->title = $request->title;
-        $data->description = $request->description;
-        $data->check = $request->has('check') ? 'on' : 'off';
-        $data->latest = $request->has('latest') ? 'on' : 'off';
-        $data->popular = $request->has('popular') ? 'on' : 'off';
-        $data->viewed = $request->has('viewed') ? 'on' : 'off';
-        $data->read = $request->has('read') ? 'on' : 'off';
-        $data->recent = $request->has('recent') ? 'on' : 'off';
+   
 
         
 
@@ -562,17 +555,17 @@ class ScoController extends Controller
 
         $data = blogsco::find($id);
         $data->category = $request->category;
-        $statesAsString = implode(',', $request->states);
-        $data->states = $statesAsString;
+        // $statesAsString = implode(',', $request->states);
+        // $data->states = $statesAsString;
         $data->title = $request->title;
-        $data->description = $request->description;
+        // $data->description = $request->description;
         
-        $data->check = $request->check=='on' ? 'on' : 'off';
-        $data->latest = $request->latest=='on' ? 'on' : 'off';
-        $data->popular = $request->popular=='on' ? 'on' : 'off';
-        $data->viewed = $request->viewed=='on' ? 'on' : 'off';
-        $data->read = $request->read=='on' ? 'on' : 'off';
-        $data->recent = $request->recent=='on' ? 'on' : 'off';
+        // $data->check = $request->check=='on' ? 'on' : 'off';
+        // $data->latest = $request->latest=='on' ? 'on' : 'off';
+        // $data->popular = $request->popular=='on' ? 'on' : 'off';
+        // $data->viewed = $request->viewed=='on' ? 'on' : 'off';
+        // $data->read = $request->read=='on' ? 'on' : 'off';
+        // $data->recent = $request->recent=='on' ? 'on' : 'off';
 
         $content = $request->content;
 

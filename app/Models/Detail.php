@@ -13,5 +13,8 @@ class Detail extends Model
     protected $fillable = [
         'id','category', 'wnumber', 'mail','address','header','footer'
     ];
-    
+    public function blogscos()
+    {
+        return $this->hasMany(Blogsco::class, 'category');
+    }
 }

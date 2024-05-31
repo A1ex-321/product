@@ -81,7 +81,6 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Title</th>
-                                                    <th>Description</th>
                                                     <th>Thumb Image</th>
                                                     <!-- <th>View Content</th> -->
                                                     <th>Edit & Delete</th>
@@ -96,9 +95,7 @@
     {{ Str::words($value->title, 10, '...') }}
 </td>
 
-<td>
-    {{ Str::words($value->description, 10, '...') }}
-</td>
+
 
                                                     <td><img src="{{ asset('public/images/' . $value->image) }}" alt="Thumb Image" style="max-width: 100px; max-height: 100px;"></td>
                                                     <!-- <td>

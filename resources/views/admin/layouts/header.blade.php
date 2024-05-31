@@ -105,11 +105,12 @@
 <aside id="sidebar" class="sidebar">
 
   <ul class="sidebar-nav" id="sidebar-nav">
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a href="{{url('/admin/role/role')}}" class="nav-link {{ request()->segment(2) === 'role' ? '' : 'collapsed' }}"> <i class="fa fa-tasks"></i>
         <span>Role</span>
       </a>
-    </li><!-- End Dashboard Nav -->
+    </li> -->
+    <!-- End Dashboard Nav -->
   
     <li class="nav-item">
       <a href="{{url('/admin/admin/list')}}" class="nav-link {{ request()->segment(2) === 'admin' ? '' : 'collapsed' }}"> <i class="bi bi-grid"></i>
@@ -131,14 +132,14 @@
     </li>
     <li class="nav-item">
       <a href="{{ route('detail-list') }}" class="nav-link {{ request()->is('admin/detail/*') ? '' : 'collapsed' }}">
-        <i class="bi bi-ticket-detailed-fill" aria-hidden="true"></i><span> category</span>
+        <i class="bi bi-ticket-detailed-fill" aria-hidden="true"></i><span> Product</span>
       </a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a href="{{ route('tag-list') }}" class="nav-link {{ request()->is('admin/tag/*') ? '' : 'collapsed' }}">
         <i class="bi bi-airplane-fill" aria-hidden="true"></i><span> Tag</span>
       </a>
-    </li>
+    </li> -->
     <!-- End Tables Nav -->
     <!-- <li class="nav-item">
       <a href="{{ route('detail-list') }}" class="nav-link {{ request()->is('admin/detail/*') ? '' : 'collapsed' }}">
@@ -151,24 +152,26 @@
         <i class="bi bi-airplane-fill" aria-hidden="true"></i><span> Social link & query</span>
       </a>
     </li> -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a href="{{ route('blog-logo') }}" class="nav-link {{ request()->is('admin/logo/*') ? '' : 'collapsed' }}">
         <i class="bi bi-bar-chart" aria-hidden="true"></i><span>Logo</span>
       </a>
-    </li><!-- End Charts Nav -->
+    </li> -->
+    <!-- End Charts Nav -->
 
-    <li class="nav-heading">SEO Pages</li>
-
+    <!-- <li class="nav-heading">SEO Pages</li> -->
+<!-- 
     <li class="nav-item">
       <a href="{{ route('sco-list') }}" class="nav-link {{ request()->is('admin/seo/*') ? '' : 'collapsed' }}">
         <i class="bi bi-question-circle" aria-hidden="true"></i><span>SEO link</span>
       </a>
-    </li><!-- End Charts Nav -->
-    <li class="nav-item">
+    </li> -->
+    <!-- <li class="nav-item">
       <a href="{{ route('home-list') }}" class="nav-link {{ request()->is('admin/home/*') ? '' : 'collapsed' }}">
         <i class="bi bi-person" aria-hidden="true"></i><span>Home</span>
       </a>
-    </li><!-- End Charts Nav -->
+    </li> -->
+    <!-- End Charts Nav -->
     <!-- @if(Auth::check() && Auth::user()->role === 'SuperAdmin')
     <li class="nav-item">
       <a href="{{ route('about-list') }}" class="nav-link {{ request()->is('admin/about/*') ? '' : 'collapsed' }}">
