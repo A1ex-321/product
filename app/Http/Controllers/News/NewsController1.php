@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Log; // Don't forget to import the Log facade
 use Illuminate\Support\Carbon;
 
 
-use App\Models\contacts;
+use App\Models\Mailstores;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Blogsco;
@@ -35,7 +35,9 @@ class NewsController1 extends Controller
     {
         // $data['getRecord'] = Blogsco::paginate(9); 
         // dd($data['getRecord']);
-        return view('news.index');
+        $service = Detail::with('blogscos')->get();
+        // dd($service);
+        return view('news.index',compact('service'));
     }
 
     public function singlepage()
@@ -85,6 +87,24 @@ class NewsController1 extends Controller
             //   dd($service);
             return view('news.singlepage', compact('getRecord','service'));
         
+    }
+    public function store(Request $request)
+    {
+        // Extract form data
+        //  dd($request->all());
+        $name = $request->input('name');
+        $phone = $request->input('phone');
+        $message = $request->input('msg');
+
+        // Create a new record in the database
+        Mailstores::create([
+            'name' => $name,
+            'phone' => $phone,
+            'msg' => $message,
+        ]);
+
+        // Redirect or return a response
+        return redirect('/contacts')->with('success', 'Message sent successfully');
     }
     //     public function about()
     //     {

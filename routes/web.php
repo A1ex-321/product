@@ -197,6 +197,7 @@ Route::get('/about1', [NewsController1::class, 'about']);
 Route::get('/product', [NewsController1::class, 'product']);
 // routes/web.php
 Route::get('/blog/{id}', [NewsController1::class, 'getBlogData'])->name('blog');
+Route::post('/contact1', [NewsController1::class, 'store'])->name('contact.store1');
 
 
 

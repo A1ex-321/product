@@ -17,6 +17,7 @@
     </div>
     <!-- Page Header End -->
 
+    @include('news.layout.message')
 
     <!-- Contact Start -->
     <div class="container-fluid overflow-hidden py-5 px-lg-0">
@@ -25,31 +26,26 @@
                 <div class="col-md-6 contact-form wow fadeIn" data-wow-delay="0.1s">
                     <h6 class="text-secondary text-uppercase">Get In Touch</h6>
                     <h1 class="mb-4">Contact For Any Query</h1>
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <p class="mb-4">We are reliable manufacturer for last 12 years, we use high quality material, our pricing are competitive, and we offer after sales service 24X7. </p>
                     <div class="bg-light p-4">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
+                    <form id="" name="" class="default-form" action="{{ route('contact.store1') }}" method="post">
+                        @csrf                            <div class="row g-3">
+                                <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                              
+                                <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
+                                        <input type="text" name="phone"class="form-control" id="subject" placeholder="Subject" required>
+                                        <label for="subject">Phone Number</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                        <textarea class="form-control" placeholder="Leave a message here" name="msg" id="message" style="height: 100px" required></textarea>
                                         <label for="message">Message</label>
                                     </div>
                                 </div>
