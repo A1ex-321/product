@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Inland Design - Responsive HTML Template 
+Version: 1.0.0
+Website: 
+Purchase: 
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+
+
+<head>
+    <!--=== Required meta tags ===-->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="kamleshyadav">
+    <meta name="MobileOptimized" content="320">
+
+    <!--=== custom css ===-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link href="https://fonts.googleapis.com/css?family=Yantramanav:100,300,400,500,700,900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/logo-slick.css">
+
+    <link rel="stylesheet" href="assets/css/packages-interior.css">
+    <link rel="shortcut icon" type="image/ico" href="assets/images/vtech.png" />
+    <!--=== custom css ===-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+
+
+    <!-- if error -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="new/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="new/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="new/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <style>
+        @media screen and (max-width: 991px) {
+            .col-lg-4 {
+                margin-top: 20px;
+            }
+        }
+    </style>
+    <style>
+        .zoomable-img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .zoomable-img:hover {
+            transform: scale(1.1);
+            /* Scale up the image by 10% on hover */
+        }
+
+        .whatsapp_float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+
+        }
+
+        .whatsapp-icon {
+            margin-top: 16px;
+        }
+
+        /* for mobile */
+        /* Center content vertically and horizontally for screens smaller than large (lg) */
+        @media (max-width: 991px) {
+            .col-md-7.align-self-center-md {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* Apply 'row' flex-direction for screens above the medium size (desktop screens) */
+
+
+        /* Media query for screens under medium size (adjust the max-width as needed) */
+        @media (max-width: 768px) {
+            .testimonial-cont {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .whatsapp-icon {
+                margin-top: 10px;
+            }
+
+            .whatsapp_float {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 10px;
+                font-size: 22px;
+            }
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .category-button:hover {
+            font-size: 20px;
+        }
+
+        @media only screen and (max-width: 776px) and (min-width: 481px) {
+            .procedures {
+                padding: 10px;
+                font-size: 16px;
+
+
+            }
+        }
+
+
+        @media only screen and (max-width: 767px) {
+            .modular {
+                display: block;
+                /* Show for mobile */
+            }
+
+            .procedures {
+                display: block;
+                /* Show for mobile */
+                width: 100%;
+            }
+        }
+
+        /* Desktop View Styles */
+        @media only screen and (min-width: 768px) {
+            .modular {
+                display: none;
+                /* Hide for desktop */
+            }
+
+            .procedures {
+                display: none;
+                /* Hide for desktop */
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .accessories {
+                display: block;
+                /* Show for mobile */
+            }
+
+        }
+
+        /* Desktop View Styles */
+        @media only screen and (min-width: 768px) {
+            .accessories {
+                display: none;
+                /* Hide for desktop */
+            }
+
+
+        }
+
+        @media only screen and (max-width: 320px) {
+            .accessories {
+                padding: 15px;
+                font-size: 5px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modularKitchen {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .Award {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .interior {
+                display: none;
+                /* Hide for desktop */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner1 {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .custom_made_container {
+                padding: 20px;
+                margin-top: 50px;
+                /* Adjust the padding according to your design */
+            }
+
+            .custom_made_container_content_align,
+            .custom_made_container_content_align_right {
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+            }
+
+            .custom_made_container_content_align,
+            .custom_made_container_content_align_right,
+            .custom-made,
+            .custom-made-grey,
+            .custom-made-grey-b2 {
+                border: none;
+                border-radius: 0;
+                margin-bottom: 20px;
+            }
+
+            .custom-made-grey,
+            .custom-made-grey-b2 {
+                background-color: #fff;
+                /* Set background color for consistency */
+            }
+        }
+
+        /* ------------------------------------------------------- */
+
+
+
+        @media only screen and (max-width: 767px) {
+            /* Styles for screens up to 767px (typical mobile devices) */
+
+            .perfect .col-md-12 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .perfect .col-md-12 .checkbox {
+                margin-bottom: 20px;
+                /* Adjust as needed */
+            }
+
+            .perfect .col-md-12 .checkbox div {
+                width: 100%;
+            }
+        }
+
+
+        @media only screen and (max-width: 767px) {
+            .para {
+                margin-bottom: 520px;
+                /* Add your desired margin-bottom value for mobile view */
+                /* Add any other styles you want for the "para" class on mobile */
+            }
+
+            .para .col-xl-5,
+            .para .col-lg-5,
+            .para .col-md-5,
+            .para .col-sm-12 {
+                width: 100%;
+                /* Make the content full width on smaller screens */
+                margin: 0;
+                /* Remove margin on smaller screens */
+            }
+
+        }
+
+        @media only screen and (max-width: 767px) {
+
+            .room .col-xl-7,
+            .room .col-lg-7,
+            .room .col-md-7,
+            .room .col-sm-12 {
+                width: 50%;
+                /* Make the column full width on smaller screens */
+                margin-top: -320px;
+                margin-left: 100px;
+                /* Adjust as needed */
+            }
+
+            .room .slider-container {
+                margin-top: -220px;
+                /* Adjust as needed */
+            }
+        }
+
+
+        @media only screen and (max-width: 767px) {
+            .accessories div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .accessories h2 {
+                font-weight: 600;
+                font-size: 28px;
+                text-align: center;
+                margin-top: 30px;
+                /* Add margin as needed */
+                margin-bottom: 10px;
+                /* Add margin as needed */
+                color: #fff;
+            }
+
+            .accessories h4 {
+                width: 100%;
+                text-align: center;
+            }
+
+            .accessories img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            /* Other existing styles for mobile view */
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .swiper-slide img {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .swiper-container {
+                height: auto;
+                max-height: 400px;
+                /* Adjust the max-height as needed */
+            }
+
+            .arrow_with_banner {
+                position: relative;
+            }
+
+            .swiper-button-prev-1,
+            .swiper-button-next-1 {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .swiper-button-prev-1 {
+                left: 1;
+            }
+
+            .swiper-button-next-1 {
+                right: 1;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .movable2 {
+                display: none;
+            }
+        }
+
+        /* Styles for mobile view (screen width up to 767px) */
+        @media (max-width: 767px) {
+            .movable2 {
+                display: block;
+                margin-bottom: 22px;
+                margin-top: -100px;
+                /* or any other display property you want for mobile view */
+            }
+        }
+
+        /* Styles for desktop view (screen width greater than 767px) */
+        @media (min-width: 768px) {
+            .movable1 {
+                display: block;
+                /* or any other display property you want for desktop view */
+            }
+        }
+
+        /* Styles for mobile view (screen width up to 767px) */
+        @media (max-width: 767px) {
+            .movable1 {
+                display: none;
+
+                margin-bottom: 200px;
+                margin-top: -100px;
+            }
+        }
+
+        .grid_img {
+            transition: transform 0.3s ease;
+            /* Add transition for smooth scaling */
+        }
+
+        .grid_img:hover {
+            transform: scale(1.1);
+            /* Scale up the container on hover */
+        }
+    </style>
+    <style>
+        /* Styling for the dropdown menu */
+
+
+        /* Styling for the dropdown menu items */
+        .dropdown-menu li {
+            padding: 5px;
+            /* Add padding to each submenu item */
+            width: 185px;
+            /* background-color: rgb(66, 141, 233); */
+            color: black !important;
+        }
+
+        .dropdown-menu li:hover {
+            background-color: rgb(66, 141, 233) !important;
+            color: black !important;
+        }
+
+        /* Show the submenu when hovering over the parent */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Custom CSS to change active color to blue */
+        .nav-tabs .nav-item.nav-link.active {
+            background-color: rgb(138, 138, 202);
+            color: rgb(14, 1, 1);
+            /* Adjust text color for better visibility */
+            border-color: rgb(138, 138, 202);
+            /* Adjust border color if necessary */
+        }
+
+
+
+
+
+
+        .gallery {
+            display: flex;
+        }
+
+        .thumbnails {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .thumbnails img {
+            width: 100px;
+            /* Adjust size as needed */
+            height: 100px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .main-view {
+            margin-left: 20px;
+        }
+
+        .main-view img {
+            width: 300px;
+            /* Adjust size as needed */
+            height: 300px;
+            cursor: zoom-in;
+        }
+
+
+
+
+
+
+
+        /* Add this CSS to define the border style for the thumbnails */
+        .thumbnail-border {
+            border: 2px solid rgb(82, 112, 229);
+            /* Adjust the border style as needed */
+        }
+
+
+
+
+        @media (max-width: 767px) {
+            .thumbnails1 {
+                display: flex;
+            }
+        }
+
+
+
+
+        .img-zoom-lens {
+            position: absolute;
+            border: 1px solid #D4D4D4;
+            /*set the size of the lens:*/
+            width: 100px;
+            height: 100px;
+        }
+
+        .img-zoom-result {
+            border: 1px solid #D4D4D4;
+            /*set the size of the result div:*/
+            width: 800px;
+            height: 600px;
+        }
+
+        #myresult {
+            display: none;
+        }
+    </style>
+
+    <title>VTec Designers & Developers</title>
+</head>
+
+<body class="int_dark_bg">
+    <a href="https://wa.me/917034670970" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+    </a>
+    <!--=== start Main wraapper ===-->
+    <div class="int_main_wraapper" style="margin-bottom:-145px !important">
+        <div class="int_content_left">
+            <div class="nav-view" style="padding: 20px 0 0 20px;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-4 col-12">
+                            <div class="int_logo">
+                                <a href="index.html"><img src="assets/images/vtech.png"
+                                        style="width:180px;height:120px; padding-bottom: 15px;" class="img-fluid"
+                                        alt="logo" /></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8 col-sm-8 col-12">
+                            <div class="int_nav" style="margin-right: 30px;">
+                                <div class="int_menu">
+                                    <span class="close_menu_int">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="9px" height="8px">
+                                            <defs>
+                                                <filter>
+                                                    <feFlood flood-color="rgb(255, 255, 255)" flood-opacity="1"
+                                                        result="floodOut"></feFlood>
+                                                    <feComposite operator="atop" in="floodOut" in2="SourceGraphic"
+                                                        result="compOut"></feComposite>
+                                                    <feBlend mode="normal" in="compOut" in2="SourceGraphic"></feBlend>
+                                                </filter>
+                                            </defs>
+                                            <g>
+                                                <path fill-rule="evenodd" fill="#ffffff"
+                                                    d="M4.713,3.998 L7.864,0.850 C8.060,0.654 8.060,0.337 7.864,0.142 C7.668,-0.054 7.351,-0.054 7.155,0.142 L4.005,3.290 L0.854,0.142 C0.659,-0.054 0.342,-0.054 0.146,0.142 C-0.050,0.337 -0.050,0.654 0.146,0.850 L3.296,3.998 L0.146,7.146 C-0.050,7.341 -0.050,7.658 0.146,7.854 C0.244,7.952 0.372,8.001 0.500,8.001 C0.628,8.001 0.756,7.952 0.854,7.854 L4.005,4.706 L7.155,7.854 C7.253,7.952 7.381,8.001 7.510,8.001 C7.638,8.001 7.766,7.952 7.864,7.854 C8.060,7.658 8.060,7.341 7.864,7.146 L4.713,3.998 Z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <ul style="display: flex;flex-direction: column-reverse;">
+                                        <ul style="display: flex;padding: 30px 0px 0 90px;display: flex;
+										padding: 28px 0px 0 0;
+										margin: 0 138px 0 0;
+										letter-spacing: 1.1px;">
+                                            <li style="padding-left: 8px;text-decoration: none;"
+                                                class="int_home_dropdown"><a style="text-decoration: none;"
+                                                    href="./index.html">Home</a>
+                                            </li>
+                                            <li style="padding-left: 8px;" class="int_home_dropdown"><a
+                                                    href="./packages-interior.html"
+                                                    style="text-decoration: none;">Interior
+                                                    Design</a>
+                                            </li>
+                                            <li style="padding-left: 8px;"><a href="./index.html#project"
+                                                    style="text-decoration: none;">Villas</a>
+                                            </li>
+                                            <li style="padding-left: 8px;" class="dropdown">
+                                                <a href="#" class="dropdown-toggle" role="button" aria-haspopup="true"
+                                                    aria-expanded="false">Furniture <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="sofa.html"
+                                                            style="text-decoration: none;color: black;">Sofa set</a>
+                                                    </li>
+                                                    <li><a href="table.html"
+                                                            style="text-decoration: none;color: black;">Dinning table
+                                                            set</a></li>
+                                                    <li><a href="bedroom.html"
+                                                            style="text-decoration: none;color: black;">Bedroom set</a>
+                                                    </li>
+                                                    <li><a href="fixtures.html"
+                                                            style="text-decoration: none;color: black;">Fixtures &
+                                                            Decors
+                                                        </a></li>
+                                                    <!-- Add more submenu items as needed -->
+                                                </ul>
+                                            </li>
+                                            <li style="padding-left: 8px;" class="int_home_dropdown"><a
+                                                    style="text-decoration: none;" href="./contact-us.html">Contact
+                                                    Us</a>
+                                            </li>
+                                        </ul>
+                                        <ul style="display: flex;align-items: end;justify-content: end;">
+                                            <li class="int_home_dropdown icon_nav_top_arrange"><a
+                                                    href="tel:+917034670970"><i class="fa fa-phone"
+                                                        style="color: #519fff;font-size:24px;margin-right: 15px;"></i></a>
+                                            </li>
+                                            <li class="int_home_dropdown icon_nav_top_arrange"><a
+                                                    href="https://wa.me/917034670970"><i class="fab fa-whatsapp"
+                                                        style="color: #25d366;font-size:24px;margin-right: 15px;"></i></a>
+                                            </li>
+                                            <li class=""><a href="tel:+917034670970"
+                                                    style="color: #000000;font-size: 16px;margin-right: 13px;">+91
+                                                    7034670970</a></li>
+                                            <li>
+
+                                        </ul>
+                                </div>
+                                <div class="int_cartsec">
+                                    <ul>
+                                        <!-- <li class=""><a href="tel:+917034670970"
+                                                style="color: #000000;font-size: 16px;">+91 7034670970</a></li>
+                                        <li> -->
+                                        <a href="contact-us.html">
+                                            <button
+                                                style="background-color: #519fff; color: white; border: none; border-radius: 5%;"
+                                                onmouseover="this.style.backgroundColor='#0f421c'"
+                                                onmouseout="this.style.backgroundColor='#519fff'">Quick Enquiry</button>
+                                        </a>
+                                        </li>
+                                        <a style="padding-left: 12px;" href="javascript:void(0);" class="menu-icon"
+                                            onclick="openNav()">
+                                            <i class="fas fa-bars"></i>
+                                        </a>
+                                    </ul>
+                                </div>
+                                <!-- Side Navigation -->
+                                <div id="mySidenav" class="sidenav">
+                                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                    <ul>
+                                        <li class="int_home_dropdown"><a href="index.html">Home</a></li>
+                                        <li class="int_home_dropdown"><a href="./packages-interior.html">Interior
+                                                Design</a></li>
+                                        <li><a href="./index.html#project">Villas</a></li>
+                                        <li class="int_home_dropdown"><a href="./furniture.html">Furniture</a></li>
+                                        <li class="int_home_dropdown"><a href="./contact-us.html">Contact Us</a></li>
+                                        <li class="int_home_dropdown"><a href="#about">About Us</a></li>
+                                        <div class="dropdown-nav">
+                                            <button class="dropbtn-nav">
+                                                Packages ▶
+                                            </button>
+                                            <div class="dropdown-content-nav">
+                                                <a href="./packages-interior.html">Interior Design</a>
+                                                <a href="./index.html">Construction</a>
+                                            </div>
+                                        </div>
+                                        <li class="int_home_dropdown"><a href="#testimonials">Testimonials</a></li>
+                                        <li class="int_home_dropdown"><a href="#media-centre">Media Centre</a></li>
+                                        <li class="int_home_dropdown"><a href="#blogs">Blogs</a></li>
+                                        <li class="int_home_dropdown"><a href="#wealth">Wealth Development Ventures</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="sidenav-overlay" class="sidenav-overlay"></div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="" id="project" style="margin-bottom: 200px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="int_heading block">
+                             <h4 style="color: #072a24;">Our Projects<span></span></h4>
+                            <h2 style="font-weight: 600;font-size: 38px;">Bedrooms</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div> -->
+        <!-- Shop Detail Start -->
+
+        <!-- <div class="gallery">
+            <div class="thumbnails">
+                <img src="assets/images/b1.jpg" alt="Image 1" style="width:100px;height:100px;">
+                <img src="assets/images/l1.jpg" alt="Image 2" style="width:100px;height:100px;">
+                <img src="assets/images/l2.jpg" alt="Image 3" style="width:100px;height:100px;">
+                <img src="assets/images/l3.jpg" alt="Image 4" style="width:100px;height:100px;">
+                <img src="assets/images/l3.jpg" alt="Image 5" style="width:100px;height:100px;">
+            </div>
+            <div class="main-view">
+                <img src="" alt="Main View">
+            </div>
+            <div class="zoomed-view"></div>
+        </div>  -->
+
+        <div class="container-fluid pb-5">
+            <div class="row px-xl-5">
+                <div class="col-lg-5 mb-30">
+                    <div id="" class="main-view1" data-ride="carousel">
+                        <div class="carousel-inner bg-light">
+                            <div class="">
+                                <img id="myimage" class="main-view1 img-fluid" src="assets/images/b1.jpg" alt="Image"
+                                    data-mfp-src="assets/images/b1.jpg">
+                            </div>
+                            <!-- <div  class="img-zoom-result"></div> -->
+
+                        </div>
+                        <div class="row thumbnails1">
+                            
+                            <div class="col-3 " style="width:100px;height:100px;margin-top: 10px;"><img
+                                    class="thumbnail-img" src="assets/images/l1.jpg" alt="Image"
+                                    data-mfp-src="assets/images/l1.jpg"></div>
+                            <div style="width:100px;height:100px;margin-top: 10px;" class="col-3"><img
+                                    class="thumbnail-img" src="assets/images/l2.jpg" data-mfp-src="assets/images/l2.jpg"
+                                    alt="Image"></div>
+                            <div style="width:100px;height:100px;margin-top: 10px;" class="col-3"><img
+                                    class="thumbnail-img" src="assets/images/l3.jpg" data-mfp-src="assets/images/l3.jpg"
+                                    alt="Image"></div>
+                            <div style="width:100px;height:100px;margin-top: 10px;" class="col-3"><img
+                                    class="thumbnail-img" src="assets/images/b1.jpg" data-mfp-src="assets/images/l3.jpg"
+                                    alt="Image"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 h-auto mb-30" id="myresult" class="myresult"style="">
+
+                </div>
+                <div class="col-lg-7 h-auto mb-30" id="myresult1">
+                    <div class="h-100 bg-light p-30">
+                        <h3>Living Room</h3>
+                        <div class="d-flex mb-3">
+                            <div class="text-primary mr-2">
+                                <small class="fas fa-star"></small>
+                                <small class="fas fa-star"></small>
+                                <small class="fas fa-star"></small>
+                                <small class="fas fa-star"></small>
+                                <small class="fas fa-star"></small>
+                            </div>
+                            <small class="pt-1">(100 Reviews)</small>
+                        </div>
+                        <p class="mb-4">Whether hosting guests or spending time with family, the living room provides a
+                            comfortable setting for socializing and bonding.</p>
+                        <p class="mb-4">Due to its central location in the home, the living room is versatile and can
+                            accommodate various activities, from quiet evenings at home to lively gatherings with
+                            friends and family.</p>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row px-xl-5">
+                <div class="col">
+                    <div class="bg-light p-30">
+                        <div class="nav nav-tabs mb-4">
+                            <a class="nav-item nav-link text-dark active" data-toggle="tab"
+                                href="#tab-pane-1">Description</a>
+                            <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Information</a>
+                        </div>
+
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tab-pane-1">
+                                <h4 class="mb-3">Product Description</h4>
+                                <p>The living room often serves as a primary area for entertainment and relaxation. It's
+                                    where families gather to watch movies, play games, or listen to music together.</p>
+                                <p>Whether hosting guests or spending time with family, the living room provides a
+                                    comfortable setting for socializing and bonding.</p>
+                            </div>
+                            <div class="tab-pane fade" id="tab-pane-2">
+                                <h4 class="mb-3">Additional Information</h4>
+                                <p>Some living rooms include a reading nook or a cozy corner with a comfortable chair
+                                    and bookshelf, creating a tranquil space for reading and unwinding..</p>
+                                <!-- <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item px-0">
+                                                Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                            </li>
+                                            <li class="list-group-item px-0">
+                                                Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                            </li>
+                                            <li class="list-group-item px-0">
+                                                Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                            </li>
+                                            <li class="list-group-item px-0">
+                                                Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item px-0">
+                                                Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                            </li>
+                                            <li class="list-group-item px-0">
+                                                Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                            </li>
+                                            <li class="list-group-item px-0">
+                                                Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                            </li>
+                                            <li class="list-group-item px-0">
+                                                Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="tab-pane fade" id="tab-pane-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4">1 review for "Product Name"</h4>
+                                        <div class="media mb-4">
+                                            <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1"
+                                                style="width: 45px;">
+                                            <div class="media-body">
+                                                <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
+                                                <div class="text-primary mb-2">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                    <i class="far fa-star"></i>
+                                                </div>
+                                                <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam
+                                                    ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod
+                                                    ipsum.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4">Leave a review</h4>
+                                        <small>Your email address will not be published. Required fields are marked
+                                            *</small>
+                                        <div class="d-flex my-3">
+                                            <p class="mb-0 mr-2">Your Rating * :</p>
+                                            <div class="text-primary">
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="message">Your Review *</label>
+                                                <textarea id="message" cols="30" rows="5"
+                                                    class="form-control"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name">Your Name *</label>
+                                                <input type="text" class="form-control" id="name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Your Email *</label>
+                                                <input type="email" class="form-control" id="email">
+                                            </div>
+                                            <div class="form-group mb-0">
+                                                <input type="submit" value="Leave Your Review"
+                                                    class="btn btn-primary px-3">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Shop Detail End -->
+
+
+        <!-- Products Start -->
+        <!-- <div class="container-fluid py-5">
+            <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You
+                    May Also Like</span></h2>
+            <div class="row px-xl-5">
+                <div class="col">
+                    <div class="owl-carousel related-carousel">
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                            <a href="detail.html">
+                                <img class="img-fluid w-100" style="height: 200px;" src="assets/images/b1.jpg" alt="">
+                            </a>    
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Living Room</a>
+                                <!-- <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5>
+                                    <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div> 
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <!-- <small>(100)</small> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" style="height: 200px;" src="assets/images/b2.jpg" alt="">
+                              
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Dining Room</a>
+                                <!-- <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5>
+                                    <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div> 
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <!-- <small>(99)</small> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" style="height: 200px;" src="assets/images/b3.jpg" alt="">
+                               
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Bedroom</a>
+                                <!-- <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5>
+                                    <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div> 
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <!-- <small>(99)</small> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" style="height: 200px;" src="assets/images/b4.jpg" alt="">
+                                
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Garden</a>
+                                <!-- <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5>
+                                    <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div> 
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <!-- <small>(99)</small> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" style="height: 200px;" src="assets/images/b5.jpg" alt="">
+                              
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Office & Study Room</a>
+                                <!-- <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5>
+                                    <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div> 
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <!-- <small>(99)</small> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item bg-light">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" style="height: 200px;" src="assets/images/b6.jpg" alt="">
+                              
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">Bedroom</a>
+                                <!-- <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>$123.00</h5>
+                                    <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                </div> 
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <!-- <small>(99)</small> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Products End -->
+
+
+
+    </div>
+
+
+    <!--===End Start About Section===-->
+
+
+    <!-- mobile view  start-->
+
+
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- mobile view  start-->
+
+
+
+
+
+
+
+
+
+    <!-- ----------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- mobile view -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+    <!--======End Contact Us Form Section======-->
+    <!--===Start Footer Section===-->
+    <div class="int_footer_wrapper" style="margin-top:120px">
+        <div class="container">
+            <div class="footer_box_wrapper">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="footer_box">
+                            <h3 class="footer_heading">Useful Links</h3>
+                            <div class="footer_linkbox">
+                                <!-- <ul class="footer_hours footer_support_link">
+                                    <li><a href="">Home </a></li>
+                                    <li><a href="#about">About Us </a></li>
+                                    <li><a href="#testi">Testimonials </a></li>
+                                </ul> -->
+                                <ul class="footer_hours">
+                                    <li><a href="" style="color: black;">Interior Designers In Kanyakumari</a></li>
+                                    <li><a href="#services" style="color: black;">Interior Designers In Trivandrum</a>
+                                    </li>
+                                    <li><a href="#contact" style="color: black;">Interior Designers In Kollam</a></li>
+                                    <li><a href="#contact" style="color: black;">Interior Designers In Alappuzha</a>
+                                    </li>
+                                    <li><a href="#contact" style="color: black;">Interior Designers In Idukki</a></li>
+                                    <li><a href="#contact" style="color: black;">Interior Designers In Kottayam</a></li>
+                                    <li><a href="#contact" style="color: black;">Interior Designers In
+                                            Pathanamthitta</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="footer_box">
+                            <h3 class="footer_heading">Quick Links</h3>
+                            <div class="footer_linkbox">
+                                <!-- <ul class="footer_hours footer_support_link">
+                                    <li><a href="">Home </a></li>
+                                    <li><a href="#about">About Us </a></li>
+                                    <li><a href="#testi">Testimonials </a></li>
+                                </ul> -->
+                                <ul class="footer_hours footer_support_link">
+                                    <li><a href="./index.html">Home</a></li>
+                                    <li><a href="./packages-interior.html">Interior Packages</a></li>
+                                    <li><a href="./contact-us.html">Contact Us</a></li>
+                                    <li><a href="./index.html#project">Villas</a></li>
+                                    <li><a href="./gallery.html">Gallery</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6 col-12">
+                        <div class="footer_box">
+                            <h3 class="footer_heading">Social Media</h3>
+                            <div class="footer_linkbox">
+                                <ul class="footer_hours footer_support_link">
+                                    <li><a href="https://www.instagram.com/vtecdesigners/?igsh=YmZqYmVzeW1lZHB5
+">Instagram </a></li>
+                                    <li><a href="https://www.facebook.com/admin2Pratheesh">Facebook </a></li>
+                                    <li><a href="https://www.youtube.com/@vtecdesigners">Youtube </a></li>
+                                    <li><a href="https://in.pinterest.com/vtecdesigners/">Linked In </a></li>
+                                    <li><a href="https://www.linkedin.com/in/vtec-designers-developers-2bba24214">Pinterest
+                                        </a></li>
+                                </ul>
+                                <!-- <ul class="footer_hours footer_support_link">
+                                    <li><a href="">Home </a></li>
+                                    <li><a href="#services">Services </a></li>
+                                    <li><a href="#contact">Contact Us</a></li>
+                                </ul> -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="footer_box">
+                            <div class="int_logo">
+                                <a href="index.html"><img style="width: 75%;" src="assets/images/vtech.png"
+                                        class="img-fluid" alt="logo" /></a>
+                            </div>
+                            <div class="footer_box" style="margin-top: 20px;">
+                                <h3 class="footer_heading">Newsletter</h3>
+                                <p class="">Join our newsletter today and get the best deals that we have to offer.</p>
+                                <div class="footer_linkbox">
+                                    <form class="footer_subscribe_form" style="display: flex; flex-direction: column;">
+                                        <label for="newsletter_email" style="display: none;">Subscribe to our
+                                            Newsletter</label>
+                                        <div style="display: flex;">
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--===End Footer Section===-->
+
+    <!--===Start Bottom Footer Section===-->
+    <div class="int_bottom_footer_wrapper">
+        <div class="container-fluid" style="background-color: #c5c0c0; height: 100px;">
+            <div class="bottom_footer_box_wrapper text-center">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p style="margin-top: 20px;">Copyright © 2023 .All Right Reserved.Powered By
+                            OrangeMegaSoftware.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--===Start Bottom Footer Section===-->
+
+    </div>
+    <!--=== End Main wraapper ===-->
+
+    <!--=== Optional JavaScript ===-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugin/countto/jquery.appear.js"></script>
+    <script src="assets/js/plugin/countto/jquery.countTo.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+
+
+    <!-- if error -->
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="new/lib/easing/easing.min.js"></script>
+    <script src="new/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="new/mail/jqBootstrapValidation.min.js"></script>
+    <script src="new/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="new/js/main.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js"></script>
+
+    <!-- Include the Magnific Popup JavaScript file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            $('.zoomable-img').magnificPopup({
+                type: 'image',
+                closeOnContentClick: true,
+                closeBtnInside: false,
+                fixedContentPos: true,
+                mainClass: 'mfp-no-margins mfp-with-zoom',
+                image: {
+                    verticalFit: true
+                },
+                zoom: {
+                    enabled: true,
+                    duration: 300
+                },
+                gallery: {
+                    enabled: true, // Enable gallery mode
+                    navigateByImgClick: false, // Disable navigation by clicking on the image itself
+                    preload: [0, 1] // Preload two images before and after the current image
+                },
+                arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>'
+            });
+        });
+    </script>
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("img").click(function () {
+                var t = $(this).attr("src");
+                $(".modal-body").html("<img src='" + t + "' class='modal-img'>");
+                $("#myModal").modal();
+            });
+
+            $("video").click(function () {
+                var v = $("video > source");
+                var t = v.attr("src");
+                $(".modal-body").html("<video class='model-vid' controls><source src='" + t + "' type='video/mp4'></source></video>");
+                $("#myModal").modal();
+            });
+        });//EOF Document.ready
+    </script>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.nextElementSibling;
+            const icon = item.querySelector('i');
+
+            item.addEventListener('click', () => {
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        const otherAnswer = otherItem.nextElementSibling;
+                        const otherIcon = otherItem.querySelector('i');
+
+                        otherAnswer.classList.remove('active');
+                        otherIcon.classList.remove('active');
+                        otherAnswer.style.maxHeight = "0";
+                    }
+                });
+
+                answer.classList.toggle('active');
+                icon.classList.toggle('active');
+                if (answer.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = "0";
+                }
+            });
+        });
+    </script>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const images = slider.getElementsByTagName('img');
+        let currentImage = 0;
+        const imageCount = images.length;
+        const imageWidth = 100 / imageCount;
+
+        function slideNext() {
+            currentImage = (currentImage + 1) % imageCount;
+            updateSlider();
+        }
+
+        function slidePrev() {
+            currentImage = (currentImage - 1 + imageCount) % imageCount;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentImage * imageWidth}%)`;
+        }
+
+        setInterval(slideNext, 3000); // Auto slide every 3 seconds
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var isOpen = false; // Variable to track the state of the side navigation
+
+            // Function to toggle the side navigation
+            function toggleNav() {
+                if (isOpen) {
+                    $("#mySidenav").css("width", "0");
+                    $("#sidenav-overlay").css("display", "none");
+                } else {
+                    $("#mySidenav").css("width", "300px"); // Adjust the width as needed
+                    $("#sidenav-overlay").css("display", "block");
+                }
+                isOpen = !isOpen;
+            }
+
+            // Toggle the side navigation when the menu icon is clicked
+            $(".menu-icon").click(toggleNav);
+
+            // Close the side navigation when clicking outside of it
+            $(document).on("click", function (event) {
+                if (
+                    isOpen &&
+                    !$(event.target).closest("#mySidenav").length &&
+                    !$(event.target).closest(".menu-icon").length
+                ) {
+                    toggleNav();
+                }
+            });
+
+            // Close the side navigation when the close button is clicked
+            $(".closebtn").click(toggleNav);
+        });
+
+    </script>
+
+    <script>
+
+        var swiperSlider2 = new Swiper('.swiper-slider-2', {
+            loop: true, // Enable looping	
+            autoplay: {
+                delay: 3000, // Delay between slides in milliseconds (3 seconds in this case)
+            },
+            navigation: {
+                nextEl: '.swiper-button-next-1', // Next button selector
+                prevEl: '.swiper-button-prev-1', // Previous button selector
+            },
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const categories = {
+                category1: [
+                    './assets/images/interior_gallery/category_clicks_new/kitchen-2.png',
+                    './assets/images/interior_gallery/category_clicks_new/kitchen-3.png',
+                    './assets/images/interior_gallery/category_clicks_new/kitchen-4.png',
+                ],
+                category2: [
+                    './assets/images/interior_gallery/category_clicks_new/living-1.png',
+                    './assets/images/interior_gallery/category_clicks_new/living-2.png',
+                    './assets/images/interior_gallery/category_clicks_new/living-3.png',
+                ],
+                category3: [
+                    './assets/images/interior_gallery/sized/03.png',
+                    './assets/images/interior_gallery/sized/02.png',
+                ],
+                category4: [
+                    './assets/images/interior_gallery/sized/01.png',
+                ],
+            };
+
+            const categoryButtons = document.querySelectorAll('.category-button');
+            const sliderImages = document.querySelectorAll('.slider-image');
+            const sliderContainer = document.querySelector('.slider-container');
+            const prevButton = document.getElementById('prevBtn');
+            const nextButton = document.getElementById('nextBtn');
+            let currentCategory = 'category1';
+            let currentIndex = 0;
+            let autoplayInterval;
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const selectedCategory = button.getAttribute('data-category');
+                    currentCategory = selectedCategory;
+                    updateSliderImages();
+                });
+            });
+
+            function updateSliderImages() {
+                const imagesForCategory = categories[currentCategory];
+                const numImages = imagesForCategory.length;
+
+                sliderImages.forEach((image, i) => {
+                    if (numImages > 0) {
+                        const imageIndex = i % numImages;
+                        image.src = imagesForCategory[imageIndex];
+                        image.style.display = 'block';
+                    } else {
+                        image.style.display = 'none';
+                    }
+                });
+            }
+
+            function showSlide(index) {
+                sliderImages.forEach((image, i) => {
+                    image.style.display = i === index ? 'block' : 'none';
+                });
+            }
+
+            function startAutoplay() {
+                autoplayInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % sliderImages.length;
+                    showSlide(currentIndex);
+                }, 5000); // Change image every 5 seconds
+            }
+
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+
+            sliderContainer.addEventListener('mouseenter', () => {
+                stopAutoplay();
+            });
+
+            sliderContainer.addEventListener('mouseleave', () => {
+                startAutoplay();
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+                showSlide(currentIndex);
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % sliderImages.length;
+                showSlide(currentIndex);
+            });
+
+            // Initial setup
+            updateSliderImages();
+            startAutoplay();
+        });
+    </script>
+
+
+
+
+
+    <script>
+        // Define content for each category
+        const categoryContent = {
+            category1: {
+                h2: "Premier Modular Kitchen Designers and Kitchen Solutions",
+                h3: "Crafting Your Culinary Space",
+                p1: "Vtec Interiors and Developers provide custom modular kitchen designs for apartments and villas throughout Kerala. Our designs are customized to suit the client's lifestyle and available space. Our skilled interior designer assesses the site, takes measurements, and discusses requirements with the client. We then create a customized design based on the kitchen's shape and size. Once the client approves the design, we manufacture the modular kitchen in our own factory and install it on-site with precision. We deliver results within 35-40 days of finalizing the design. Explore our top modular kitchen designs",
+                br: true,
+                p2: "Straight Kitchen Designs: Experience the streamlined efficiency of straight kitchens, ideal for maximizing space and creating a sleek, contemporary aesthetic.",
+                br: true,
+                p3: "Island Kitchen Designs: Island Kitchen Designs incorporate a standalone countertop in the kitchen space, providing extra prep and storage areas. The benefits include increased workspace, improved passage flow, and an ideal hub for cooking and socializing, making it a popular choice for modern homes.",
+                br: true,
+                p4: "L-Shape Kitchen Designs: L-Shape Kitchen Designs feature countertops and cabinets in an L-shaped layout. They optimize space efficiency, allowing easy access to cooking and storage areas. The benefits include efficient workspace utilization, flexibility in design, and a well-organized kitchen.",
+                br: true,
+                p5: "Parallel Kitchen Designs: Parallel Kitchen Designs comprise two parallel countertops with appliances and cabinets, creating a streamlined and efficient workspace. Benefits include excellent workflow, ample storage, and the ability to accommodate multiple cooks while maintaining a sleek and modern appearance.",
+                br: true,
+                p6: "U-Shape Kitchen Designs: U-Shape Kitchen Designs feature three adjacent walls of countertops and cabinets, forming a U-shape. These designs maximize storage, counter space, and efficiency. Benefits include ample work area, easy accessibility, and a well-organized layout, ideal for cooking and meal preparation.",
+                br: true,
+                p7: "Open Kitchen Designs: Open kitchen designs by Vtec Builders and Developers. We expertly craft open kitchens that seamlessly integrate with your living space, fostering a sense of connectivity and warmth. Experience the joy of interactive cooking and entertaining, as the open kitchen layouts enhance social engagement."
+            },
+            category2: {
+                h2: "Customized Living Room Designs",
+                h3: "Crafting Your Ideal Living Room",
+                p1: "Vtec Interiors and Developers can make your living area match your personal taste. Our interior designers can help you create furniture that suits your concept. We provide unique solutions such as LCD TV units, sofa sets, centre tables, and living-dining partitions that complement the overall decor of your house. Contact our team to get our wide selection of living room furniture styles. Our team of professionals will help you create a living room decor that meets your needs. Contact us if you want to improve the appearance and functionality of your living area.",
+                br: true,
+                p2: "Tv console unit: We create custom TV console units to match your home's aesthetics, ensuring your TV area seamlessly integrates into your living room, blending style and functionality.",
+                br: true,
+                p3: "Sofa Set: Our custom-designed sofa sets effortlessly complement your living room concept, providing both style and comfort for your ultimate relaxation and entertainment experience.",
+                br: true,
+                p4: "Courtyard: We seamlessly integrate courtyards to infuse your living space with greenery, creating a tranquil retreat. This addition provides a serene outdoor connection, elevating both relaxation and aesthetics in your home.",
+                br: true,
+                p5: "Wall Decoration: We provide distinctive wall decorations to elevate the visual appeal of your living room. This transforms your living space into a captivating and personalized area, exuding added character and charm with a professional touch.",
+                br: true,
+                p6: "Partition: We offer living-dining partitions to enhance the functionality of your living area. This creates a well-organized, open, and versatile living space tailored to your specific lifestyle and needs with a professional touch.",
+            },
+            category3: {
+                h2: "Experience the Difference: Interior Design Solutions for Bedrooms",
+                h3: "Crafting Your Personal Sanctuary",
+                p1: "To maintain an excellent sleeping environment, it's vital to select bedroom furniture that complements your interior design. The bedroom serves as a sanctuary, necessitating a secure and welcoming ambiance with essential amenities. Typically, bedroom furniture, including beds, side tables, wardrobes, and dressing tables, occupies a significant portion of space. Our expert interior designers at Vtec Interiors and Developers can help craft and provide custom bedroom furniture and interior designs tailored to your space. Contact us to explore the variety of options available and create the ultimate comfortable bedroom.",
+                br: true,
+                p2: "Custom Wardrobe Solutions: We design bespoke wardrobe designs optimizing storage and aesthetics. This results in your bedroom acquiring efficient, organized storage, elevating both the appearance and functionality of the space with a professional touch.",
+                br: true,
+                p3: "Bed Cot Design: We provide custom bed cot designs that harmonize with your bedroom's style, so that you may experience a comfortable and stylish sleeping area that complements the room's decor, fostering relaxation and rejuvenation.",
+                br: true,
+                p4: " Dressing Table Unit: We offer customized dressing table units to your space and requirements. Your bedroom gains enhanced organization and elegance, featuring a dedicated area for grooming and personal care with a professional touch.",
+                br: true,
+                p5: "Study Unit Integration: We offer seamlessly integration of study units to maximize bedroom space for work or study, so that your bedroom becomes versatile, serving as a comfortable workspace that fosters productivity and enhances the overall functionality of your living space with a professional touch.",
+                br: true,
+                p6: "",
+            },
+            category4: {
+                h2: "Enhance Your Dining Room with Vtec Interiors and Developers",
+                h3: "Crafting Your Dining Oasis",
+                p1: "In India, it's common to purchase dining room furniture without considering interior design. At Vtec Interiors and Developers, we offer dining room furniture like tables, chairs, and crockery shelves that match your interior design and color. Our custom designs blend seamlessly with your modular kitchen, creating a comfortable and cohesive space. We can incorporate dining table set or additional storage in matching color themes, providing you with a well-rounded dining experience.",
+                br: true,
+                p2: "Customized Dining Table Sets: We design unique dining table sets that seamlessly blend with your interior design and colour palette, resulting in a cohesive dining room. You benefit from a well-coordinated dining space furnished with custom-made pieces that elevate both the aesthetics and functionality of your dining area.",
+                br: true,
+                p3: "Custom Crockery Shelving: Our crockery shelves are meticulously designed to effortlessly complement your interior decor, providing an organized and stylish storage solution. Your dining area gains enhanced organization and aesthetic appeal, with a designated space to showcase your crockery and dining essentials.",
+                br: true,
+                p4: "Customized Wash Unit Solutions: We seamlessly incorporate wash units that harmonize with your interior design, delivering a convenient and stylish washing area. Your dining area benefits from increased functionality and a touch of elegance, with a tailored wash unit that perfectly complements your entire dining room layout.",
+                br: true,
+                p5: "",
+                br: true,
+                p6: "",
+            },
+        };
+
+
+
+        function displaySelectedContent(category) {
+            const contentElementH2 = document.getElementById("contentH2");
+            const contentElementH3 = document.getElementById("contentH3");
+            const contentElementP1 = document.getElementById("contentP1");
+            const contentElementP2 = document.getElementById("contentP2");
+            const contentElementP3 = document.getElementById("contentP3");
+            const contentElementP4 = document.getElementById("contentP4");
+            const contentElementP5 = document.getElementById("contentP5");
+            const contentElementP6 = document.getElementById("contentP6");
+            const contentElementP7 = document.getElementById("contentP7");
+
+            if (categoryContent.hasOwnProperty(category)) {
+                contentElementH2.textContent = categoryContent[category].h2;
+                contentElementH3.textContent = categoryContent[category].h3;
+                contentElementP1.textContent = categoryContent[category].p1;
+
+                // Dynamically loop through paragraphs and update corresponding HTML elements
+                for (let i = 2; i <= 7; i++) {
+                    const paragraphKey = `p${i}`;
+                    const element = document.getElementById(`contentP${i}`);
+                    if (categoryContent[category][paragraphKey]) {
+                        const textContent = categoryContent[category][paragraphKey];
+                        const parts = textContent.split(":");
+                        const coloredPart = `<span style="color: #519fff;">${parts[0]}:</span>`;
+                        const restOfText = parts[1];
+                        element.innerHTML = coloredPart + restOfText;
+                    } else {
+                        element.textContent = ""; // Set empty if paragraph key is not present
+                    }
+                }
+
+            } else {
+                // Set default content if category is not found
+                contentElementH2.textContent = "Category content not found.";
+                contentElementH3.textContent = "Category content not found.";
+                contentElementP1.textContent = "Category content not found.";
+                contentElementP2.textContent = "Category content not found.";
+                contentElementP3.textContent = "Category content not found.";
+                contentElementP4.textContent = "Category content not found.";
+                contentElementP5.textContent = "Category content not found.";
+                contentElementP6.textContent = "Category content not found.";
+                contentElementP7.textContent = "Category content not found.";
+            }
+        };
+
+        // Add click event listeners to the category buttons
+        const categoryButtonsContent = document.querySelectorAll(".category-button");
+        categoryButtonsContent.forEach(button => {
+            button.addEventListener("click", function () {
+                const selectedCategory = button.getAttribute("data-category");
+                displaySelectedContent(selectedCategory);
+            });
+        });
+
+        // Initialize content for the default category (e.g., Kitchen)
+        displaySelectedContent("category1");
+    </script>
+
+    <script>
+        // Define content for each category
+        const processContent = {
+            identification: {
+                p1: "With a legacy dating back to 2007, VTec Designers & Developers has been shaping kitchen interiors with innovation, efficient management, and on-time execution. We specialize in creating functional and elegant kitchen spaces."
+            },
+            concept: {
+                p1: "VTec Designers & Developers, with over a decade of experience since 2007, is dedicated to delivering customer satisfaction through innovative design, efficient project management, and timely execution. We specialize in crafting functional and elegant living environments."
+            },
+            design: {
+                p1: "Discover the art of bedroom design with VTec. Our team of experienced interior designers is dedicated to turning your bedroom into a haven. From concept to completion, we tailor each bedroom project to reflect your unique style and preferences."
+            },
+            implementation: {
+                p1: "Experience the magic of dining area transformation with Vtech. Our team of passionate interior designers is dedicated to bringing your dining area vision to life. From concept to completion, we customize each dining area project to reflect your unique style and preferences."
+            },
+        };
+
+        // Function to update content based on the selected category
+        function updateContent(category) {
+            const contentElement = document.getElementById("our_process_toggle");
+
+            if (processContent.hasOwnProperty(category)) {
+                contentElement.textContent = processContent[category].p1;
+            } else {
+                contentElement.textContent = "Category content not found.";
+            }
+        }
+
+        // Add click event listeners to the category buttons
+        const ourProcessBtn = document.querySelectorAll(".process_box");
+        ourProcessBtn.forEach(button => {
+            button.addEventListener("click", function () {
+                const selectedCategory = button.getAttribute("data-category");
+                updateContent(selectedCategory);
+            });
+        });
+
+        // Initialize content for the default category (e.g., Kitchen)
+        updateContent("identification");
+    </script>
+
+    <script>
+        var angle = 0;
+        function galleryspin(sign) {
+            spinner = document.querySelector("#spinner");
+            if (!sign) { angle = angle + 45; } else { angle = angle - 45; }
+            spinner.setAttribute("style", "-webkit-transform: rotateY(" + angle + "deg); -moz-transform: rotateY(" + angle + "deg); transform: rotateY(" + angle + "deg);");
+        }
+    </script>
+
+    <script>
+        // ===== Scroll to Top ==== 
+        $(window).scroll(function () {
+            if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+                $('#return-to-top').fadeIn(200);    // Fade in the arrow
+            } else {
+                $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+            }
+        });
+        $('#return-to-top').click(function () {      // When arrow is clicked
+            $('body,html').animate({
+                scrollTop: 0                       // Scroll to top of body
+            }, 500);
+        });
+
+
+
+        //     document.addEventListener("DOMContentLoaded", function () {
+        // // Set myresult1 to be displayed by default
+        // document.getElementById("myresult1").style.display = "block";
+
+        // const thumbnails = document.querySelectorAll('.thumbnails1 img');
+        // const mainView = document.querySelector('.main-view1 img');
+
+        // thumbnails.forEach(thumbnail => {
+        //     thumbnail.addEventListener('click', function () {
+        //         mainView.src = this.src;
+        //         // Update zoom effect for the new image
+        //         imageZoom("myimage", "myresult");
+        //     });
+
+        //     thumbnail.addEventListener('mouseover', function () {
+        //         mainView.src = this.src;
+        //         // Update zoom effect for the new image
+        //         imageZoom("myimage", "myresult");
+        //         this.classList.add('thumbnail-border'); // Add border class on hover
+        //     });
+
+        //     thumbnail.addEventListener('mouseout', function () {
+        //         this.classList.remove('thumbnail-border'); // Remove border class on mouse out
+        //     });
+        // });
+
+        // const thumbnail1 = document.getElementById('myresult');
+        // thumbnail1.addEventListener('mouseover', function () {
+        //     mainView.src = this.src;
+        //     // Update zoom effect for the new image
+        //     // imageZoom("myimage", "myresult");
+        //     // Add border class on hover
+        //     document.getElementById("myresult1").style.display = "none"; // Hide myresult1
+        //     document.getElementById("myresult").style.display = "block"; // Show myresult
+        // });
+
+        // thumbnail1.addEventListener('mouseout', function () {
+        //     document.getElementById("myresult1").style.display = "block"; // Show myresult1
+        //     document.getElementById("myresult").style.display = "none"; // Hide myresult
+        // });
+        // });
+
+
+    </script>
+    <!-- <script>
+            imageZoom("myimage", "myresult");
+
+    </script> -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to initialize zoom effect
+            // imageZoom("myimage", "myresult");
+
+            function imageZoom(imgID, resultID) {
+
+                var img, lens, result, cx, cy;
+                img = document.getElementById(imgID);
+                result = document.getElementById(resultID);
+                /*create lens:*/
+                lens = document.createElement("DIV");
+                lens.setAttribute("class", "img-zoom-lens");
+                /*insert lens:*/
+                img.parentElement.insertBefore(lens, img);
+                /*calculate the ratio between result DIV and lens:*/
+                cx = result.offsetWidth / lens.offsetWidth;
+                cy = result.offsetHeight / lens.offsetHeight;
+                /*set background properties for the result DIV:*/
+                result.style.backgroundImage = "url('" + img.src + "')";
+                result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+
+                // Function to show the result
+                function showResult() {
+                    result.style.display = "block";
+                }
+
+                // Function to hide the result
+                function hideResult() {
+                    result.style.display = "none";
+                }
+
+                /*execute a function when someone moves the cursor over the image, or the lens:*/
+                lens.addEventListener("mousemove", function (e) {
+                    showResult();
+                    moveLens(e);
+                });
+
+                img.addEventListener("mousemove", function (e) {
+                    showResult();
+                    moveLens(e);
+                });
+
+                /*and also for touch screens:*/
+                lens.addEventListener("touchmove", function (e) {
+                    showResult();
+                    moveLens(e);
+                });
+
+                img.addEventListener("touchmove", function (e) {
+                    showResult();
+                    moveLens(e);
+                });
+
+                /* Hide the result when mouse leaves the image */
+                img.addEventListener("mouseleave", hideResult);
+                lens.addEventListener("mouseleave", hideResult);
+
+                function moveLens(e) {
+                    var pos, x, y;
+                    /*prevent any other actions that may occur when moving over the image:*/
+                    e.preventDefault();
+                    /*get the cursor's x and y positions:*/
+                    pos = getCursorPos(e);
+                    /*calculate the position of the lens:*/
+                    x = pos.x - (lens.offsetWidth / 2);
+                    y = pos.y - (lens.offsetHeight / 2);
+                    /*prevent the lens from being positioned outside the image:*/
+                    if (x > img.width - lens.offsetWidth) { x = img.width - lens.offsetWidth; }
+                    if (x < 0) { x = 0; }
+                    if (y > img.height - lens.offsetHeight) { y = img.height - lens.offsetHeight; }
+                    if (y < 0) { y = 0; }
+                    /*set the position of the lens:*/
+                    lens.style.left = x + "px";
+                    lens.style.top = y + "px";
+                    /*display what the lens "sees":*/
+                    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+                }
+
+                function getCursorPos(e) {
+                    var a, x = 0, y = 0;
+                    e = e || window.event;
+                    /*get the x and y positions of the image:*/
+                    a = img.getBoundingClientRect();
+                    /*calculate the cursor's x and y coordinates, relative to the image:*/
+                    x = e.pageX - a.left;
+                    y = e.pageY - a.top;
+                    /*consider any page scrolling:*/
+                    x = x - window.pageXOffset;
+                    y = y - window.pageYOffset;
+                    return { x: x, y: y };
+                }
+            }
+             // Adjust the delay time as needed (in milliseconds)
+
+            // Initialize zoom effect on page load
+            imageZoom("myimage", "myresult");
+
+            const thumbnails = document.querySelectorAll('.thumbnails1 img');
+            const mainView = document.querySelector('.main-view1 img');
+            const result = document.getElementById('myresult');
+            const result1 = document.querySelector('.main-view1');
+            const myImage = document.getElementById('.myimage');
+
+            // Loop through thumbnails to add event listeners
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function () {
+                    mainView.src = this.src;
+                    imageZoom("myimage", "myresult");
+                });
+                thumbnail.addEventListener('mouseover', function () {
+                    mainView.src = this.src;
+                    imageZoom("myimage", "myresult");
+                    this.classList.add('thumbnail-border');
+                     result.style.display = "block";
+                });
+                thumbnail.addEventListener('mouseout', function () {
+                    imageZoom("myimage", "myresult");
+                    result.style.display = "none";
+                    this.classList.remove('thumbnail-border');
+                });
+            });
+
+            // Event listener for displaying zoomed image on main image hover
+            // myImage.addEventListener('mouseover', function () {
+            //     result.style.display = "block";
+            // });
+        });
+    </script>
+    <!--=== Optional JavaScript ===-->
+</body>
+
+</html>
