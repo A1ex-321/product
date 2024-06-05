@@ -54,7 +54,7 @@
             <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
                 <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
                 <h2 class="mb-5">AA ENGINEERING & FABRICATION WORKS, CHENNAI</h2>
-                <p class="mb-5">With a full range of proven products and service
+                <p class="mb-5" style="text-align:justify;">With a full range of proven products and service
                     packages, <span style="color: red;">AA ENGINEERING (AAE)</span> is one of India's most
                     experienced equipment and process optimization expert.
                     We supply unparalleled expertise in Mixing, Drying and
@@ -63,7 +63,7 @@
                     into account preservation of product character,
                     environmental considerations and end user's objectives.
                 </p>
-                <p style="">AAE is guarantees that all matters relating to your project
+                <p style="text-align:justify;">AAE is guarantees that all matters relating to your project
                     will be taken into consideration to ensure a tailor-made
                     solution precisely suited to meet your needs. We constantly
                     upgrade the technology, through continual improvement in
@@ -103,9 +103,10 @@
                     <div class="ps-4">
                         <h6>Call for any query!</h6>
                         <h3 class="text-primary m-0">
-                            <tel href="tel:+919710742032">+91 9710742032</tel>
+                            <a href="tel:+919710742032">+91 9710742032</a>
                         </h3>
                     </div>
+
                 </div>
             </div>
             <div class="col-lg-6">
@@ -142,7 +143,18 @@
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="text-secondary text-uppercase">Our Products</h6>
             <h1 class="mb-5">Explore Our Product</h1>
+            <h6 style="text-align:justify;font-size:19px;">We have been in this business since 2010 and have
+                gained valuable expertise and credibility. We not only produce
+                high quality products but also make sure our products are
+                delivered on time every time. Our manufacturing process is at
+                par with International Standards. And therefore, all our
+                products are known for the following characteristics -
+                Sturdiness and Reliable Performance, Superior Technology (in
+                house R&D), Efficient and Economic Performance, Assured
+                After Sales Support, 100% Customizable and Reasonable
+                Prices.</h6>
         </div>
+
         <div class="row g-4">
             @foreach($service as $item)
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">

@@ -135,6 +135,11 @@
         <i class="bi bi-ticket-detailed-fill" aria-hidden="true"></i><span> Product</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{route('ser-list')}}" class="nav-link {{ request()->segment(2) === 'service1' ? '' : 'collapsed' }}">
+        <i class="bi bi-person"></i><span>Clients</span>
+      </a>
+    </li>
     <!-- <li class="nav-item">
       <a href="{{ route('tag-list') }}" class="nav-link {{ request()->is('admin/tag/*') ? '' : 'collapsed' }}">
         <i class="bi bi-airplane-fill" aria-hidden="true"></i><span> Tag</span>
@@ -152,11 +157,11 @@
         <i class="bi bi-airplane-fill" aria-hidden="true"></i><span> Social link & query</span>
       </a>
     </li> -->
-    <!-- <li class="nav-item">
+     <li class="nav-item">
       <a href="{{ route('blog-logo') }}" class="nav-link {{ request()->is('admin/logo/*') ? '' : 'collapsed' }}">
         <i class="bi bi-bar-chart" aria-hidden="true"></i><span>Logo</span>
       </a>
-    </li> -->
+    </li> 
     <!-- End Charts Nav -->
 
     <!-- <li class="nav-heading">SEO Pages</li> -->

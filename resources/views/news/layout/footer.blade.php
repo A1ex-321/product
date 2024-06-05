@@ -2,19 +2,21 @@
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
-                <h4 class="text-light mb-4">Office Address</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>No 23/24, Jagathambol Street </p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>Nesapakkm (K.K. Nagar West)</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>Chennai – 600 078</p>
+                <h4 class="text-light mb-4">Why Choose Us?</h4>
+                <p class="mb-2" style="text-align:justify;"><i class="fa fa-map-marker-alt me-3"></i>We are reliable manufacturer for last 12 years, we use high quality material, our pricing are competitive, and we offer after sales service 24X7. </p>
+
 
 
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Contact</h4>
 
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 9710742032</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+919710742032">+91 9710742032</a></p>
+
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>aaenggprocess@gmail.com</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>Chennai – 600 078</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>aae@aaemachinery.com</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@aaemachinery.com</p>
+                <p class="mb-2"><i class=""></i>Chennai – 600 078</p>
 
             </div>
             <div class="col-lg-3 col-md-6">
@@ -22,8 +24,10 @@
                 <a class="btn btn-link" href="{{ url('/about1') }}">About Us</a>
                 <a class="btn btn-link" href="{{ url('/contacts') }}">Contact Us</a>
                 <a class="btn btn-link" href="{{ url('/product') }}">Our product</a>
+                <a class="btn btn-link" href="{{ url('/client') }}">Clients</a>
+
                 <a class="btn btn-link" href="{{ url('/') }}">Home</a>
-                <a class="btn btn-link" href="">Product</a>
+                <!-- <a class="btn btn-link" href="">Product</a> -->
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Factory Address</h4>
@@ -45,7 +49,7 @@
         <div class="copyright">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                    &copy; <a class="border-bottom" href="https://orangemegasoftware.com/" target="_blank">Orange Mega Software</a>, All Right Reserved.
                 </div>
                 <!-- <div class="col-md-6 text-center text-md-end">
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/
@@ -77,7 +81,7 @@
 
                     // Check if item has blogscos
                     if (item.blogscos && Array.isArray(item.blogscos)) {
-                        dropdownItemHTML += '<div class="submenu" style="display:none;">';
+                        dropdownItemHTML += '<div class="submenu" style="display:none;height:auto">';
                         item.blogscos.forEach(function(blog, index) {
                             dropdownItemHTML += '<a id="' + blog.id + '" class="blog-link">' + blog.title + '</a>';
                         });
@@ -92,21 +96,28 @@
                     e.preventDefault(); // Prevent default anchor behavior
                     var blogId = $(this).attr('id'); // Get the id attribute of the 
                     // window.open('/blog/' + blogId);         
-                    window.location.href = '/blog/' + blogId;         
+                    window.location.href = '/blog/' + blogId;
                 });
 
                 // Toggle submenu on category title click
-                $('.dropdown-item').click(function() {
-                    // Hide all other submenus
-                    $('.submenu').not($(this).next('.submenu')).slideUp('slow');
+                // Flag to track if submenu is hovered over
+                var submenuTimeout;
 
-                    // Toggle the submenu associated with the clicked item
-                    var submenu = $(this).next('.submenu');
-                    if (submenu.find('a').length) { // Check if there are anchor tags inside the submenu
-                        submenu.slideToggle('slow');
-                    }
+                $('.dropdown-item').on({
+                    click: function() {
+                        // Hide all other submenus
+                        $('.submenu').not($(this).next('.submenu')).slideUp('slow');
+
+                        // Toggle the submenu associated with the clicked item
+                        var submenu = $(this).next('.submenu');
+                        if (submenu.find('a').length) { // Check if there are anchor tags inside the submenu
+                            submenu.slideToggle('slow');
+                        }
+                    },
+                    
                 });
 
+            
                 // Hide submenu when clicking outside of it
                 $(document).on('click', function(event) {
                     if (!$(event.target).closest('.dropdown-item').length) {

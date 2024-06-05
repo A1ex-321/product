@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row mb-0">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Service</h1>
+                            <h1 class="m-0">clients</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <div class="float-sm-right">
@@ -26,7 +26,7 @@
                                     <li class="breadcrumb-item active">Dashboard</li>
                                 </ol>
 
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-plus"></i> Add About service</button>
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-plus"></i> Add About service</button> -->
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test" data-whatever="@mdo"><i class="fas fa-plus"></i> Add Service</button>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
             <div class="modal-body">
                 <form action="{{ route('add-service') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Title:</label>
                         <input type="text" class="form-control" id="recipient-name" name="machinetitle" required value="{{ old('machinetitle') }}">
                         @error('machinetitle')
@@ -117,7 +117,7 @@
                         @error('description')
                         <div id="description-error" class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="machineimage" class="col-form-label">Photo:</label>
                         <input type="file" class="form-control" id="machineimage" name="machineimage" required>
@@ -194,7 +194,7 @@
             </div>
 
 
-            <section class="section">
+            <!-- <section class="section">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
@@ -204,7 +204,7 @@
                                     <h5 class="card-title"> Tables</h5>
 
 
-                                    <!-- Table with stripped rows -->
+                                    <!-- Table with stripped rows 
                                     <div class="table-responsive">
                                         <table class="table table-striped datatable">
                                             <thead>
@@ -246,14 +246,14 @@
 
 
                                     </div>
-                                    <!-- End Table with stripped rows -->
+                                    <!-- End Table with stripped rows 
 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <section class="section">
                 <div class="container-fluid">
                     <div class="row">
@@ -268,8 +268,6 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Title</th>
-                                                    <th>Description</th>
                                                     <th>photo</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -278,8 +276,6 @@
                                                 @foreach($getRecord1 as $value)
                                                 <tr>
                                                     <td>{{$value->id}}</td>
-                                                    <td>{{$value->machinetitle}}</td>
-                                                    <td>{{$value->description}}</td>
                                                     <td><img src="{{ asset('public/images/' . $value->machineimage) }}" style="width:100px;height:60px;" alt="Image"></td>
 
                                                     <td>
@@ -291,7 +287,6 @@
                                                 </tr>
                                                 @endforeach
                                             </tbody>
-
                                         </table>
                                         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
@@ -305,7 +300,7 @@
                                                     <div class="modal-body">
                                                         <form id="editForm" method="post" enctype="multipart/form-data">
                                                             @csrf
-                                                            <div class="form-group">
+                                                            <!-- <div class="form-group">
                                                                 <label for="message-text" class="col-form-label">Title</label>
 
                                                                 <input type="text" class="form-control" id="5" name="machinetitle" required>
@@ -313,7 +308,7 @@
                                                             <div class="form-group">
                                                                 <label for="message-text" class="col-form-label">Description:</label>
                                                                 <textarea class="form-control" id="6" name="description" required></textarea>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="form-group">
                                                                 <label for="message-text" class="col-form-label">photo:</label>
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\News;
 
 use App\Models\User;
 use App\Models\Gallery;
-use App\Models\detail;
+use App\Models\Detail;
 use App\Models\Banner;
 use App\Models\Machineservice;
 use App\Models\Scolink;
@@ -47,6 +47,12 @@ class NewsController1 extends Controller
     public function about()
     {
         return view('news.about');
+    }
+    public function client()
+    {
+        $data['getRecord'] = Machineservice::get();
+// dd($data['getRecord']);
+        return view('news.client',$data);
     }
     public function product()
     {

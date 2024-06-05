@@ -46,13 +46,11 @@
 
 
                         </div><!-- /.col -->
-                        @can('create posts')
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="{{ route('create-blog') }}" class="btn btn-primary" style="color:black;">Create Blog</a>
 </li>
-@endcan
 
 
 
@@ -107,13 +105,11 @@
                                         </td> -->
 
                                                     <td>
-                                                        @can('edit posts')
 
                                                         <a href="{{url('admin/blogseo/edit/'.$value->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        @endcan
-                                                        @can('delete posts')
+                                                        
                                                         <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('admin/blogseo/delete/'.$value->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                                                        @endcan
+                                                        
 
                                                     </td>
 

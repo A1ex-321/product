@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Logistica - Shipping Company Website Template</title>
+    <title>AAE Machinery</title>
+    <!-- <img src="{{ asset('public/pro/img/lo.jpg') }}" alt="Description of the image" title="Title of the image"> -->
+    <link rel="icon" tpype="image/png" href="{{ asset('public/pro/img/lo.jpg') }}">
+
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -91,7 +94,7 @@
 
 
 .blog-link:hover {
-    background-color: #db2504; /* Change background color on hover */
+    background-color: #8d9091; /* Change background color on hover */
     color:#4648e8;
     border-radius: 3px;
     padding: 4px;
@@ -101,7 +104,7 @@
     color:#4648e8;
 }
 .dropdown-item:hover {
-    background-color: #db2504!important; /* Change background color on hover */
+    background-color: #8d9091!important; /* Change background color on hover */
 }
 </style>
 
@@ -135,10 +138,13 @@
                         <!-- Dropdown items will be dynamically added here -->
                     </div>
                 </div>
-
+                <a href="{{ url('/client') }}" class="nav-item nav-link {{ Request::is('client') ? 'active' : '' }}">Clients</a>
                 <a href="{{ url('/contacts') }}" class="nav-item nav-link {{ Request::is('contacts') ? 'active' : '' }}">Contact</a>
             </div>
-            <h4 class="m-0 pe-lg-5 d-none d-lg-block"><i class="fa fa-headphones text-primary me-3"></i>+91 9710742032</h4>
+            <h4 class="m-0 pe-lg-5 d-none d-lg-block"><a href="tel:+919710742032"><i class="fa fa-headphones text-primary me-3"></i>
+                <!-- +91 9710742032 -->
+            </a></h4>
+
         </div>
 
     </nav>

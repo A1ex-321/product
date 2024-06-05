@@ -35,8 +35,8 @@ class MachineController1 extends Controller
  
     public function client_list()
     {
-         $data['getRecord'] = Machineservice::where('is_service', 0)->get();
-         $data['getRecord1'] = Machineservice::where('is_service', 1)->get();
+         $data['getRecord'] = Machineservice::get();
+         $data['getRecord1'] = Machineservice::get();
 
         $data['header_title'] = "Admin List";
 
@@ -111,10 +111,7 @@ class MachineController1 extends Controller
     // Create a new Machineservice record with the uploaded image and other data
     Machineservice::create([
         'machineimage' => $filename,
-        'machinetitle' => $request->machinetitle,
-        'description' => $request->description,
-        'is_service' => 1,
-    ]);
+          ]);
 
     // Redirect back with a success message
     return redirect('admin/service1/list')->with('success', 'Uploaded successfully.');
@@ -135,8 +132,8 @@ class MachineController1 extends Controller
         else{
             $user->machineimage=$user->machineimage;
         }
-        $user->description=$request->description;
-        $user->machinetitle=$request->machinetitle;
+        // $user->description=$request->description;
+        // $user->machinetitle=$request->machinetitle;
         $user->save();
         return redirect('admin/service1/list')->with('success', 'updated successfully.');
     }

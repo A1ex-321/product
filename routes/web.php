@@ -101,6 +101,18 @@ use App\Http\Controllers\News\NewsController1;
     Route::get('admin/home/delete/{id}', [ScoController::class, 'home_delete']);
     Route::get('admin/home/edit/{id}', [ScoController::class, 'home_edit']);
     Route::post('admin/home/edit/{id}', [ScoController::class, 'home_update'])->name('home-update');
+    //service
+    Route::get('admin/service1/list', [MachineController1::class, 'client_list'])->name('ser-list');
+    Route::post('admin/service1/add', [MachineController1::class, 'client_add'])->name('add-client');
+    Route::post('admin/client/test', [MachineController1::class, 'test_add'])->name('add-test');
+    Route::get('admin/client/edit/{id}', [MachineController1::class, 'clientedit']);
+    Route::post('admin/client/update/{id}', [MachineController1::class, 'client_update'])->name('updateclient');
+    Route::post('admin/service1/update/{id}', [MachineController1::class, 'client_update1'])->name('updateclient1');
+    Route::get('admin/service1/edit/{id}', [MachineController1::class, 'serviceedit']);
+    Route::post('admin/service2/add', [MachineController1::class, 'service_add'])->name('add-service');
+    Route::get('admin/addclient/deleteclient/{id}', [MachineController1::class, 'deleteclient']);
+    
+    Route::get('admin/test/delete/{id}', [MachineController1::class, 'testdelete']);
 });
 // }
 
@@ -194,10 +206,11 @@ Route::get('/', [NewsController1::class, 'index'])->name('home');
 Route::get('/singlepage', [NewsController1::class, 'singlepage']);
 Route::get('/contacts', [NewsController1::class, 'contact'])->name('contacts');
 Route::get('/about1', [NewsController1::class, 'about']);
-Route::get('/product', [NewsController1::class, 'product']);
+// Route::get('/product', [NewsController1::class, 'product']);
 // routes/web.php
 Route::get('/blog/{id}', [NewsController1::class, 'getBlogData'])->name('blog');
 Route::post('/contact1', [NewsController1::class, 'store'])->name('contact.store1');
+Route::get('/client', [NewsController1::class, 'client']);
 
 
 
