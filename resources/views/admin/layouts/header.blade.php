@@ -140,6 +140,11 @@
         <i class="bi bi-person"></i><span>Clients</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a href="{{route('Banner-list')}}" class="nav-link {{ request()->segment(2) === 'Banner' ? '' : 'collapsed' }}">
+      <i class="bi-align-center"></i><span>Banner</span>
+      </a>
+    </li>
     <!-- <li class="nav-item">
       <a href="{{ route('tag-list') }}" class="nav-link {{ request()->is('admin/tag/*') ? '' : 'collapsed' }}">
         <i class="bi bi-airplane-fill" aria-hidden="true"></i><span> Tag</span>

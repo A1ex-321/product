@@ -3,7 +3,7 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Why Choose Us?</h4>
-                <p class="mb-2" style="text-align:justify;"><i class="fa fa-map-marker-alt me-3"></i>We are reliable manufacturer for last 12 years, we use high quality material, our pricing are competitive, and we offer after sales service 24X7. </p>
+                <p class="mb-2" style="text-align:justify;">We are reliable manufacturer for last 12 years, we use high quality material, our pricing are competitive, and we offer after sales service 24X7. </p>
 
 
 
@@ -16,7 +16,10 @@
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>aaenggprocess@gmail.com</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>aae@aaemachinery.com</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@aaemachinery.com</p>
-                <p class="mb-2"><i class=""></i>Chennai – 600 078</p>
+                <!-- <p class="mb-2"><i class=""></i>Chennai – 600 078</p> -->
+                <!-- <p class="mb-2"><i class=""></i>chennai - 600 o78</p> 
+                
+            -->
 
             </div>
             <div class="col-lg-3 col-md-6">
@@ -31,10 +34,10 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Factory Address</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>New Survey No.225/2B1A1A1 </p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>Kalaimagal Nagar Part-1</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>Pazham Thandalam, Thirumudivakkam</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>Chennai – 600 078</p>
+                <p class="mb-2">New Survey No.225/2B1A1A1, </p>
+                <p class="mb-2">Kalaimagal Nagar Part-1,</p>
+                <p class="mb-2">Pazham Thandalam, Thirumudivakkam,</p>
+                <p class="mb-2">Chennai – 600 078</p>
 
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
@@ -134,6 +137,49 @@
             e.preventDefault(); // Prevent default link behavior
             toggleDropdown(); // Toggle dropdown menu
         });
+    });
+    $(document).ready(function() {
+        // Fetch the logo from the server and update
+        function fetchAndUpdateLogo() {
+            // Fetch the logo from the server
+            $.ajax({
+                url: '{{ route("header") }}',
+                type: 'GET',
+                success: function(response) {
+                    if (response.image) {
+                        // Update the logo
+                        // console.log("logo",response.image);
+                        updateLogo(response.image);
+                        // Store the new logo URL in local storage
+                        localStorage.setItem('logo', response.image);
+                    } else {
+                        console.error('No image found');
+                    }
+                },
+                error: function(error) {
+                    console.error('Error fetching logo:', error.responseText);
+                }
+            });
+        }
+
+        // Update the logo with the provided URL
+        function updateLogo(imageUrl) {
+            $('#al').attr('src', imageUrl);
+            // $('#al1').attr('src', imageUrl);
+            $('link[rel="icon"]').attr('href', imageUrl); // Update favicon
+        }
+
+        // Fetch logo from local storage if available
+        var storedLogoUrl = localStorage.getItem('logo');
+        if (storedLogoUrl) {
+            updateLogo(storedLogoUrl);
+        } else {
+            // Fetch and update the logo from the server
+            fetchAndUpdateLogo();
+        }
+
+        // Set up an interval to periodically check for logo updates
+        setInterval(fetchAndUpdateLogo, 10000); // Adjust the interval as needed
     });
 </script>
 <!-- <script>

@@ -5,7 +5,7 @@
 <div class="container-fluid p-0 pb-5">
     <div class="owl-carousel header-carousel position-relative mb-5">
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" style="height: 500px;" src="{{ asset('public/pro/img/c5.jpg') }}" alt="">
+            <img class="img-fluid" style="height: 500px;" src="{{ asset('public/images/' . $banner[0]->image) }}" alt="">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
                 <div class="container" style="margin-top:-100px;">
                     <div class="row justify-content-start">
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" style="height: 500px;" src="{{ asset('public/pro/img/c4.jpg') }}" alt="">
+            <img class="img-fluid" style="height: 500px;" src="{{ asset('public/images/' . $banner[1]->image) }}" alt="">
             <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(6, 3, 21, .5);">
                 <div class="container" style="margin-top:-100px;">
                     <div class="row justify-content-start">

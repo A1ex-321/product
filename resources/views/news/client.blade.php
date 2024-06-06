@@ -53,6 +53,12 @@
 
 <!-- Fact Start -->
 <!-- Fact Start -->
+<!-- <span role="button" tabindex="0">Non-button element button</span> -->
+
+<!-- <p><abbr title="attribute">attr</abbr></p>
+<p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p> 
+boostrap only put text-center to center property
+-->
 <div class="container-xxl py-5">
     <div class="container py-5">
         <div class="row g-5">
@@ -63,7 +69,8 @@
                     <h3 class="text-secondary text-uppercase mb-3">Some of our clients</h3>
                     <div class="row">
     @foreach($getRecord as $record)
-    <div class="col-6 col-md-4 col-lg-3"> <!-- Display 2 columns on mobile, 3 columns on tablets, and 4 columns on larger screens -->
+    <div class="col-6 col-md-4 col-lg-3">
+         <!-- Display 2 columns on mobile, 3 columns on tablets, and 4 columns on larger screens -->
         <div class="image-container">
             <img class="img-fluid" src="{{ asset('public/images/' . $record->machineimage) }}" alt="">
         </div>

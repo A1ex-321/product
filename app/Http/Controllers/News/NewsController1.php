@@ -36,8 +36,9 @@ class NewsController1 extends Controller
         // $data['getRecord'] = Blogsco::paginate(9); 
         // dd($data['getRecord']);
         $service = Detail::with('blogscos')->get();
-        // dd($service);
-        return view('news.index',compact('service'));
+        $banner = Banner::get();
+        //  dd($banner);
+        return view('news.index',compact('service','banner'));
     }
 
     public function singlepage()

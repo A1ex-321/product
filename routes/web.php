@@ -111,8 +111,13 @@ use App\Http\Controllers\News\NewsController1;
     Route::get('admin/service1/edit/{id}', [MachineController1::class, 'serviceedit']);
     Route::post('admin/service2/add', [MachineController1::class, 'service_add'])->name('add-service');
     Route::get('admin/addclient/deleteclient/{id}', [MachineController1::class, 'deleteclient']);
-    
+    //banner
     Route::get('admin/test/delete/{id}', [MachineController1::class, 'testdelete']);
+    Route::get('admin/Banner/Bannerlist', [MachineController1::class, 'Bannerlist'])->name('Banner-list');
+    Route::post('admin/banner/add', [MachineController1::class, 'create_banner'])->name('create-banner');
+    Route::get('admin/banner/delete/{id}', [MachineController1::class, 'banner_delete']);
+    Route::get('admin/banner/edit/{id}', [MachineController1::class, 'banner_edit']);
+    Route::post('admin/banner/update/{id}', [MachineController1::class, 'banner_update'])->name('banner-update');
 });
 // }
 
@@ -211,6 +216,7 @@ Route::get('/about1', [NewsController1::class, 'about']);
 Route::get('/blog/{id}', [NewsController1::class, 'getBlogData'])->name('blog');
 Route::post('/contact1', [NewsController1::class, 'store'])->name('contact.store1');
 Route::get('/client', [NewsController1::class, 'client']);
+Route::get('/header', [MachineController::class, 'get_logo1'])->name('header');
 
 
 
@@ -226,7 +232,7 @@ Route::get('/singleblog', [MachineController::class, 'singleblog']);
 Route::get('admin', [AuthController::class, 'login']);
 Route::post('admin', [AuthController::class, 'auth_login_admin']);
 Route::get('admin/logout', [AuthController::class, 'logout_admin']);
-Route::get('/header', [MachineController::class, 'get_logo1']);
+// Route::get('/header', [MachineController::class, 'get_logo1']);
 Route::post('/contact', [MachineController::class, 'store'])->name('contact.store');
 Route::get('/profile', [MachineController::class, 'get_profile']);
 Route::get('/service1', [NewsController1::class, 'get_service']);

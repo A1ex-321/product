@@ -18,7 +18,30 @@
     <!-- Page Header End -->
 
     @include('news.layout.message')
+    <div class="container-fluid overflow-hidden  px-lg-0">
+        <div class="container contact-page  px-lg-0">
+            <div class="row g-5 mx-lg-0">
+                <div class="col-md-6 contact-form wow fadeIn" data-wow-delay="0.1s">
+                    <h6 class="text-secondary text-uppercase">ADDRESS</h6>
+                    <!-- <h1 class="mb-4">Contact For Any Query</h1> -->
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+919710742032">+91 9710742032</a></p>
+                    <p class="mb-1">New Survey No.225/2B1A1A1,</p>
+                    <p class="mb-1">Kalaimagal Nagar Part-1,</p>
+                    <p class="mb-1">Pazham Thandalam, Thirumudivakkam,</p>
+                    <p class="mb-1">Chennai – 600 078</p>
 
+                </div>
+                <div class="col-md-6 pe-lg-0 wow fadeInRight" data-wow-delay="0.1s">
+                <h6 class="text-secondary text-uppercase">For Enquiry</h6>
+                    <!-- <h1 class="mb-4">Contact For Any Query</h1> -->
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+919710742032">+91 9710742032</a></p>
+                    <p class="mb-1"><i class="fa fa-envelope me-3"></i>aaenggprocess@gmail.com</p>
+                    <p class="mb-1"><i class="fa fa-envelope me-3"></i>aae@aaemachinery.com</p>
+                    <p class="mb-1"><i class="fa fa-envelope me-3"></i>info@aaemachinery.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Contact Start -->
     <div class="container-fluid overflow-hidden py-5 px-lg-0">
         <div class="container contact-page py-5 px-lg-0">

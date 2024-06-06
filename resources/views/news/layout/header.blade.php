@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>AAE Machinery</title>
     <!-- <img src="{{ asset('public/pro/img/lo.jpg') }}" alt="Description of the image" title="Title of the image"> -->
-    <link rel="icon" tpype="image/png" href="{{ asset('public/pro/img/lo.jpg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('public/pro/img/lo.jpg') }}">
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -54,58 +54,76 @@
         z-index: 1000; /* Adjust the value as needed 
     } */
     .submenu {
-    padding: 10px;
-    font-size: 17px;
-    background-color: white;
-    position: absolute;
-    width: 400px;
-    right: 100%; /* Position the submenu to the right of the category title */
-    top: 20px; /* Added 'px' unit */
-}
-
-.submenu a {
-    display: block; /* Display anchor tags as block-level elements */
-    margin-bottom: 5px; /* Add some spacing between each anchor tag */
-    text-decoration: none; /* Remove default underline */
-    color: black; /* Set anchor tag color */
-}
-
-/* Media query for mobile devices */
-@media (max-width: 767px) {
-    .submenu {
-        right: auto; /* Remove right positioning */
-        left: 0; /* Position the submenu to the left */
-        top: auto; /* Remove top positioning */
-        bottom: 0; /* Position the submenu at the bottom */
+        padding: 10px;
+        font-size: 17px;
+        background-color: white;
+        position: absolute;
+        width: 400px;
+        right: 100%;
+        /* Position the submenu to the right of the category title */
+        top: 20px;
+        /* Added 'px' unit */
     }
-}
-@media (max-width: 767px) {
+
+    .submenu a {
+        display: block;
+        /* Display anchor tags as block-level elements */
+        margin-bottom: 5px;
+        /* Add some spacing between each anchor tag */
+        text-decoration: none;
+        /* Remove default underline */
+        color: black;
+        /* Set anchor tag color */
+    }
+
+    /* Media query for mobile devices */
+    @media (max-width: 767px) {
+        .submenu {
+            right: auto;
+            /* Remove right positioning */
+            left: 0;
+            /* Position the submenu to the left */
+            top: auto;
+            /* Remove top positioning */
+            bottom: 0;
+            /* Position the submenu at the bottom */
+        }
+    }
+
+    @media (max-width: 767px) {
+        .dropdown-item:hover {
+            background-color: #db2504 !important;
+            /* Change background color on hover */
+        }
+
+        .blog-link {
+            padding: 4px;
+            background-color: #9596de;
+            /* Change background color on hover */
+            color: black;
+            border-radius: 3px;
+
+        }
+    }
+
+
+    .blog-link:hover {
+        background-color: #8d9091;
+        /* Change background color on hover */
+        color: #4648e8;
+        border-radius: 3px;
+        padding: 4px;
+
+    }
+
     .dropdown-item:hover {
-    background-color: #db2504!important; /* Change background color on hover */
-}
-.blog-link {
-    padding: 4px;
-    background-color: #9596de; /* Change background color on hover */
-    color:black;
-    border-radius: 3px;
+        color: #4648e8;
+    }
 
-}
-}
-
-
-.blog-link:hover {
-    background-color: #8d9091; /* Change background color on hover */
-    color:#4648e8;
-    border-radius: 3px;
-    padding: 4px;
-
-}
-.dropdown-item:hover{
-    color:#4648e8;
-}
-.dropdown-item:hover {
-    background-color: #8d9091!important; /* Change background color on hover */
-}
+    .dropdown-item:hover {
+        background-color: #8d9091 !important;
+        /* Change background color on hover */
+    }
 </style>
 
 <body>
@@ -120,12 +138,21 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
-        <a href="{{ url('/') }}" class="navbar-brand bg-primary d-flex align-items-center px-4 px-lg-5" style="background-color:white!important;">
-            <img src="{{ asset('public/pro/img/lo.jpg') }}" style="height:67px;" alt="">
+        <!-- <a href="{{ url('/') }}" class="navbar-brand bg-primary d-flex align-items-center px-4 px-lg-5" style="background-color:white!important;">
+            <img id="al"src="" style="height:75px;width:100%;" alt="">
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> -->
+        <div class="d-flex align-items-center">
+            <a href="{{ url('/') }}" class="navbar-brand bg-primary d-flex align-items-center px-4 px-lg-5" style="background-color:white!important;">
+                <img id="al" src="" style="height:75px;width:100%;" alt="">
+            </a>
+            <button type="button" class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ url('/') }}" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
@@ -142,8 +169,8 @@
                 <a href="{{ url('/contacts') }}" class="nav-item nav-link {{ Request::is('contacts') ? 'active' : '' }}">Contact</a>
             </div>
             <h4 class="m-0 pe-lg-5 d-none d-lg-block"><a href="tel:+919710742032"><i class="fa fa-headphones text-primary me-3"></i>
-                <!-- +91 9710742032 -->
-            </a></h4>
+                    <!-- +91 9710742032 -->
+                </a></h4>
 
         </div>
 

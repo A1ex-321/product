@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid page-header py-5" style="background-image: url('{{ asset('public/pro/img/c5.jpg') }}');margin-bottom: 6rem;" style="">
+<div class="container-fluid page-header py-5" style="background-image: url('{{ asset('public/pro/img/ab.jpg') }}');margin-bottom: 6rem;height:520px;" style="">
     <div class="container py-5">
         <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
         <nav aria-label="breadcrumb animated slideInDown">
@@ -79,11 +79,11 @@
                 <div class="d-flex align-items-center">
                     <i class="fa fa-headphones fa-2x flex-shrink-0 bg-primary p-3 text-white"></i>
                     <div class="ps-4">
-    <h6>Call for any query!</h6>
-    <h3 class="text-primary m-0">
-        <a href="tel:+919710742032">+91 9710742032</a>
-    </h3>
-</div>
+                        <h6>Call for any query!</h6>
+                        <h3 class="text-primary m-0">
+                            <a href="tel:+919710742032">+91 9710742032</a>
+                        </h3>
+                    </div>
 
                 </div>
             </div>
@@ -168,27 +168,34 @@
                 </ul>
                 <h2 class="mb-4 text-primary m-0">FACILITIES SUPPORTED</h2>
                 <ul>
-                    <li>Industrial  manufacturing</li>
-                    <li>Automobiles  Industries</li>
+                    <li>Industrial manufacturing</li>
+                    <li>Automobiles Industries</li>
                     <li>Chemical & Paint Industries </li>
                     <li>Dairy & Food Industries</li>
-                    <li>Pharmaceutical  companies</li>
-                    <li>Construction  site  installations </li>
+                    <li>Pharmaceutical companies</li>
+                    <li>Construction site installations </li>
 
 
                 </ul>
+
             </div>
             <div class="col-md-6 pe-lg-0 wow fadeInRight" data-wow-delay="0.1s">
-                <h2 class="mb-4 text-primary m-0">TYPICAL PROJECTS 
-</h2>
+                <h2 class="mb-4 text-primary m-0" >TYPICAL PROJECTS
+                </h2>
                 <ul>
                     <li>Structural Frames & Pallets </li>
-                    <li>Machine  guarding</li>
-                    <li>Platforms  &  frames </li>
-                    <li>Metal  staircases </li>
+                    <li>Machine guarding</li>
+                    <li>Platforms & frames </li>
+                    <li>Metal staircases </li>
                     <li>Material handling Equipment’s </li>
                     <li>Storage tanks </li>
                     <li>Machining works </li>
+                </ul>
+                <h2 class="mb-4 text-primary m-0" style="margin-top:35px !important;">SECTORS WE WORK 
+</h2>
+                <ul>
+                    <li>Pharma pharmaceutical</li>
+                  
                 </ul>
             </div>
         </div>

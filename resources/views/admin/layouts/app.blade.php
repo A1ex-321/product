@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shop | {{ !empty($header_title) ? $header_title : '' }}</title>
+    <title>AAE Machinery</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -27,7 +27,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ url('public/assets/img/favicon.png') }}" rel="icon">
+  <link rel="icon" tpype="image/png" href="{{ asset('public/pro/img/lo.jpg') }}">
   <link href="{{ url('public/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
